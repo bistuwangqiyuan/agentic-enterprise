@@ -36,13 +36,14 @@ a:hover{color:var(--accent3)}
 
 /* ═══════════════════════════ TYPOGRAPHY ═══════════════════════════ */
 h1,h2,h3,h4{font-weight:700;letter-spacing:-0.02em;line-height:1.15}
-h1{font-size:clamp(2.5rem,6vw,4.5rem)}
+h1{font-size:clamp(2.5rem,5vw,3.8rem)}
 h2{font-size:clamp(1.8rem,4vw,2.8rem)}
 h3{font-size:clamp(1.15rem,2vw,1.5rem)}
 .gradient-text{background:linear-gradient(135deg,var(--accent3),var(--cyan),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ═══════════════════════════ LAYOUT ═══════════════════════════ */
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
+.container-wide{max-width:1600px;margin:0 auto;padding:0 24px}
 section{padding:100px 0}
 .section-label{text-transform:uppercase;font-size:0.75rem;letter-spacing:0.15em;color:var(--accent);font-weight:600;margin-bottom:12px}
 .section-sub{color:var(--text2);font-size:clamp(1rem,1.5vw,1.2rem);max-width:680px;margin-top:16px;line-height:1.7}
@@ -55,6 +56,8 @@ nav .logo svg{width:28px;height:28px}
 nav ul{display:flex;gap:28px;list-style:none}
 nav ul a{color:var(--text2);font-size:0.85rem;font-weight:500;transition:color .2s}
 nav ul a:hover{color:var(--text)}
+.nav-demo{background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.3);color:var(--cyan)!important;font-weight:700;padding:5px 14px;border-radius:6px;animation:demoFlash 2.5s ease-in-out infinite}
+@keyframes demoFlash{0%,100%{box-shadow:0 0 4px rgba(34,211,238,0.2);border-color:rgba(34,211,238,0.3)}50%{box-shadow:0 0 16px rgba(34,211,238,0.5);border-color:rgba(34,211,238,0.7)}}
 .nav-cta{background:var(--accent2);color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;transition:background .2s}
 .nav-cta:hover{background:var(--accent);color:#fff}
 
@@ -62,24 +65,21 @@ nav ul a:hover{color:var(--text)}
 #hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
 #hero::before{content:'';position:absolute;top:-40%;left:-20%;width:80%;height:80%;background:radial-gradient(ellipse at center,rgba(124,58,237,0.1),transparent 70%);pointer-events:none}
 #hero::after{content:'';position:absolute;bottom:-10%;right:-10%;width:60%;height:60%;background:radial-gradient(ellipse at center,rgba(34,211,238,0.06),transparent 70%);pointer-events:none}
-.hero-layout{display:grid;grid-template-columns:1fr 480px;gap:64px;align-items:center;width:100%;position:relative;z-index:1}
-.hero-content{max-width:680px}
+.hero-headline{position:relative;z-index:1;margin-bottom:36px}
+.hero-layout{display:grid;grid-template-columns:1fr 440px;gap:48px;align-items:start;width:100%;position:relative;z-index:1}
+.hero-content{max-width:640px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);border-radius:100px;padding:6px 16px;font-size:0.8rem;color:var(--accent3);margin-bottom:28px;font-weight:500}
 .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-.hero-desc{color:var(--text2);font-size:clamp(1.05rem,1.8vw,1.25rem);margin-top:24px;line-height:1.7}
+.hero-desc{color:var(--text2);font-size:clamp(1.05rem,1.8vw,1.25rem);margin-top:0;line-height:1.7}
 .hero-actions{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
 .btn-primary{background:linear-gradient(135deg,var(--accent2),#6d28d9);color:#fff;padding:14px 32px;border-radius:12px;font-weight:600;font-size:1rem;transition:transform .2s,box-shadow .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,0.3);color:#fff}
 .btn-secondary{background:transparent;color:var(--text);padding:14px 32px;border-radius:12px;font-weight:600;font-size:1rem;border:1px solid var(--border2);transition:border-color .2s,background .2s;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
 .btn-secondary:hover{border-color:var(--accent);background:rgba(167,139,250,0.05);color:#fff}
-.btn-visualization{font-size:1.08rem;padding:18px 36px;box-shadow:0 10px 30px rgba(124,58,237,0.26)}
-@keyframes viz-glow{0%,100%{box-shadow:0 6px 24px rgba(34,211,238,0.15)}50%{box-shadow:0 10px 60px rgba(34,211,238,0.72),0 0 36px rgba(34,211,238,0.32)}}
-.btn-visualization-cta{background:linear-gradient(135deg,#0e7490,#0891b2);color:#fff;padding:18px 36px;border-radius:12px;font-weight:700;font-size:1.1rem;transition:transform .2s;display:inline-flex;align-items:center;gap:10px;position:relative;letter-spacing:-0.01em;animation:viz-glow 2s ease-in-out infinite}
-.btn-visualization-cta:hover{transform:translateY(-2px);color:#fff}
 
 /* ═══════════════════════════ HERO 5-LAYER ANIMATION ═══════════════════════════ */
-.hero-viz{position:relative;width:480px;height:480px;flex-shrink:0}
+.hero-viz{position:relative;width:440px;flex-shrink:0;align-self:center}
 .layer-stack{display:flex;flex-direction:column;gap:6px;width:100%}
 .layer-chip{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:10px;border:1px solid var(--border);background:var(--bg2);position:relative;overflow:hidden;transform:translateX(60px);opacity:0;transition:border-color .3s,background .3s}
 .layer-chip.anim-in{animation:chipIn .55s cubic-bezier(0.22,1,0.36,1) forwards}
@@ -112,16 +112,7 @@ nav ul a:hover{color:var(--text)}
 .outcome-label{font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
 
 /* ═══════════════════════════ LIVE VISUALIZATION ═══════════════════════════ */
-.live-visualization-section{padding:0;min-height:100vh;background:var(--bg2);display:flex;flex-direction:column;scroll-margin-top:0}
-.viz-intro-bar{padding:56px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);border-bottom:1px solid var(--border)}
-.viz-intro-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:48px;flex-wrap:wrap}
-.viz-intro-text{flex:1;min-width:280px}
-.viz-intro-heading{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 12px}
-.viz-intro-sub{color:var(--text2);font-size:clamp(1rem,1.5vw,1.15rem);max-width:520px;margin-top:12px;line-height:1.7}
-.viz-intro-right{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:8px}
-.viz-scenario-chips{display:flex;flex-direction:column;gap:8px}
-.viz-chip{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;background:rgba(34,211,238,0.07);border:1px solid rgba(34,211,238,0.18);border-radius:8px;font-size:0.88rem;color:var(--cyan);font-weight:500}
-.viz-embed-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--bg2);display:flex;flex-direction:column;flex:1;min-height:100vh}
+.viz-embed-wrap{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg2)}
 .viz-embed-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(9,9,11,0.92)}
 .viz-embed-head span{font-size:0.78rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em}
 .viz-embed-link{font-size:0.82rem;color:var(--accent3)}
@@ -145,7 +136,6 @@ nav ul a:hover{color:var(--text)}
 .problem-card p{color:var(--text2);font-size:0.9rem;line-height:1.6}
 
 /* ═══════════════════════════ AGENT WORKFLOW DEMO ═══════════════════════════ */
-#workflow-demo{background:var(--bg2)}
 .wf-demo-wrap{margin-top:56px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg)}
 .wf-header{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:10px}
 .wf-dot{width:10px;height:10px;border-radius:50%}
@@ -211,19 +201,6 @@ nav ul a:hover{color:var(--text)}
 .feature-card.fc-idle .fc-state-dot{background:var(--text3)}
 .feature-card.fc-running .fc-state-dot{background:var(--green);animation:pulse 1.4s infinite}
 .feature-card.fc-complete .fc-state-dot{background:var(--accent)}
-
-/* ═══════════════════════════ 5 LAYERS ═══════════════════════════ */
-.layers-visual{margin-top:56px;display:flex;flex-direction:column;gap:4px}
-.layer-row{display:grid;grid-template-columns:180px 1fr 140px;gap:16px;align-items:center;padding:20px 24px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg2);transition:all .3s;cursor:default}
-.layer-row:hover{border-color:var(--accent2);background:rgba(124,58,237,0.04);transform:translateX(4px)}
-.layer-name{font-weight:700;font-size:1rem;display:flex;align-items:center;gap:10px}
-.layer-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.layer-purpose{color:var(--text2);font-size:0.9rem}
-.layer-badge{text-align:right;font-size:0.75rem;color:var(--text3);font-weight:500;white-space:nowrap}
-.arrow-down{text-align:center;color:var(--text3);font-size:1.2rem;padding:2px 0;user-select:none}
-.flow-indicators{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding:12px 24px;border:1px dashed var(--border);border-radius:var(--radius-sm);color:var(--text3);font-size:0.85rem}
-.flow-indicators span:first-child{color:var(--accent3)}
-.flow-indicators span:last-child{color:var(--cyan)}
 
 /* ═══════════════════════════ 4 LOOPS ═══════════════════════════ */
 .loops-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:48px;position:relative}
@@ -324,15 +301,13 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
 
 /* ═══════════════════════════ RESPONSIVE ═══════════════════════════ */
 @media(max-width:1100px){
-  .hero-layout{grid-template-columns:1fr;gap:48px}
-  .hero-viz{width:100%;max-width:480px;margin:0 auto}
+  .hero-layout{grid-template-columns:1fr;gap:40px}
+  .hero-viz{width:100%;max-width:440px;margin:0 auto}
 }
 @media(max-width:900px){
   .loops-grid{grid-template-columns:repeat(2,1fr)}
   .loops-grid::before{display:none}
   .loops-artifacts-grid{grid-template-columns:repeat(2,1fr)}
-  .layer-row{grid-template-columns:1fr;gap:6px}
-  .layer-badge{text-align:left}
   .curve-steps{flex-direction:column}
   .curve-step{border-radius:var(--radius-sm)!important}
   .curve-step::after{display:none}
@@ -347,10 +322,11 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
   .feature-cards-grid{grid-template-columns:1fr}
 }
 
-/* ═══════════════════════════ LINKEDIN ═══════════════════════════ */
-.hero-linkedin{margin-top:20px;font-size:0.82rem;color:var(--text3)}
-.hero-linkedin a{color:var(--text3);border-bottom:1px solid rgba(161,161,170,0.25);padding-bottom:1px;transition:color .2s,border-color .2s}
-.hero-linkedin a:hover{color:var(--text2);border-color:rgba(161,161,170,0.5)}
+/* ═══════════════════════════ HERO FOOTNOTE ═══════════════════════════ */
+.hero-footnote{color:var(--text3);font-size:0.82rem;margin-top:20px;line-height:1.65}
+.hero-footnote strong{color:var(--text2)}
+.hero-footnote a{color:var(--text3);border-bottom:1px solid rgba(161,161,170,0.25);padding-bottom:1px;transition:color .2s,border-color .2s}
+.hero-footnote a:hover{color:var(--text2);border-color:rgba(161,161,170,0.5)}
 .footer-linkedin{display:inline-block;margin-top:12px;font-size:0.78rem;color:var(--text3);border-bottom:1px solid rgba(161,161,170,0.2);padding-bottom:1px;transition:color .2s}
 .footer-linkedin:hover{color:var(--text2)}
 
@@ -372,50 +348,6 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ═══════════════════════════ SANDBOXCORP SELF-OPT ═══════════════════════════ */
-.selfopt-dogfood{display:inline-flex;align-items:center;gap:10px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.22);color:var(--cyan);border-radius:999px;padding:6px 16px;font-size:.78rem;font-weight:600;margin-bottom:32px;}
-.selfopt-dogfood::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:pulse 1.6s infinite}
-.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:40px 0}
-.proof-card{background:rgba(28,28,34,.7);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
-.proof-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.proof-num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--accent3),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
-.proof-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px}
-.proof-desc{font-size:.78rem;color:var(--text2);line-height:1.5}
-.loop-container{margin:56px 0;background:rgba(17,17,20,.85);border:1px solid var(--border);border-radius:var(--radius);padding:32px;overflow:hidden;position:relative}
-.loop-title-bar{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);margin-bottom:20px;font-weight:600}
-.loop-progress{height:2px;background:rgba(255,255,255,.06);border-radius:2px;margin-bottom:28px;overflow:hidden}
-.loop-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent2),var(--cyan));border-radius:2px;width:20%;transition:width .5s ease}
-.loop-step{display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;padding:16px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(-10px);transition:opacity .4s,transform .4s}
-.loop-step:last-child{border-bottom:none}
-.loop-step.active{opacity:1;transform:translateX(0)}
-.loop-step.done{opacity:.45;transform:translateX(0)}
-.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.2);color:var(--accent3);margin-top:2px;transition:background .4s,border-color .4s,box-shadow .4s}
-.loop-step.active .step-num{background:rgba(167,139,250,.25);border-color:var(--accent);animation:stepglow 1.4s ease-in-out infinite alternate}
-.loop-step.done .step-num{background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.4);color:var(--green)}
-@keyframes stepglow{0%{box-shadow:0 0 6px rgba(167,139,250,.2)}100%{box-shadow:0 0 18px rgba(167,139,250,.5)}}
-.step-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);font-weight:600;margin-bottom:4px}
-.step-text{font-size:.92rem;color:var(--text);font-weight:500;line-height:1.4}
-.step-meta{font-size:.77rem;color:var(--text2);margin-top:4px;line-height:1.5}
-.step-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);color:var(--cyan);border-radius:4px;padding:2px 8px;font-size:.68rem;font-weight:600;margin-top:6px;margin-right:4px}
-.step-tag.green{background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2);color:var(--green)}
-.step-tag.amber{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.2);color:var(--amber)}
-.step-tag.purple{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25);color:var(--accent3)}
-.loop-controls{display:flex;align-items:center;gap:12px;margin-top:20px;flex-wrap:wrap}
-.loop-btn{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);color:var(--accent3);border-radius:8px;padding:7px 16px;font-size:.78rem;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s;font-family:inherit}
-.loop-btn:hover{background:rgba(167,139,250,.2);border-color:rgba(167,139,250,.4)}
-.loop-counter{font-size:.75rem;color:var(--text3)}
-.loop-live{display:flex;align-items:center;gap:6px;font-size:.74rem;color:var(--green);font-weight:600;margin-left:auto}
-.loop-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
-.signal-terminal{background:rgba(9,9,11,.9);border:1px solid rgba(34,211,238,.2);border-radius:var(--radius-sm);padding:20px 24px;font-family:'SF Mono','Fira Code',monospace;font-size:.76rem;line-height:1.9;color:var(--cyan);margin:40px 0;overflow-x:auto;position:relative}
-.signal-terminal::before{content:'LIVE · SANDBOXCORP SIGNAL LOG';position:absolute;top:-1px;left:16px;background:var(--bg2);padding:0 8px;font-size:.62rem;letter-spacing:.1em;color:var(--cyan);font-weight:700}
-.signal-line{display:block;opacity:0;animation:fadeline .3s forwards}
-.signal-line.dim{color:var(--text3)}
-.signal-line.hi{color:var(--amber)}
-.signal-line.success{color:var(--green)}
-.signal-line.accent{color:var(--accent3)}
-@keyframes fadeline{to{opacity:1}}
-.selfopt-quote{background:rgba(28,28,34,.7);border-left:3px solid var(--accent);padding:18px 22px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.95rem;color:var(--text2);line-height:1.7;font-style:italic;max-width:680px;margin:32px 0}
-.selfopt-quote strong{color:var(--text);font-style:normal}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -430,12 +362,10 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
   </div>
   <ul>
     <li><a href="#problem">Problem</a></li>
-    <li><a href="#for-leaders" style="color:var(--accent3)">C-Suite</a></li>
-    <li><a href="#model">Model</a></li>
-    <li><a href="#workflow-demo" style="color:var(--accent)">▶ Demo</a></li>
-    <li><a href="#loops">Process</a></li>
+    <li><a href="#for-leaders">C-Suite</a></li>
+    <li><a href="#process">Process</a></li>
     <li><a href="#adopt">Adopt</a></li>
-    <li><a href="#live-visualization" style="color:var(--cyan)">▶ Live</a></li>
+    <li><a href="#live-demo" class="nav-demo">▶ Demo</a></li>
   </ul>
   <a href="https://github.com/wlfghdr/agentic-enterprise" target="_blank" class="nav-cta">GitHub ↗</a>
 </nav>
@@ -443,11 +373,14 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
 <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 <section id="hero">
   <div class="container">
+    <!-- full-width headline above the two-column layout -->
+    <div class="hero-headline">
+      <div class="hero-badge">The post-ticket · post-meeting · post-endless-discussion enterprise era</div>
+      <h1>Your company as a <span class="gradient-text">living Git repository</span></h1>
+    </div>
     <div class="hero-layout">
       <!-- left: copy -->
       <div class="hero-content">
-        <div class="hero-badge">The post-ticket · post-meeting · post-endless-discussion enterprise era</div>
-        <h1>Your company as a<br><span class="gradient-text">living Git repository</span></h1>
         <p class="hero-desc">Your entire organization — every team, every decision, every deliverable — governed by a single system. <strong style="color:var(--text)">AI agents do the execution. Humans set direction and approve what matters.</strong></p>
         <div class="hero-outcomes">
           <div class="outcome-item"><span class="outcome-num">10×</span><span class="outcome-label">Faster delivery</span></div>
@@ -456,12 +389,9 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
           <div class="outcome-item"><span class="outcome-num">∞</span><span class="outcome-label">Agent scale</span></div>
         </div>
         <div class="hero-actions">
-          <a href="#model" class="btn-primary">See how it works ↓</a>
-          <a href="#workflow-demo" class="btn-secondary">▶ Watch agents work</a>
-          <a href="#live-visualization" class="btn-visualization-cta" id="jumpToVisualization">▶ Live Demo</a>
+          <a href="#live-demo" class="btn-secondary nav-demo" style="background:rgba(34,211,238,0.07);border-color:rgba(34,211,238,0.3);color:var(--cyan);padding:14px 56px">▶ Demo</a>
         </div>
-        <p style="color:var(--text3);font-size:0.85rem;margin-top:16px;line-height:1.65"><strong style="color:var(--text2)">Open-source operating model:</strong> agents coordinate through a versioned repo (instructions + governance) and an observability platform (real-time telemetry). Git is the system of record.</p>
-        <p class="hero-linkedin">Discuss this concept → <a href="https://linkedin.com/in/wolfgangheider" target="_blank" rel="noopener">LinkedIn ↗</a></p>
+        <p class="hero-footnote"><strong>Open-source operating model:</strong> agents coordinate through a versioned repo and an observability platform. Git is the system of record. <a href="https://linkedin.com/in/wolfgangheider" target="_blank" rel="noopener">Discuss on LinkedIn ↗</a></p>
       </div>
 
       <!-- right: animated 5-layer model visualization -->
@@ -567,103 +497,6 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
         <div class="icon" style="background:rgba(96,165,250,0.1);color:var(--blue)">🏛️</div>
         <h3>Governance can't keep up</h3>
         <p>When 1,000 agents ship simultaneously, you need <strong style="color:var(--text)">automated quality gates</strong>, not approval meetings. Git's PR model was built for exactly this — at scale.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════ AGENT WORKFLOW DEMO ═══════════════════════════ -->
-<section id="workflow-demo">
-  <div class="container">
-    <div class="section-label reveal">Interactive Demo</div>
-    <h2 class="reveal">Agent workflow,<br><span class="gradient-text">step by step.</span></h2>
-    <p class="section-sub reveal">Watch how an agent fleet moves a signal through the entire operating model — from detection to deployed feature — all governed by Git.</p>
-
-    <div class="wf-demo-wrap reveal">
-      <div class="wf-header">
-        <div class="wf-dot" style="background:#ff5f57"></div>
-        <div class="wf-dot" style="background:#febc2e"></div>
-        <div class="wf-dot" style="background:#28c840"></div>
-        <span class="wf-title">Mission MISSION-2026-001 · GTM Product Launch · wlfghdr/agentic-enterprise</span>
-      </div>
-      <div class="wf-progress"><div class="wf-progress-bar" id="wfBar"></div></div>
-      <div class="wf-body">
-        <!-- steps column -->
-        <div class="wf-steps-col" id="wfSteps">
-          <div class="wf-step" data-wf="0">
-            <div class="wf-step-line"></div>
-            <div class="wf-step-icon">📡</div>
-            <div class="wf-step-body">
-              <div class="wf-step-label">Signal Detection</div>
-              <div class="wf-step-text">GTM gap identified in production telemetry</div>
-              <div class="wf-step-meta">Steering agent scans observability platform — detects missing narrative, files SIG-2026-001 to work/signals/.</div>
-              <span class="wf-step-tag cyan">📊 Observability</span><span class="wf-step-tag amber">⚡ Signal filed</span>
-            </div>
-          </div>
-          <div class="wf-step" data-wf="1">
-            <div class="wf-step-line"></div>
-            <div class="wf-step-icon">🎯</div>
-            <div class="wf-step-body">
-              <div class="wf-step-label">Mission Created</div>
-              <div class="wf-step-text">Strategy layer approves mission brief</div>
-              <div class="wf-step-meta">Human reviews signal → approves mission → outcome contract committed. Fleet config specifies 2 execution agents.</div>
-              <span class="wf-step-tag purple">✅ Human approved</span><span class="wf-step-tag cyan">📄 Mission brief</span>
-            </div>
-          </div>
-          <div class="wf-step" data-wf="2">
-            <div class="wf-step-line"></div>
-            <div class="wf-step-icon">⚙️</div>
-            <div class="wf-step-body">
-              <div class="wf-step-label">Fleet Assembled</div>
-              <div class="wf-step-text">Orchestration spawns GTM + Engineering agents</div>
-              <div class="wf-step-meta">Orchestration reads fleet config, selects agent types from registry, assigns roles. Agents read AGENTS.md + layer AGENT.md.</div>
-              <span class="wf-step-tag cyan">🤖 Agents: 2</span><span class="wf-step-tag amber">📋 Instructions loaded</span>
-            </div>
-          </div>
-          <div class="wf-step" data-wf="3">
-            <div class="wf-step-line"></div>
-            <div class="wf-step-icon">💻</div>
-            <div class="wf-step-body">
-              <div class="wf-step-label">Execution</div>
-              <div class="wf-step-text">Agents produce work artifacts + open PRs</div>
-              <div class="wf-step-meta">GTM agent writes DIVISION.md. Engineering agent implements animated index.html. Each commits to feature branch, opens PR for review.</div>
-              <span class="wf-step-tag green">🔀 2 PRs opened</span><span class="wf-step-tag purple">📝 Assigned: wlfghdr</span>
-            </div>
-          </div>
-          <div class="wf-step" data-wf="4">
-            <div class="wf-step-line"></div>
-            <div class="wf-step-icon">🛡️</div>
-            <div class="wf-step-body">
-              <div class="wf-step-label">Quality Gate</div>
-              <div class="wf-step-text">Quality agents evaluate against policies</div>
-              <div class="wf-step-meta">Security, content, and architecture policies checked automatically. CI runs. Quality agent leaves structured review comment on PR.</div>
-              <span class="wf-step-tag green">✅ CI passed</span><span class="wf-step-tag cyan">📋 Policy compliant</span>
-            </div>
-          </div>
-          <div class="wf-step" data-wf="5">
-            <div class="wf-step-line"></div>
-            <div class="wf-step-icon">🚀</div>
-            <div class="wf-step-body">
-              <div class="wf-step-label">Human Merge → Shipped</div>
-              <div class="wf-step-text">Human merges PR · mission outcome confirmed</div>
-              <div class="wf-step-meta">wlfghdr reviews and merges. Mission marked complete. Observability platform fires success event. Loop closes — next signal queued.</div>
-              <span class="wf-step-tag green">🎉 Shipped</span><span class="wf-step-tag purple">🔄 Loop continues</span>
-            </div>
-          </div>
-        </div>
-        <!-- right panel: log -->
-        <div class="wf-panel">
-          <div class="wf-panel-header">Agent Activity Log</div>
-          <div class="wf-panel-body" id="wfLog">
-            <span class="wf-log-line dim">Waiting for mission to start...</span>
-          </div>
-        </div>
-      </div>
-      <div class="wf-controls">
-        <button class="wf-btn" id="wfPrev">← Prev</button>
-        <button class="wf-btn" id="wfNext">Next →</button>
-        <button class="wf-btn" id="wfPlay">⏸ Pause</button>
-        <span class="wf-status running" id="wfStatus">Running</span>
       </div>
     </div>
   </div>
@@ -796,54 +629,8 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
   </div>
 </section>
 
-<!-- ═══════════════════════════ 5-LAYER MODEL ═══════════════════════════ -->
-<section id="model" style="background:var(--bg2)">
-  <div class="container">
-    <div class="section-label reveal">Organizational Structure</div>
-    <h2 class="reveal">Five layers.<br><span class="gradient-text">One system of record.</span></h2>
-    <p class="section-sub reveal">The entire company — engineering, GTM, sales, support — operates in a single 5-layer model. Instructions flow down through repo files. Signals flow up through the observability platform.</p>
-
-    <div class="layers-visual reveal">
-      <div class="layer-row" style="border-left:3px solid var(--rose)">
-        <div class="layer-name"><span class="layer-dot" style="background:var(--rose)"></span>Steering</div>
-        <div class="layer-purpose">Evolve the company itself — structure, model, portfolio. C-Suite + AI evolution agents.</div>
-        <div class="layer-badge">👤👤 Humans lead</div>
-      </div>
-      <div class="arrow-down">↓</div>
-      <div class="layer-row" style="border-left:3px solid var(--amber)">
-        <div class="layer-name"><span class="layer-dot" style="background:var(--amber)"></span>Strategy</div>
-        <div class="layer-purpose">Define WHY + WHAT + CONSTRAINTS. Venture leads set missions and outcomes.</div>
-        <div class="layer-badge">👤 Humans define</div>
-      </div>
-      <div class="arrow-down">↓</div>
-      <div class="layer-row" style="border-left:3px solid var(--blue)">
-        <div class="layer-name"><span class="layer-dot" style="background:var(--blue)"></span>Orchestration</div>
-        <div class="layer-purpose">Translate strategy → executable fleet configurations. Assemble crews for missions.</div>
-        <div class="layer-badge">👤🤖 Collaborate</div>
-      </div>
-      <div class="arrow-down">↓</div>
-      <div class="layer-row" style="border-left:3px solid var(--green)">
-        <div class="layer-name"><span class="layer-dot" style="background:var(--green)"></span>Execution</div>
-        <div class="layer-purpose">Agent fleets do the work. Humans own architecture decisions & critical path.</div>
-        <div class="layer-badge">🤖🤖 Agents execute</div>
-      </div>
-      <div class="arrow-down">↓</div>
-      <div class="layer-row" style="border-left:3px solid var(--accent)">
-        <div class="layer-name"><span class="layer-dot" style="background:var(--accent)"></span>Quality</div>
-        <div class="layer-purpose">Agents evaluate outputs against policies. Humans author & evolve the policies.</div>
-        <div class="layer-badge">🤖 Agents evaluate</div>
-      </div>
-
-      <div class="flow-indicators">
-        <span>↓ Artifacts &amp; direction flow down</span>
-        <span>↑ Signals &amp; intelligence flow up</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════════════════════ 4 LOOPS ═══════════════════════════ -->
-<section id="loops">
+<section id="process" style="background:var(--bg2)">
   <div class="container">
     <div class="section-label reveal">Process Lifecycle</div>
     <h2 class="reveal">Four loops. <span class="gradient-text">Idea to production in weeks.</span></h2>
@@ -1119,7 +906,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
 
   <div class="cta-actions reveal">
     <a href="https://github.com/wlfghdr/agentic-enterprise" target="_blank" class="btn-cta-main">Get the repo on GitHub ↗</a>
-    <a href="#workflow-demo" class="btn-cta-secondary">▶ Watch the demo</a>
+    <a href="#live-demo" class="btn-cta-secondary">▶ Watch the demo</a>
   </div>
   <div class="cta-code reveal">
     <span>$</span> git clone https://github.com/wlfghdr/agentic-enterprise.git
@@ -1127,155 +914,117 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
 
   <p class="reveal" style="margin-top:18px;color:var(--text3);font-size:0.92rem;position:relative;z-index:1">
     Running this with OpenClaw? →
-    <a href="https://github.com/wlfghdr/agentic-enterprise/blob/main/docs/OPENCLAW-SETUP.md" target="_blank" rel="noopener">OpenClaw setup guide ↗</a>
+    <a href="https://github.com/wlfghdr/agentic-enterprise/blob/main/docs/runtimes/openclaw.md" target="_blank" rel="noopener">OpenClaw setup guide ↗</a>
   </p>
 </section>
 
-<!-- ═══════════════════════════ SANDBOXCORP SELF-OPTIMIZATION ═══════════════════════════ -->
-<section id="self-optimization" style="padding:100px 0;background:radial-gradient(ellipse at 60% 0%,rgba(124,58,237,.1),transparent 60%),radial-gradient(ellipse at 10% 80%,rgba(34,211,238,.07),transparent 50%)">
-<div class="container">
-  <div class="reveal">
-    <div class="selfopt-dogfood">&#x1F501;&nbsp; We dogfood our own template</div>
-    <div class="section-label">Live Proof &middot; SandboxCorp</div>
-    <h2><span class="gradient-text">The Template That<br>Improves Itself</span></h2>
-    <p class="section-sub">SandboxCorp isn&#39;t a demo &mdash; it&#39;s a live instance of the Agentic Enterprise template running in production. Every day, its agents detect signals, steer priorities, and ship improvements. Including, right now, updating this very page. <strong style="color:var(--text)">This is not theory. It&#39;s demonstrated reality.</strong></p>
+
+<!-- ═══════════════════════════ DEMO ═══════════════════════════ -->
+<section id="live-demo" style="background:var(--bg2);padding-bottom:0">
+  <div class="container">
+    <div class="section-label reveal">Demo</div>
+    <h2 class="reveal">The template that<br><span class="gradient-text">improves itself.</span></h2>
+    <p class="section-sub reveal">This is a demo of what actually runs in our SandboxCorp instance — agent fleets coordinating through PRs, telemetry firing, signals looping back. The operating model executing, and improving itself.</p>
   </div>
 
-  <div class="proof-grid reveal">
-    <div class="proof-card">
-      <div class="proof-num">5</div>
-      <div class="proof-title">Core Missions Approved</div>
-      <div class="proof-desc">Phase 1 launched with 5 high-impact missions — each human-approved, agent-executed, git-governed.</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-num">⏱ hourly</div>
-      <div class="proof-title">Automation Cadence</div>
-      <div class="proof-desc">PRs reviewed and merged autonomously every hour. No human needed for routine execution.</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-num">📊 daily</div>
-      <div class="proof-title">Steering Reports</div>
-      <div class="proof-desc">Continuous monitoring surfaces drift, blockers, and next-best-actions — before humans notice.</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-num">↺ now</div>
-      <div class="proof-title">This Very Update</div>
-      <div class="proof-desc">A GTM signal was detected, a steering agent was spawned, and this page was updated — all by the template itself.</div>
-    </div>
-  </div>
-
-  <div class="signal-terminal reveal">
-    <span class="signal-line dim" style="animation-delay:.1s"># SandboxCorp · Steering Layer · 2026-03-02</span>
-    <span class="signal-line dim" style="animation-delay:.3s">────────────────────────────────────────────────</span>
-    <span class="signal-line" style="animation-delay:.7s">📡 SIGNAL_DETECTED   source=gtm_review   severity=medium</span>
-    <span class="signal-line hi" style="animation-delay:1.1s">⚠️  GTM narrative missing: animated demo + feature cards needed</span>
-    <span class="signal-line dim" style="animation-delay:1.5s">   confidence=0.94   last_check=2026-03-02T01:00Z</span>
-    <span class="signal-line" style="animation-delay:1.9s">🎯 STEERING_AGENT    spawned   label=gtm-animations-phase1</span>
-    <span class="signal-line accent" style="animation-delay:2.3s">   model=claude-sonnet   priority=high   repo=wlfghdr/agentic-enterprise</span>
-    <span class="signal-line" style="animation-delay:2.8s">⚙️  EXECUTION         cloning repo ... creating gtm-web-agent division ...</span>
-    <span class="signal-line" style="animation-delay:3.3s">   implementing 5-layer hero viz · agent workflow demo · feature cards ...</span>
-    <span class="signal-line" style="animation-delay:3.8s">   animated CTA flows · 60fps · mobile-responsive · &lt;2s load ...</span>
-    <span class="signal-line accent" style="animation-delay:4.2s">   opening PR feat/gtm-agent-website-animations ...</span>
-    <span class="signal-line success" style="animation-delay:4.7s">✅ PR_OPENED          "feat: GTM agent + animated website enhancements"</span>
-    <span class="signal-line success" style="animation-delay:5.1s">✅ SIGNAL_RESOLVED    loop_continues=true   next_check=+24h</span>
-    <span class="signal-line dim" style="animation-delay:5.5s">────────────────────────────────────────────────</span>
-    <span class="signal-line accent" style="animation-delay:5.9s">   Humans decide. Agents execute. Git governs. 🔄</span>
-  </div>
-
-  <div class="loop-container reveal">
-    <div class="loop-title-bar">🔄&nbsp; Self-Optimization Loop — Watch It Run</div>
-    <div class="loop-progress"><div class="loop-progress-bar" id="loopBar"></div></div>
-    <div class="loop-steps" id="loopSteps">
-      <div class="loop-step" data-step="0">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-label">Signal Detection</div>
-          <div class="step-text">SandboxCorp detected: GTM page needs animated enhancements</div>
-          <div class="step-meta">Steering agent scans signals — identifies missing hero visualization, workflow demo, and feature card animations.</div>
-          <span class="step-tag">📡 Source: GTM Review</span><span class="step-tag amber">⚠ Severity: Medium</span>
-        </div>
+  <div class="container-wide">
+    <div class="wf-demo-wrap reveal">
+      <div class="wf-header">
+        <div class="wf-dot" style="background:#ff5f57"></div>
+        <div class="wf-dot" style="background:#febc2e"></div>
+        <div class="wf-dot" style="background:#28c840"></div>
+        <span class="wf-title">Mission MISSION-2026-001 · GTM Product Launch · wlfghdr/agentic-enterprise</span>
       </div>
-      <div class="loop-step" data-step="1">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-label">Steering Priority</div>
-          <div class="step-text">Steering prioritized: GTM agent setup + animation development</div>
-          <div class="step-meta">Signal evaluated against missions. Strategic context: self-demonstrating operating model is the core differentiator.</div>
-          <span class="step-tag purple">🎯 Priority: High</span><span class="step-tag">Model: Claude Sonnet</span>
-        </div>
-      </div>
-      <div class="loop-step" data-step="2">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <div class="step-label">Execution</div>
-          <div class="step-text">GTM Web Agent division created + index.html animated</div>
-          <div class="step-meta">Agent created DIVISION.md for gtm-web-agent. Implemented 5-layer hero viz, workflow demo, feature cards, CTA flow. PR opened.</div>
-          <span class="step-tag green">✅ PR Opened</span><span class="step-tag">Repo: wlfghdr/agentic-enterprise</span>
-        </div>
-      </div>
-      <div class="loop-step" data-step="3">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <div class="step-label">Quality Gate</div>
-          <div class="step-text">60fps · mobile-responsive · &lt;2s load · policy compliant</div>
-          <div class="step-meta">Animations use transform+opacity only (no layout thrash). Mobile breakpoints at 320px/768px/1024px/1440px. No external JS frameworks.</div>
-          <span class="step-tag green">✅ CI Passed</span><span class="step-tag amber">👁 Review: wlfghdr</span>
-        </div>
-      </div>
-      <div class="loop-step" data-step="4">
-        <div class="step-num">5</div>
-        <div class="step-body">
-          <div class="step-label">Loop Continues</div>
-          <div class="step-text">Loop continues: next improvement signal in ~24h</div>
-          <div class="step-meta">The template keeps watching itself. Next cycle: conversion analytics, A/B test copy, deeper interactivity. Detected and shipped. Automatically.</div>
-          <span class="step-tag">🔄 Next: +24h</span><span class="step-tag green">∞ Perpetual</span>
-        </div>
-      </div>
-    </div>
-    <div class="loop-controls">
-      <button class="loop-btn" id="loopPrev">← Prev</button>
-      <button class="loop-btn" id="loopNext">Next →</button>
-      <button class="loop-btn" id="loopPlay">⏸ Pause</button>
-      <span class="loop-counter" id="loopCounter">Step 1 / 5</span>
-      <span class="loop-live">LIVE</span>
-    </div>
-  </div>
-
-  <blockquote class="selfopt-quote reveal">
-    <strong>&ldquo;The most powerful thing about this template isn&#39;t that it automates work —
-    it&#39;s that it improves itself.</strong> SandboxCorp detects its own gaps, prioritizes its own upgrades,
-    and ships its own improvements. Watch it improve itself in real-time.&rdquo;
-  </blockquote>
-</div>
-</section>
-
-<!-- ═══════════════════════════ LIVE VISUALIZATION EMBED ═══════════════════════════ -->
-<section id="live-visualization" class="live-visualization-section">
-  <div class="viz-intro-bar">
-    <div class="container">
-      <div class="viz-intro-inner">
-        <div class="viz-intro-text">
-          <div class="section-label" style="margin-bottom:12px">Interactive Demo</div>
-          <h2 class="viz-intro-heading">Watch <span class="gradient-text">agents execute.</span></h2>
-          <p class="viz-intro-sub">Three real scenarios playing out in real-time. Agent fleets coordinate, PRs flow, telemetry fires, signals loop back. This is the operating model — alive.</p>
-        </div>
-        <div class="viz-intro-right">
-          <div class="viz-scenario-chips">
-            <div class="viz-chip">🔄 Feature lifecycle</div>
-            <div class="viz-chip">🏢 Company optimization</div>
-            <div class="viz-chip">🤖 Fleet change cycle</div>
+      <div class="wf-progress"><div class="wf-progress-bar" id="wfBar"></div></div>
+      <div class="wf-body">
+        <!-- steps column -->
+        <div class="wf-steps-col" id="wfSteps">
+          <div class="wf-step" data-wf="0">
+            <div class="wf-step-line"></div>
+            <div class="wf-step-icon">📡</div>
+            <div class="wf-step-body">
+              <div class="wf-step-label">Signal Detection</div>
+              <div class="wf-step-text">GTM gap identified in production telemetry</div>
+              <div class="wf-step-meta">Steering agent scans observability platform — detects missing narrative, files SIG-2026-001 to work/signals/.</div>
+              <span class="wf-step-tag cyan">📊 Observability</span><span class="wf-step-tag amber">⚡ Signal filed</span>
+            </div>
           </div>
-          <a href="concept-visualization.html" target="_blank" class="btn-secondary" style="margin-top:16px;display:inline-flex">Open fullscreen ↗</a>
+          <div class="wf-step" data-wf="1">
+            <div class="wf-step-line"></div>
+            <div class="wf-step-icon">🎯</div>
+            <div class="wf-step-body">
+              <div class="wf-step-label">Mission Created</div>
+              <div class="wf-step-text">Strategy layer approves mission brief</div>
+              <div class="wf-step-meta">Human reviews signal → approves mission → outcome contract committed. Fleet config specifies 2 execution agents.</div>
+              <span class="wf-step-tag purple">✅ Human approved</span><span class="wf-step-tag cyan">📄 Mission brief</span>
+            </div>
+          </div>
+          <div class="wf-step" data-wf="2">
+            <div class="wf-step-line"></div>
+            <div class="wf-step-icon">⚙️</div>
+            <div class="wf-step-body">
+              <div class="wf-step-label">Fleet Assembled</div>
+              <div class="wf-step-text">Orchestration spawns GTM + Engineering agents</div>
+              <div class="wf-step-meta">Orchestration reads fleet config, selects agent types from registry, assigns roles. Agents read AGENTS.md + layer AGENT.md.</div>
+              <span class="wf-step-tag cyan">🤖 Agents: 2</span><span class="wf-step-tag amber">📋 Instructions loaded</span>
+            </div>
+          </div>
+          <div class="wf-step" data-wf="3">
+            <div class="wf-step-line"></div>
+            <div class="wf-step-icon">💻</div>
+            <div class="wf-step-body">
+              <div class="wf-step-label">Execution</div>
+              <div class="wf-step-text">Agents produce work artifacts + open PRs</div>
+              <div class="wf-step-meta">GTM agent writes DIVISION.md. Engineering agent implements animated index.html. Each commits to feature branch, opens PR for review.</div>
+              <span class="wf-step-tag green">🔀 2 PRs opened</span><span class="wf-step-tag purple">📝 Assigned: wlfghdr</span>
+            </div>
+          </div>
+          <div class="wf-step" data-wf="4">
+            <div class="wf-step-line"></div>
+            <div class="wf-step-icon">🛡️</div>
+            <div class="wf-step-body">
+              <div class="wf-step-label">Quality Gate</div>
+              <div class="wf-step-text">Quality agents evaluate against policies</div>
+              <div class="wf-step-meta">Security, content, and architecture policies checked automatically. CI runs. Quality agent leaves structured review comment on PR.</div>
+              <span class="wf-step-tag green">✅ CI passed</span><span class="wf-step-tag cyan">📋 Policy compliant</span>
+            </div>
+          </div>
+          <div class="wf-step" data-wf="5">
+            <div class="wf-step-line"></div>
+            <div class="wf-step-icon">🚀</div>
+            <div class="wf-step-body">
+              <div class="wf-step-label">Human Merge → Shipped</div>
+              <div class="wf-step-text">Human merges PR · mission outcome confirmed</div>
+              <div class="wf-step-meta">wlfghdr reviews and merges. Mission marked complete. Observability platform fires success event. Loop closes — next signal queued.</div>
+              <span class="wf-step-tag green">🎉 Shipped</span><span class="wf-step-tag purple">🔄 Loop continues</span>
+            </div>
+          </div>
         </div>
+        <!-- right panel: log -->
+        <div class="wf-panel">
+          <div class="wf-panel-header">Agent Activity Log</div>
+          <div class="wf-panel-body" id="wfLog">
+            <span class="wf-log-line dim">Waiting for mission to start...</span>
+          </div>
+        </div>
+      </div>
+      <div class="wf-controls">
+        <button class="wf-btn" id="wfPrev">← Prev</button>
+        <button class="wf-btn" id="wfNext">Next →</button>
+        <button class="wf-btn" id="wfPlay">⏸ Pause</button>
+        <span class="wf-status running" id="wfStatus">Running</span>
       </div>
     </div>
   </div>
-  <div class="viz-embed-wrap">
-    <div class="viz-embed-head">
-      <span>Live · Interactive · No setup required — click a scenario and watch</span>
-      <a class="viz-embed-link" href="concept-visualization.html" target="_blank">Open standalone ↗</a>
+
+  <div class="container-wide" style="margin-top:64px;padding-bottom:100px">
+    <div class="viz-embed-wrap">
+      <div class="viz-embed-head">
+        <span>SandboxCorp · Interactive demo · Click a scenario to explore</span>
+        <a class="viz-embed-link" href="concept-visualization.html" target="_blank">Open standalone ↗</a>
+      </div>
+      <iframe class="viz-embed" src="concept-visualization.html" title="Agentic Enterprise Live Visualization" loading="lazy"></iframe>
     </div>
-    <iframe class="viz-embed" src="concept-visualization.html" title="Agentic Enterprise Live Visualization" loading="lazy"></iframe>
   </div>
 </section>
 
@@ -1419,38 +1168,6 @@ document.addEventListener('DOMContentLoaded', () => {
   wfShowStep(0);
   wfStartTimer();
 
-  /* ── Self-opt loop ── */
-  const loopStepsEl = document.querySelectorAll('#loopSteps .loop-step');
-  const loopBar = document.getElementById('loopBar');
-  const loopCounter = document.getElementById('loopCounter');
-  const loopPlayBtn = document.getElementById('loopPlay');
-  let loopCurrent = 0, loopPlaying = true, loopTimer = null;
-  const LOOP_DELAY = 3400;
-
-  function loopShowStep(idx) {
-    loopStepsEl.forEach((s, i) => {
-      s.classList.remove('active', 'done');
-      if (i < idx) s.classList.add('done');
-      else if (i === idx) s.classList.add('active');
-    });
-    if (loopBar) loopBar.style.width = ((idx + 1) / loopStepsEl.length * 100) + '%';
-    if (loopCounter) loopCounter.textContent = 'Step ' + (idx + 1) + ' / ' + loopStepsEl.length;
-  }
-  function loopNext() { loopCurrent = (loopCurrent + 1) % loopStepsEl.length; loopShowStep(loopCurrent); }
-  function loopPrev() { loopCurrent = (loopCurrent - 1 + loopStepsEl.length) % loopStepsEl.length; loopShowStep(loopCurrent); }
-  function loopStartT() { loopTimer = setInterval(loopNext, LOOP_DELAY); }
-  function loopStopT() { clearInterval(loopTimer); loopTimer = null; }
-
-  loopPlayBtn && loopPlayBtn.addEventListener('click', () => {
-    loopPlaying = !loopPlaying;
-    loopPlayBtn.textContent = loopPlaying ? '⏸ Pause' : '▶ Play';
-    if (loopPlaying) loopStartT(); else loopStopT();
-  });
-  document.getElementById('loopNext') && document.getElementById('loopNext').addEventListener('click', () => { loopStopT(); loopNext(); if (loopPlaying) loopStartT(); });
-  document.getElementById('loopPrev') && document.getElementById('loopPrev').addEventListener('click', () => { loopStopT(); loopPrev(); if (loopPlaying) loopStartT(); });
-
-  loopShowStep(0);
-  loopStartT();
 });
 </script>
 
