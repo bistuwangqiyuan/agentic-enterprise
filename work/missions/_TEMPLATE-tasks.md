@@ -1,6 +1,6 @@
 # Tasks: [Mission Name]
 
-> **Template version:** 1.0 | **Last updated:** 2026-02-24
+> **Template version:** 1.1 | **Last updated:** 2026-03-05
 > **Mission:** [link to BRIEF.md]
 > **Mission ID:** MISSION-YYYY-NNN
 > **Revision:** 1 | **Last updated:** YYYY-MM-DD
@@ -41,6 +41,7 @@ The **Orchestrator** creates this file by decomposing the Mission Brief and Outc
 | **Depends on** | None / TASK-NNN |
 | **Priority** | critical / high / medium / low |
 | **Target date** | YYYY-MM-DD |
+| **Linked PRs/Issues** | _(Fill when work begins — prevents duplicate PRs/issues per AGENTS.md Rule 12)_ |
 
 **Description:**
 [What needs to be done. Be specific enough that the assigned agent can start without further clarification.]
@@ -64,6 +65,7 @@ The **Orchestrator** creates this file by decomposing the Mission Brief and Outc
 | **Depends on** | TASK-001 |
 | **Priority** | critical / high / medium / low |
 | **Target date** | YYYY-MM-DD |
+| **Linked PRs/Issues** | _(Fill when work begins — prevents duplicate PRs/issues per AGENTS.md Rule 12)_ |
 
 **Description:**
 [What needs to be done.]
@@ -98,4 +100,5 @@ The **Orchestrator** creates this file by decomposing the Mission Brief and Outc
 
 | Version | Date | Change |
 |---|---|---|
+| 1.1 | 2026-03-05 | Added `Linked PRs/Issues` field per task to prevent duplicate work (AGENTS.md Rule 12) |
 | 1.0 | 2026-02-24 | Initial version |

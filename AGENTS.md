@@ -1,6 +1,6 @@
 # Agent Instructions (Global)
 
-> **Version:** 2.1 | **Last updated:** 2026-02-25
+> **Version:** 2.2 | **Last updated:** 2026-03-05
 
 > **Scope:** Every AI agent working in this repository — regardless of layer, role, or task — must follow these instructions.
 > **This file is the top of the instruction hierarchy.** Layer-specific and division-specific instructions extend (never contradict) these rules.
@@ -158,18 +158,38 @@ When working on an **instance**, the completion gate is human review:
 
 **Why this matters:** Framework changes affect every agent and every future instance derived from the template. A regression in a template propagates silently until someone notices. The push-and-verify discipline plus the CI gate exist to catch problems before they reach the entire operating model.
 
-### 12. Participate in the framework ecosystem
+### 12. Deduplicate before acting
+
+Multi-agent systems are prone to duplicate work — multiple agents independently creating issues, PRs, or artifacts for the same problem. This wastes effort, creates merge conflicts, and obscures the audit trail.
+
+**Before creating any work artifact, PR, or issue:**
+1. **Search for existing work** — check open PRs, issues, active missions, in-progress tasks, and recent commits that address the same topic. Use Git history, issue trackers, and `work/missions/*/TASKS.md` as sources.
+2. **Check task ownership** — if a TASKS.md exists for the mission, verify whether someone (human or agent) already has the task `in-progress`. If so, do not create parallel work — coordinate or wait.
+3. **Check signal deduplication** — before filing a new signal, search `work/signals/` for existing signals covering the same observation. Use the `Supersedes` field if your signal replaces an older one; link as `Related Signals` if it's additive.
+4. **Link, don't duplicate** — if a PR or issue already exists that addresses the problem, reference it rather than creating a new one. Add context to the existing artifact if needed.
+
+**When you discover you've created duplicate work:**
+- Close or withdraw the duplicate immediately with a note linking to the original
+- Do not leave duplicate PRs or issues open "just in case"
+
+**Orchestration agents** bear special responsibility: before decomposing a mission into tasks, scan for active missions with overlapping scope. Before dispatching work streams, verify no existing PR or branch already addresses the task.
+
+**Execution agents** bear special responsibility: before creating a PR, search for open PRs on the same branch prefix, touching the same files, or referencing the same task ID. Before opening an issue, search existing issues for the same topic.
+
+### 13. Participate in the framework ecosystem
 
 This operating model is derived from the [Agentic Enterprise](https://github.com/wlfghdr/agentic-enterprise) open-source framework. Every running instance is both a consumer and a potential contributor. Treat this as a two-way relationship.
 
-#### 12a. Contribute improvements back to the upstream template
+#### 13a. Contribute improvements back to the upstream template
 - When you discover a pattern, fix, policy improvement, or structural insight that is **not company-specific**, it likely benefits every adopter of the framework.
+- **Prefer upstream-first for generic changes.** When a change is identified as generic during planning (not company-specific), open the PR or issue against the upstream template repository first. Once merged upstream, adopt it into your fork via the normal adoption process (Rule 13b). This prevents drift and ensures the upstream framework is the source of truth for generic patterns.
+- **When upstream-first is not practical** (e.g., urgency, experimental change, unclear generalizability), implement locally first but immediately file an upstream issue or PR to propose the change. Do not let local-only generic changes accumulate silently — they create invisible drift.
 - **File upstream:** Open an issue or PR against the upstream template repository (`github.com/wlfghdr/agentic-enterprise`) describing the improvement. Use the framework's `CONTRIBUTING.md` guidelines.
 - What belongs upstream: bug fixes in templates, new generic agent types, policy improvements, process refinements, documentation fixes, structural patterns that generalize across companies.
 - What stays in your fork: company-specific configuration, proprietary strategies, division details, custom integrations, internal signals and missions.
 - This is a natural extension of Rule 7 (Continuously improve the company) — except the improvement target is the framework itself, not just your instance. If the improvement helps the ecosystem, share it.
 
-#### 12b. Adopt upstream template updates
+#### 13b. Adopt upstream template updates
 - The upstream framework evolves. New patterns, policies, templates, and structural improvements are released as new versions.
 - **Periodically check** for upstream changes (recommended: at least monthly, or as part of the Steering Layer's evolution cycle). Compare `CHANGELOG.md` in the upstream repo against your current framework version.
 - When relevant updates are available, **propose adoption** as a signal in `work/signals/` with source `upstream-framework`. The Steering Layer triages and decides which updates to merge.

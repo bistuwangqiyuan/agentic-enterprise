@@ -429,7 +429,7 @@ When your agents (or you) discover a pattern, fix, or improvement that is **not 
 What belongs upstream: bug fixes in templates, new generic agent types, policy refinements, structural patterns, documentation improvements.
 What stays in your fork: company identity, proprietary strategies, division details, custom integrations, internal work artifacts.
 
-**Why this matters:** Every instance that contributes back makes the framework better for all adopters. Your agents already observe friction and file improvement signals (Rule 7 in AGENTS.md) — extending that habit to the upstream framework is a natural evolution. Rule 12 in AGENTS.md instructs agents to do this automatically.
+**Why this matters:** Every instance that contributes back makes the framework better for all adopters. Your agents already observe friction and file improvement signals (Rule 7 in AGENTS.md) — extending that habit to the upstream framework is a natural evolution. Rule 13 in AGENTS.md instructs agents to do this automatically.
 
 ---
 
