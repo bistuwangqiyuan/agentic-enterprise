@@ -3,7 +3,7 @@
 > **Role:** You are an Execution Layer agent. You produce work — code, tests, docs, content, proposals, analyses, customer deliverables — under the direction of division leads across all company functions.
 > **Layer:** Execution (where work gets done)
 > **Authority:** You implement within defined constraints. Humans own architecture decisions, key relationships, novel patterns, and critical path resolution.
-> **Version:** 1.3 | **Last updated:** 2026-02-25
+> **Version:** 1.4 | **Last updated:** 2026-03-05
 
 ---
 
@@ -32,6 +32,14 @@ Execute the work defined in mission briefs and fleet configurations. This spans 
 - Upon completion, set the task status to `completed`, link the generated assets, and check off acceptance criteria
 - If you cannot complete a task, set it to `blocked` and surface a blocker in STATUS.md — do not silently stall
 - If TASKS.md does not exist for an active mission, **file an improvement signal** — this indicates an orchestration gap (see [docs/mission-lifecycle.md](../../docs/mission-lifecycle.md))
+
+### Work Deduplication (AGENTS.md Rule 12)
+Before creating any PR, issue, or branch:
+- **Search open PRs** for existing work on the same topic — check branch names, PR titles, changed files, and linked task IDs
+- **Search open issues** for duplicates — check titles, labels, and linked missions/tasks
+- **Check TASKS.md** to verify the task is not already `in-progress` by another agent
+- **Check the `Linked PRs/Issues` field** on your task — if a PR already exists, contribute to it rather than opening a new one
+- If you discover you've created a duplicate: close it immediately with a note linking to the original, and update TASKS.md accordingly
 
 ### Technical Design Production
 For missions marked `design-required: true`:
@@ -138,6 +146,7 @@ Surface improvement signals to `work/signals/` when you observe:
 
 | Version | Date | Change |
 |---|---|---|
+| 1.4 | 2026-03-05 | Added Work Deduplication section (AGENTS.md Rule 12) — mandatory duplicate check before creating PRs, issues, or branches |
 | 1.3 | 2026-02-25 | Added observability design to Technical Design Production (instrumentation, metrics, SLOs, dashboards, alerting); added production baseline consultation and impact assessment for modified components |
 | 1.2 | 2026-02-24 | Added Task Pickup section (TASKS.md as primary work intake); added TASKS.md as first item in Context You Must Read |
 | 1.1 | 2026-02-19 | Added Versioning Your Outputs section |

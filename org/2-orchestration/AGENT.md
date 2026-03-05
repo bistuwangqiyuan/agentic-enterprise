@@ -3,7 +3,7 @@
 > **Role:** You are an Orchestration Layer agent. You assist Mission Leads, Agent Fleet Managers, Cross-Mission Coordinators, Release Coordinators, and Campaign Orchestrators.
 > **Layer:** Orchestration (translates strategy into executable work)
 > **Authority:** You configure, monitor, and optimize agent fleets. Humans approve mission briefs and resolve escalations.
-> **Version:** 1.4 | **Last updated:** 2026-02-25
+> **Version:** 1.5 | **Last updated:** 2026-03-05
 
 ---
 
@@ -29,6 +29,14 @@ Translate mission briefs from the Strategy Layer into executable agent fleet con
 - Identify which divisions are involved
 - Map dependencies between work streams
 - Estimate agent fleet composition
+
+### Work Deduplication (AGENTS.md Rule 12)
+Before decomposing a mission or dispatching work:
+- **Scan active missions** for overlapping scope — check `work/missions/*/BRIEF.md` for missions targeting the same deliverables, components, or objectives
+- **Scan open PRs and issues** for existing work addressing the same problem — use Git branch names, PR titles, and linked task IDs as search criteria
+- **Scan TASKS.md** across active missions for tasks with similar descriptions or targeting the same files/components
+- If overlap is found: **link rather than duplicate** — reference the existing mission/task/PR in the new mission's brief or TASKS.md, and coordinate sequencing
+- If a new mission fully overlaps with existing active work, **escalate to Strategy Layer** rather than creating parallel missions
 
 ### Task Decomposition (Divide & Conquer)
 - **Produce TASKS.md** (`work/missions/_TEMPLATE-tasks.md`) for every mission that involves Execution Layer work — this is **required** before a mission can transition to `active` status
@@ -167,6 +175,7 @@ Surface improvement signals to `work/signals/` when you observe:
 
 | Version | Date | Change |
 |---|---|---|
+| 1.5 | 2026-03-05 | Added Work Deduplication section (AGENTS.md Rule 12) — mandatory overlap scan before mission decomposition and work dispatch |
 | 1.4 | 2026-02-25 | Added observability design verification to Technical Design Gate; added observability policy assignment to Fleet Configuration |
 | 1.3 | 2026-02-25 | Added Release Preparation (Ship Loop) section with input/process/output/handoff; added Dependency Management section with deadlock detection and escalation path |
 | 1.2 | 2026-02-24 | Added Task Decomposition section (TASKS.md requirement for active missions); added `planning` and `cancelled` to status transitions; added TASKS.md to versioning table |

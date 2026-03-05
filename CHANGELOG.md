@@ -23,6 +23,30 @@ _Changes merged to `main` but not yet tagged as a release go here. Move to a new
 
 ### Added
 
+**Work deduplication — Rule 12: Deduplicate before acting**
+
+> Multi-agent systems are prone to duplicate work — multiple agents independently creating issues, PRs, or artifacts for the same problem. This rule makes deduplication a first-class obligation at every layer.
+
+_Global agent rules:_
+- `AGENTS.md` Rule 12 — new non-negotiable rule: search for existing work before creating PRs, issues, branches, or signals. Close duplicates immediately.
+
+_Orchestration Layer:_
+- `org/2-orchestration/AGENT.md` — new "Work Deduplication" section: mandatory overlap scan across active missions, open PRs, and TASKS.md before decomposing or dispatching work.
+
+_Execution Layer:_
+- `org/3-execution/AGENT.md` — new "Work Deduplication" section: mandatory duplicate check before creating PRs, issues, or branches. Check `Linked PRs/Issues` field on tasks.
+
+_Templates:_
+- `work/missions/_TEMPLATE-tasks.md` — added `Linked PRs/Issues` field per task to track active PRs/issues and prevent parallel work on the same task.
+
+**Upstream contribution workflow — Rule 13a clarified: upstream-first for generic changes**
+
+> Rule 13a (formerly 12a) now explicitly recommends upstream-first workflow for generic improvements. When a change is identified as non-company-specific during planning, open the PR against the upstream repo first, then adopt downstream. Local-first is acceptable for urgent or experimental changes, but must be followed by an upstream PR to prevent invisible drift.
+
+_Note:_ Previous Rule 12 (framework ecosystem participation) is now Rule 13. References updated in `CUSTOMIZATION-GUIDE.md`.
+
+---
+
 **Observability-driven design: shift observability left into design and discovery phases**
 
 > Observability-driven AI development shifts software engineering from reactive fixes to predictive prevention by using real production data during design. Agents evaluate architecture, performance, and resilience upfront — flagging risky assumptions before coding begins.
