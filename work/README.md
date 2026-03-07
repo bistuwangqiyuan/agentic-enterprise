@@ -1,11 +1,15 @@
 # Work — Active Work Tracking
 
-> **What this is:** The living workspace where signals, missions, and decisions are tracked.  
-> **Convention:** This is the only folder that changes frequently. Everything else (`org/`, `process/`) changes slowly and deliberately.
+> **What this is:** The artifact definitions and templates for tracking operational work.
+> **Backend:** Where these artifacts live depends on `CONFIG.yaml → work_backend`. See [docs/WORK-BACKENDS.md](../docs/WORK-BACKENDS.md).
+> - **Git-files backend** (default): Artifacts are Markdown files in this folder. This is the only folder that changes frequently.
+> - **Issue backend** (e.g., GitHub Issues): Artifacts are tracked as issues with structured labels. This folder contains only templates (as schema definitions) and persistent documentation artifacts.
 
 ---
 
 ## Structure
+
+**Git-files backend** — all artifacts live here:
 
 ```
 work/
@@ -26,7 +30,28 @@ work/
     └── README.md
 ```
 
+**Issue backend** — only these remain in Git:
+
+```
+work/
+├── assets/               # Asset registry entries (always in Git)
+├── missions/             # Git-backed mission evidence and design artifacts
+│   └── <name>/
+│       ├── TECHNICAL-DESIGN.md
+│       ├── FLEET-REPORT.md
+│       ├── OUTCOME-REPORT.md
+│       └── evaluations/
+├── decisions/            # Governance exceptions (always in Git)
+│   └── EXC-*.md
+├── signals/
+│   └── digests/          # Weekly signal digests (always in Git)
+├── locks/                # Concurrency locks (always in Git)
+└── _TEMPLATE-*.md        # Schema definitions (always in Git)
+```
+
 ## How It Works
+
+### Git-Files Backend
 
 | Folder | What Goes Here | Template | Who Creates |
 |--------|---------------|----------|-------------|
@@ -39,6 +64,21 @@ work/
 | `assets/` | Non-code deliverable registry entries | `work/assets/_TEMPLATE-asset-registry-entry.md` | Execution Layer |
 | `retrospectives/` | Postmortems and incident reports | `work/retrospectives/_TEMPLATE-postmortem.md` | Operate Loop agents |
 | `locks/` | Concurrency locks for critical shared files | `work/locks/_TEMPLATE-lock.md` | Any agent or human editing a protected file |
+
+### Issue Backend (e.g., GitHub Issues)
+
+| Artifact | Label | Who Creates | Approval |
+|----------|-------|-------------|----------|
+| Signal | `artifact:signal` + `status:new` | Anyone | Label change by Steering |
+| Mission | `artifact:mission` + `status:proposed` | Strategy Layer | Label → `status:approved` |
+| Task | `artifact:task` (sub-issue of mission) | Orchestration Layer | Label transitions |
+| Decision | `artifact:decision` + `status:proposed` | Any Layer | Label → `status:accepted` |
+| Release | `artifact:release` + `status:draft` | Orchestration Layer | Label → `status:approved` |
+| Retrospective | `artifact:retrospective` + `status:draft` | Operate Loop | Label → `status:accepted` |
+
+Git-only companion artifacts still apply in issue backend: signal digests, technical designs, evaluation reports, fleet reports, outcome reports, asset registry entries, governance exceptions, and locks.
+
+See [docs/WORK-BACKENDS.md](../docs/WORK-BACKENDS.md) for the full label taxonomy and [docs/GITHUB-ISSUES.md](../docs/GITHUB-ISSUES.md) for the GitHub setup guide.
 
 ## Naming Conventions
 

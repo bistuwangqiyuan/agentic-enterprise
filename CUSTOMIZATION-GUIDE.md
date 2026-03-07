@@ -1,6 +1,6 @@
 # Customization Guide — Agentic Enterprise Operating Model
 
-> **Version:** 2.2 | **Last updated:** 2026-03-07
+> **Version:** 3.0 | **Last updated:** 2026-03-07
 
 > **Start here** after cloning this framework.
 > This guide walks you through every step of making this operating model your own.
@@ -21,6 +21,7 @@ Open [CONFIG.yaml](CONFIG.yaml) and fill in every field. This gives the framewor
 | `vision.north_star` | Anchors all strategic alignment checks |
 | `vision.mission` | Guides every agent's decision-making |
 | `toolchain.*` | Determines which concrete tools implement your quality policies |
+| `work_backend.type` | Determines where work artifacts are tracked (git files or issue tracker) |
 
 ### Step 2: Search & Replace Placeholders (5 min)
 
@@ -44,7 +45,20 @@ Read and adjust these three files — they set the tone for everything:
 
 If you're a small team or solo founder, start with a **minimal agent fleet** — one agent per active layer. See [Minimal Agent Fleet](#minimal-agent-fleet) below for the exact setup.
 
-### Step 4: Register Your Integrations (5 min)
+### Step 4: Choose Your Work Backend (2 min)
+
+Decide where operational work artifacts (signals, missions, tasks, decisions) will be tracked:
+
+| Backend | Best For | Set In CONFIG.yaml |
+|---------|----------|--------------------|
+| **Git files** (default) | Self-contained, no external dependencies, maximum auditability | `work_backend.type: "git-files"` |
+| **GitHub Issues** | Better human collaboration, native boards, labels, notifications, mobile access | `work_backend.type: "github-issues"` |
+
+If using GitHub, **GitHub Issues is recommended** — it's always available and provides dramatically better visibility for humans. See [docs/WORK-BACKENDS.md](docs/WORK-BACKENDS.md) for the full guide including label taxonomy.
+
+> **Note:** Governance backbone files (org structure, policies, agent instructions, templates) always stay in Git regardless of this choice.
+
+### Step 5: Register Your Integrations (5 min)
 
 Review `CONFIG.yaml → integrations` and register the external tools your organization uses:
 
@@ -55,9 +69,11 @@ Review `CONFIG.yaml → integrations` and register the external tools your organ
 
 See `org/integrations/` for detailed guides per category. Start with observability and CI/CD — they provide the most immediate value.
 
-### Step 5: Start Using It (5 min)
+### Step 6: Start Using It (5 min)
 
-Create your first signal in `work/signals/` and you're live.
+**Git-files backend:** Create your first signal in `work/signals/` and you're live.
+
+**Issue backend:** Create your first GitHub Issue with label `artifact:signal` and you're live. Use the template structure from `work/signals/_TEMPLATE-signal.md` for the issue body.
 
 ---
 
@@ -121,10 +137,10 @@ The last item is the key: even "nothing to improve" is worth filing. It keeps th
 
 ### What You Don't Need
 
-- ❌ External project management tool — missions **are** your tickets
-- ❌ Observability platform for agent health — git history **is** your audit log
-- ❌ Standup meetings — `STATUS.md` **is** the standup
+- ❌ Heavyweight project management tool — missions **are** your tickets (whether as issues or files)
+- ❌ Standup meetings — mission status updates **are** the standup (issue comments or STATUS.md)
 - ❌ Separate OKR framework — `CONFIG.yaml` vision + active missions = your strategy
+- ✅ An issue tracker is optional but **recommended** for human-facing visibility (`work_backend.type: "github-issues"`)
 
 ---
 
@@ -154,7 +170,10 @@ Complete the Quick Start above (Steps 1-4), then:
 
 ### Day 1 — First Signal Flow (30 minutes)
 
-7. **File your first signal** — Create `work/signals/YYYY-MM-DD-<your-first-opportunity>.md` from the template (`work/signals/_TEMPLATE-signal.md`). This is the input that kicks off the entire lifecycle.
+7. **File your first signal:**
+   - **Git-files backend:** Create `work/signals/YYYY-MM-DD-<your-first-opportunity>.md` from the template (`work/signals/_TEMPLATE-signal.md`).
+   - **Issue backend:** Create a GitHub Issue with label `artifact:signal`, `status:new`, and the structured body from the signal template.
+   This is the input that kicks off the entire lifecycle.
 8. **Steering Agent: Produce first digest** — The Steering Agent aggregates signals into a weekly digest (`work/signals/digests/YYYY-WXX-digest.md`), detecting patterns and flagging priorities.
 9. **Strategy Agent: Triage to a mission** — The Strategy Agent consumes the digest, triages signals, and if a signal warrants action:
    - Creates `work/missions/<mission-name>/MISSION-BRIEF.md` from `work/missions/_TEMPLATE-mission-brief.md`
@@ -355,11 +374,12 @@ The framework ships with a generic lifecycle example. Create your own:
 |-----------|------------|-----|
 | 5-layer model | ✅ Yes | Universal organizational pattern |
 | 4-loop lifecycle | ✅ Yes | Universal process pattern |
-| Git-native governance | ✅ Yes | Fundamental to the model |
+| Git-native governance | ✅ Yes | Fundamental to the model (for governance backbone) |
 | Agent instruction hierarchy | ✅ Yes | Critical for multi-agent governance |
 | Improvement signal flow | ✅ Yes | Key innovation of the model |
 | Integration Registry structure | ✅ Yes | Governed connection patterns |
 | Company name/vision/mission | ❌ Customize | Your identity |
+| Work backend choice | ❌ Customize | Git files or issue tracker — your preference |
 | Ventures | ❌ Customize | Your market offerings |
 | Divisions | ❌ Customize | Your organizational units |
 | Quality thresholds | ❌ Customize | Your risk tolerance |

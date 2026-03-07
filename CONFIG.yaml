@@ -14,7 +14,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Tracks the overall framework release. Update when cutting a new version.
 # See CHANGELOG.md for what changed. Uses semantic versioning (MAJOR.MINOR.PATCH).
-framework_version: "2.3.0"
+framework_version: "3.0.0"
 # ═══════════════════════════════════════════════════════════════════════════
 
 # ───────────────────────────────────────────────────────────────────────────
@@ -192,11 +192,47 @@ toolchain:
   chat_tool: ""                     # e.g., "Slack", "Teams", "Discord"
 
 # ───────────────────────────────────────────────────────────────────────────
-# 8. INTEGRATIONS (3rd-Party Tool Registry)
+# 8. WORK BACKEND (Where operational work artifacts are tracked)
 # ───────────────────────────────────────────────────────────────────────────
-# External tools that connect to the operating model. The filesystem is the
-# system of record; these integrations extend agent capabilities into the
-# enterprise ecosystem. See org/integrations/ for detailed guides.
+# The operating model defines WHAT artifacts exist (signals, missions, tasks,
+# decisions, etc.) and HOW they flow. WHERE they live is configurable.
+#
+# Options:
+#   "git-files"      — All work artifacts are Markdown files in work/ (original model)
+#   "github-issues"  — Work artifacts are tracked as GitHub Issues with structured labels
+#
+# See docs/WORK-BACKENDS.md for the full guide, label taxonomy, and migration paths.
+#
+# NOTE: Governance backbone files (org/, policies, AGENT.md, templates) ALWAYS
+# stay in Git regardless of this setting. Only operational work artifacts
+# (signals, missions, tasks, decisions, releases, retrospectives) are affected.
+
+work_backend:
+  type: "git-files"                   # "git-files" | "github-issues"
+
+  # Configuration for github-issues backend
+  github_issues:
+    repo: ""                          # empty = same repo; or "org/repo" for a separate issue repo
+    use_projects: true                # use GitHub Projects for Kanban board views
+    use_label_prefixes: true          # use artifact:, status:, layer: label prefixes (recommended)
+
+  # Artifact-level overrides: force specific artifact types to a backend
+  # regardless of the global type setting.
+  # Valid keys: signal, signal-digest, mission, task, decision, release,
+  #             retrospective, quality-eval, outcome-report, fleet-report,
+  #             governance-exception, technical-design, asset-registry, lock
+  overrides:
+    technical-design: "git-files"     # always in git (code-review-adjacent)
+    governance-exception: "git-files" # always in git (audit-critical)
+    asset-registry: "git-files"       # always in git (persistent documentation)
+    # lock: "git-files"              # locks are always git — not configurable
+
+# ───────────────────────────────────────────────────────────────────────────
+# 9. INTEGRATIONS (3rd-Party Tool Registry)
+# ───────────────────────────────────────────────────────────────────────────
+# External tools that connect to the operating model. These integrations
+# extend agent capabilities into the enterprise ecosystem.
+# See org/integrations/ for detailed guides.
 #
 # Categories: observability, enterprise_toolchain, business_systems, communication
 # Each integration defines what it connects to, how, and which layers use it.
@@ -245,7 +281,7 @@ integrations:
     []                                # e.g., [{id: "team-chat", name: "Slack", mcp_server: true}]
 
 # ───────────────────────────────────────────────────────────────────────────
-# 9. QUALITY THRESHOLDS
+# 10. QUALITY THRESHOLDS
 # ───────────────────────────────────────────────────────────────────────────
 
 quality:
@@ -257,7 +293,7 @@ quality:
   deployment_rollback_target_min: 5 # minutes
 
 # ───────────────────────────────────────────────────────────────────────────
-# 10. ORGANIZATION SIZE ESTIMATES
+# 11. ORGANIZATION SIZE ESTIMATES
 # ───────────────────────────────────────────────────────────────────────────
 
 org_size:

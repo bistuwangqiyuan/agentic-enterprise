@@ -1,10 +1,16 @@
 # Archive Policy (Work Artifact Lifecycle)
 
-All `work/` directories follow the same lifecycle: **active → done → archived**.
+> **Version:** 1.1 | **Last updated:** 2026-03-07
 
-Archiving keeps active directories clean and scannable while preserving full history in git.
+All work artifacts follow the same lifecycle: **active → done → archived**.
 
-## Archive Mechanics
+Archiving keeps active views clean and scannable while preserving full history. The mechanics depend on your configured work backend (see `CONFIG.yaml → work_backend` and [WORK-BACKENDS.md](WORK-BACKENDS.md)).
+
+---
+
+## Git-Files Backend
+
+### Archive Mechanics
 
 Every `work/<area>/` directory may contain an `archive/` subfolder. When items reach a terminal state, they move there.
 
@@ -28,7 +34,7 @@ work/
     archive/          ← superseded design docs
 ```
 
-## When to Archive
+### When to Archive
 
 | Area | Archive trigger |
 |------|----------------|
@@ -41,7 +47,7 @@ work/
 | **decisions** | Decision implemented + referenced in mission/PR |
 | **designs** | Design superseded by newer version or implementation complete |
 
-## How to Archive
+### How to Archive
 
 **Option A: git mv** (preferred — preserves blame)
 ```bash
@@ -55,7 +61,7 @@ git mv work/missions/old-mission/ work/missions/archive/
 ./scripts/archive_work.sh --dry-run  # preview only
 ```
 
-## Rules
+### Rules
 
 1. **Never delete** work artifacts from the repo — always archive (git history = audit trail)
 2. **Archive entire mission folders** (not individual files inside a mission)
@@ -64,9 +70,47 @@ git mv work/missions/old-mission/ work/missions/archive/
 5. **README.md** files in each directory stay (never archived)
 6. **Agents ignore `archive/`** — when scanning active work, skip the archive subfolder
 
+---
+
+## Issue Backend (GitHub Issues)
+
+When `work_backend.type` is `"github-issues"`, archiving is equivalent to **closing** issues. Closed issues remain searchable and serve as the historical record — no data is lost.
+
+### When to Close
+
+The same triggers from the git-files table apply. When an artifact reaches a terminal state, close its corresponding issue.
+
+### How to Close
+
+1. **Apply final status label** before closing — e.g., `status:completed`, `status:done`, `status:upstream-issued`, `status:superseded`
+2. **Add a closing comment** summarizing the outcome or linking to the follow-up work
+3. **Close the issue** (not delete)
+
+For missions tracked as issue hierarchies:
+- Close child task issues first
+- Close the parent mission issue last
+- The parent issue's closing comment should summarize the mission outcome
+
+### Rules
+
+1. **Never delete** issues — close them with a resolution note
+2. **Always apply final status labels** before closing (enables filtering and reporting)
+3. **Closed issues remain searchable** — they are the audit trail equivalent of `archive/` subfolders
+4. **Templates** (issues with `template:*` labels, if any) are not closed
+5. **Agents filter by open status** — when scanning active work, query only open issues
+
+---
+
 ## Agent Integration
 
 This policy is referenced in AGENTS.md Rule 14. All agents should:
+
+**Git-files backend:**
 - Archive items they close (in the same commit/PR)
 - Orchestration agents: periodically scan for archivable items
 - Never scan `archive/` subfolders when looking for active work
+
+**Issue backend:**
+- Close issues they complete (apply final status label + closing comment)
+- Orchestration agents: periodically scan for closable issues
+- Filter by open status when looking for active work
