@@ -23,6 +23,8 @@ Each document falls into one of three categories:
 | [`PLACEHOLDER-CHECK.md`](PLACEHOLDER-CHECK.md) | CI feature | ✅ Template CI gate | **Keep** if using placeholder CI gate; delete otherwise |
 | [`SCHEMA-GUIDE.md`](SCHEMA-GUIDE.md) | CI feature | ✅ Template CI gate | **Keep** if using schema validation; delete otherwise |
 | [`mission-lifecycle.md`](mission-lifecycle.md) | Process reference | ✅ Framework doc | **Keep** — mission lifecycle, status transitions, Divide & Conquer pattern |
+| [`GITHUB-ISSUES.md`](GITHUB-ISSUES.md) | Setup reference | ✅ Framework doc | **Keep** — concrete GitHub issue-backend implementation guide |
+| [`WORK-BACKENDS.md`](WORK-BACKENDS.md) | Setup reference | ✅ Framework doc | **Keep** — guide to work backend choice (git-files vs. issue tracker) |
 
 ---
 
@@ -33,7 +35,9 @@ Guides that help you bootstrap a new fork or understand the framework structure.
 | Guide | Purpose |
 |---|---|
 | [`FILE-GUIDE.md`](FILE-GUIDE.md) | Maps every root file to a category (OSS infrastructure, company content, or agent bootstrap). Answers "what do I keep, what do I delete?" for every file including `.github/` configs. |
+| [`GITHUB-ISSUES.md`](GITHUB-ISSUES.md) | Concrete GitHub issue-backend implementation guide: setup checklist, labels, issue forms, approval steps, and config samples. |
 | [`REQUIRED-GITHUB-SETTINGS.md`](REQUIRED-GITHUB-SETTINGS.md) | Checklist for GitHub branch protection, CODEOWNERS enforcement, and required status checks. Without this, PRs are advisory — not binding. |
+| [`WORK-BACKENDS.md`](WORK-BACKENDS.md) | Comprehensive guide to work artifact tracking backends: git-files vs. issue trackers. Label taxonomy, structural conventions, agent behavior differences, migration paths. |
 | [`mission-lifecycle.md`](mission-lifecycle.md) | End-to-end mission lifecycle: status transitions, Divide & Conquer decomposition, gate requirements, anti-patterns. Required reading for Orchestration and Execution agents. |
 
 ---

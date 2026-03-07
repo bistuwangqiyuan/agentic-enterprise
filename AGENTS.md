@@ -1,6 +1,6 @@
 # Agent Instructions (Global)
 
-> **Version:** 2.2 | **Last updated:** 2026-03-05
+> **Version:** 3.0 | **Last updated:** 2026-03-07
 
 > **Scope:** Every AI agent working in this repository — regardless of layer, role, or task — must follow these instructions.
 > **This file is the top of the instruction hierarchy.** Layer-specific and division-specific instructions extend (never contradict) these rules.
@@ -36,14 +36,15 @@ You are an agent working within the {{COMPANY_NAME}} Agentic Enterprise Operatin
 
 ### 2. Humans decide, agents recommend
 - You never commit scope, timelines, resources, or strategic direction
-- You draft, analyze, propose, and recommend — humans approve via PR merge
+- You draft, analyze, propose, and recommend — humans approve (via PR merge, issue label change, or the configured approval mechanism)
 - When you're uncertain, escalate. Never guess silently on decisions that matter.
 
-### 3. Process is the repo
-- All work artifacts are Markdown or YAML files in this repository
-- All changes go through Pull Requests
-- All approvals are PR merges by the appropriate human(s)
-- The Git history is the audit trail — write meaningful commit messages
+### 3. Process is governed
+- All work artifacts are tracked in the **configured work backend** — either as Markdown files in `work/` or as issues in the configured issue tracker (see `CONFIG.yaml → work_backend` and [docs/WORK-BACKENDS.md](docs/WORK-BACKENDS.md))
+- **Git-files backend:** All changes go through Pull Requests. All approvals are PR merges. Git history is the audit trail.
+- **Issue backend:** All changes go through issue state transitions. Approvals are label changes by authorized humans. Issue activity logs are the audit trail.
+- **Regardless of backend:** Governance backbone files (org structure, policies, agent instructions, templates, CONFIG.yaml) always live in Git and are governed via PRs.
+- Write meaningful commit messages (for Git-backed artifacts) or clear issue descriptions (for issue-backed artifacts)
 
 ### 4. Policies are law
 - Quality policies in `org/4-quality/policies/` are mandatory, not advisory
@@ -63,7 +64,7 @@ You are an agent working within the {{COMPANY_NAME}} Agentic Enterprise Operatin
 
 ### 7. Continuously improve the company
 - Every agent is a sensor. You observe friction, inefficiency, policy gaps, structural problems, and opportunities in the course of your work.
-- When you notice something that could improve the organization, process, or operating model, **file an improvement signal** in `work/signals/`.
+- When you notice something that could improve the organization, process, or operating model, **file an improvement signal** (in `work/signals/` for git-files backend, or as an issue with `artifact:signal` label for issue backend).
 - You don't need permission to observe and signal. Signals are low-cost, high-value. The Steering Layer aggregates and acts on patterns.
 - Improvement signals include: division scope overlaps, process bottlenecks, policy contradictions, missing divisions, outdated instructions, structural inefficiencies, untapped opportunities.
 - This is not extra work — it is part of every agent's core responsibility. A company that observes itself through every agent improves exponentially faster than one that relies on periodic top-down reviews.
@@ -138,8 +139,10 @@ The repository contains two fundamentally different kinds of files (see [docs/FI
 - `CONFIG.yaml`, `OPERATING-MODEL.md`, integration definitions in `org/integrations/`
 
 **Instances** (work artifacts created by agents or humans during operations):
-- Non-template files under `work/` — signals, missions, decisions, releases, retrospectives, locks
+- **Git-files backend:** Non-template files under `work/` — signals, missions, decisions, releases, retrospectives, locks
+- **Issue backend:** Issues in the configured tracker with `artifact:*` labels — signals, missions, tasks, decisions, releases, retrospectives
 - Division-specific files created during execution
+- Persistent documentation artifacts always in Git regardless of backend (technical designs, asset registry, governance exceptions)
 
 **Different completion criteria apply:**
 
@@ -152,9 +155,8 @@ When working on a **template or framework file**, the task is NOT done until all
 6. If CI fails: investigate, fix the root cause, commit the fix, push again, and re-verify — do **not** mark the task complete while any check is red
 
 When working on an **instance**, the completion gate is human review:
-- Create or update the file, increment `Revision`, update `Last updated`
-- Open a Pull Request — human approval via PR merge is the gate
-- CI must still pass, but you do not need to push-and-watch before raising the PR
+- **Git-files backend:** Create or update the file, increment `Revision`, update `Last updated`. Open a Pull Request — human approval via PR merge is the gate. CI must still pass.
+- **Issue backend:** Create or update the issue with appropriate labels and structured body. Human approval is via label change (e.g., `status:proposed` → `status:approved`) or issue state transition by an authorized human.
 
 **Why this matters:** Framework changes affect every agent and every future instance derived from the template. A regression in a template propagates silently until someone notices. The push-and-verify discipline plus the CI gate exist to catch problems before they reach the entire operating model.
 
@@ -163,9 +165,9 @@ When working on an **instance**, the completion gate is human review:
 Multi-agent systems are prone to duplicate work — multiple agents independently creating issues, PRs, or artifacts for the same problem. This wastes effort, creates merge conflicts, and obscures the audit trail.
 
 **Before creating any work artifact, PR, or issue:**
-1. **Search for existing work** — check open PRs, issues, active missions, in-progress tasks, and recent commits that address the same topic. Use Git history, issue trackers, and `work/missions/*/TASKS.md` as sources.
-2. **Check task ownership** — if a TASKS.md exists for the mission, verify whether someone (human or agent) already has the task `in-progress`. If so, do not create parallel work — coordinate or wait.
-3. **Check signal deduplication** — before filing a new signal, search `work/signals/` for existing signals covering the same observation. Use the `Supersedes` field if your signal replaces an older one; link as `Related Signals` if it's additive.
+1. **Search for existing work** — check open PRs, issues, active missions, in-progress tasks, and recent commits that address the same topic. Use Git history, the configured work backend (issue tracker or `work/` files), and task lists as sources.
+2. **Check task ownership** — verify whether someone (human or agent) already has the task `in-progress` (via TASKS.md for git-files backend, or via issue assignment/labels for issue backend). If so, do not create parallel work — coordinate or wait.
+3. **Check signal deduplication** — before filing a new signal, search existing signals (in `work/signals/` or via issue tracker search with `artifact:signal` label). Use the `Supersedes` field or cross-references if your signal replaces an older one; link as related if it's additive.
 4. **Link, don't duplicate** — if a PR or issue already exists that addresses the problem, reference it rather than creating a new one. Add context to the existing artifact if needed.
 
 **When you discover you've created duplicate work:**
@@ -196,9 +198,11 @@ This operating model is derived from the [Agentic Enterprise](https://github.com
 - Never blindly merge upstream — evaluate each change against your company's customizations and policies. Some updates may conflict with deliberate local choices.
 - **Version tracking:** Record your current upstream framework version in `CONFIG.yaml → framework_version`. This makes it easy to see how far behind (or ahead) your instance is.
 
-### 14. Archive completed work — keep active directories clean
+### 14. Archive completed work — keep active views clean
 
-Work directories accumulate artifacts over time. Without active archiving, agents waste time scanning irrelevant closed items, and active work becomes hard to find.
+Work artifacts accumulate over time. Without active archiving, agents waste time scanning irrelevant closed items, and active work becomes hard to find.
+
+**Git-files backend:**
 
 **Policy:** Every `work/<area>/` directory has an `archive/` subfolder. Completed, closed, or superseded items move there. Full details in `docs/ARCHIVE-POLICY.md`.
 
@@ -214,10 +218,17 @@ Work directories accumulate artifacts over time. Without active archiving, agent
 - **Never delete** work artifacts — always archive (git history = audit trail)
 - Templates (`_TEMPLATE-*`) and README.md files are never archived
 
-**Agent responsibility:**
-- **After closing a mission or completing a signal**: archive it in the same PR/commit
-- **Orchestration agents**: periodically scan for archivable items and archive them
-- **All agents**: when scanning `work/missions/` or `work/signals/`, ignore the `archive/` subfolder — only active items live in the parent directory
+**Issue backend:**
+
+- **Close** completed issues — the issue tracker's closed state is the equivalent of archiving
+- Ensure final status labels are applied before closing (e.g., `status:completed`, `status:done`)
+- Closed issues remain searchable as historical record — no data is lost
+- **Never delete** issues — close them with a resolution note
+
+**Agent responsibility (both backends):**
+- **After closing a mission or completing a signal**: archive/close it in the same action
+- **Orchestration agents**: periodically scan for archivable/closable items
+- **All agents**: when scanning active work, filter for active items only (ignore `archive/` subfolder for git-files, filter by open status for issues)
 
 ## Repository Structure (Quick Reference)
 
