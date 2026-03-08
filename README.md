@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/model-Agentic%20Enterprise-blueviolet" alt="Agentic Enterprise">
-  <img src="https://img.shields.io/badge/version-1.0.0-brightgreen" alt="Version">
+  <img src="https://img.shields.io/badge/version-3.0.0-brightgreen" alt="Version">
   <img src="https://img.shields.io/badge/license-Apache%202.0-blue" alt="License">
   <img src="https://img.shields.io/badge/runtime-bring%20your%20own-orange" alt="Runtime">
   <a href="https://github.com/wlfghdr/agentic-enterprise/actions/workflows/validate.yml">
@@ -91,7 +91,7 @@ Loop 4 feeds signals back into Loop 1 via two channels: telemetry from the obser
 
 | Legacy | Agentic Enterprise | Why Better |
 |--------|-------------------|------------|
-| Ticket system | Markdown in `work/` | Version-controlled, diffable, agent-readable |
+| Ticket system | Work artifacts in `work/` or issue tracker | Version-controlled, diffable, agent-readable; or native issue UI for human triage |
 | Sprint planning | Mission briefs | Goal-oriented, not time-boxed |
 | Daily standup | `git log` + dashboards | Always current, no meetings |
 | Wiki / knowledge base | This repository | Single source of truth |
@@ -183,11 +183,12 @@ Before doing anything, read these files in order:
 
 Key principles:
 - Two native communication channels: the **repo** (natural language files — read instructions, produce artifacts, file signals) and the **observability platform** (real-time telemetry — emit spans as you act, consume operational data before deciding).
-- Everything is in Git. PRs = decisions. CODEOWNERS = RACI.
-- You recommend; humans decide (via PR merge).
+- Git is the governance backbone. PRs = decisions. CODEOWNERS = RACI.
+- Work tracking is configurable: Markdown files in work/ or issues in an issue tracker (see CONFIG.yaml → work_backend).
+- You recommend; humans decide (via PR merge or label transition).
 - Every claim must be grounded in evidence.
 - Stay in your lane — read your layer's boundaries.
-- Surface improvement signals to work/signals/ when you spot issues.
+- Surface improvement signals (to work/signals/ or as issues with artifact:signal label).
 
 Repository structure:
 - org/ — Organizational structure (5 layers)

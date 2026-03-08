@@ -22,6 +22,83 @@ The framework uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html): `
 _Changes merged to `main` but not yet tagged as a release go here. Move to a new version section when cutting a release._
 
 ### Added
+- **Assignment discipline for all GitHub artifacts** (AGENTS.md Rule 3, WORK-BACKENDS.md, GITHUB-ISSUES.md): Every issue, PR, and review request must have an assignee at all times. Mandatory handoff protocols for both issues and PRs. Comment-based human approval model — humans comment and re-assign, agents handle all label management. PR handoff protocol covers review requests, feedback cycles, and merge handoffs. Orchestration agents must sweep for unassigned items. Agent identity via dedicated bot accounts required.
+
+---
+
+## [3.0.0] — 2026-03-07
+
+> **Agentic Enterprise goes multi-backend.** This is a major release that decouples work tracking from Git files, introduces GitHub Issues as a first-class work backend, and brings sweeping consistency improvements across all five layers of the operating model.
+
+### Added
+
+**Work Backend Abstraction — configurable work tracking (MAJOR)**
+
+> Operational work artifacts (signals, missions, tasks, decisions, releases, retrospectives) can now be tracked in either Git files (the original model) or an issue tracker (GitHub Issues). The choice is made at instance configuration time via `CONFIG.yaml → work_backend`. This is a breaking conceptual change — the framework no longer assumes Git-only work tracking.
+
+_Core concept:_
+- `docs/WORK-BACKENDS.md` — new comprehensive guide: three file categories (governance backbone, persistent docs, configurable work artifacts), label taxonomy for issue backends, structural conventions, agent behavior differences, migration paths
+- `CONFIG.yaml` — new section 8 `work_backend` with `type` (`git-files` | `github-issues`), `github_issues` configuration, and per-artifact `overrides`; bumped `framework_version` from `2.3.0` to `3.0.0`
+
+_Agent rules updated:_
+- `AGENTS.md` — Rule 3 renamed from "Process is the repo" to "Process is governed"; now describes both git-files and issue backends; Rule 2 updated approval mechanism; Rule 7 updated signal filing; Rule 11 updated instance definition for issue backend; Rule 12 updated deduplication for both backends; Rule 14 renamed from "keep active directories clean" to "keep active views clean" with issue-backend archiving (close issues); version bumped to 3.0
+- `.github/copilot-instructions.md` — updated to reflect configurable work backend
+
+_Documentation updated:_
+- `OPERATING-MODEL.md` — softened "git is the only way" language; now describes Git as governance backbone with configurable work tracking; updated artifact flow, collaboration pattern, human interaction model, and mapping table; version bumped to 3.0
+- `work/README.md` — added dual-backend structure, issue backend artifact/label table
+- `CUSTOMIZATION-GUIDE.md` — new Step 4 "Choose Your Work Backend"; updated "What You Don't Need" section; updated initialization sequence for both backends; version bumped to 3.0
+- `docs/GITHUB-ISSUES.md` — new GitHub implementation guide with exact setup checklist, label bootstrap samples, issue form guidance, and explicit human approval transitions
+- `docs/WORK-BACKENDS.md` — clarified which companion artifacts remain in Git, added human approval cheat sheet, and linked the GitHub implementation guide; version bumped to 1.1
+- `docs/github-issues/` — added GitHub issue-form and config samples for signal, mission, task, decision, release, and retrospective workflows; kept them out of the live `.github/ISSUE_TEMPLATE/` path so the template repo itself does not behave like an instance repo
+- `docs/mission-lifecycle.md`, `docs/REQUIRED-GITHUB-SETTINGS.md`, `docs/FILE-GUIDE.md` — corrected remaining git-only assumptions and made issue-backend human steps explicit
+
+_Layer agent instructions updated:_
+- `org/0-steering/AGENT.md` — updated sensing loop input, signal references, and interaction diagram for dual backend; version bumped to 1.3
+- `org/1-strategy/AGENT.md` — updated signal triage input/output, mission brief creation, versioning table, approval mechanism, and continuous improvement signals for dual backend; version bumped to 1.3
+- `org/2-orchestration/AGENT.md` — updated active missions context, work deduplication, task decomposition, status tracking, release preparation, and fleet reporting for dual backend; version bumped to 1.6
+- `org/3-execution/AGENT.md` — updated task pickup, mission brief context, task status updates, improvement signals, and deduplication for dual backend; version bumped to 1.5
+- `org/4-quality/AGENT.md` — updated evaluation context, report storage, versioning table, quality trend analysis, outcome measurement, stall detection, and production signaling for dual backend; version bumped to 1.6
+
+_Process loop files updated:_
+- `process/README.md` — updated "Process Governance" section from "Git-Native" to backend-aware; updated artifact output references in loop tables and feedback diagram
+- `process/1-discover/AGENT.md` — updated signal drafting, mission brief creation, and versioning table for dual backend; version bumped to 1.3
+- `process/1-discover/GUIDE.md` — added issue backend signal creation instructions alongside git-files; updated mission brief creation and submission for dual backend
+- `process/2-build/AGENT.md` — updated task intake, decision records, and submission for dual backend; version bumped to 1.4
+- `process/2-build/GUIDE.md` — updated decision recording, exit criteria, and status updates for dual backend
+- `process/3-ship/AGENT.md` — updated release contract storage, task verification, outcome reports, feedback loop, versioning table, and open tasks rule for dual backend; version bumped to 1.3
+- `process/3-ship/GUIDE.md` — updated signal references, release contract reference, and exit criteria for dual backend
+- `process/4-operate/AGENT.md` — updated cross-layer interaction, signal filing, postmortem storage, signal generation, versioning table, and continuous improvement signals for dual backend; version bumped to 1.2
+- `process/4-operate/GUIDE.md` — updated feedback loop diagram and signal filing references for dual backend
+
+_Archive policy updated:_
+- `docs/ARCHIVE-POLICY.md` — restructured for dual backend: git-files mechanics (archive/ subfolders, git mv) and issue backend mechanics (close issues with final status labels); updated agent integration section; version bumped to 1.1
+
+_Consistency fixes:_
+- Updated regressed `Last updated` and changelog dates in the dual-backend rollout files so the framework metadata matches the current change date and remains auditable
+
+---
+
+### Added (previous)
+
+**Framework taxonomy cleanup for generic adoption (Issue #concept-review)**
+
+_Execution divisions:_
+- `CONFIG.yaml` — bumped `framework_version` from `2.2.0` to `2.3.0`; removed `ai-intelligence` and `quality-security-engineering` from default division lists and kept them as commented optional extensions instead
+- `org/README.md` — added version metadata and reframed execution divisions into core defaults, optional extensions, and company-specific product divisions; clarified that Quality & Security Engineering should not be implied as a default standalone split
+- `CUSTOMIZATION-GUIDE.md` — updated division customization guidance so AI & Intelligence, GTM Web, and Quality & Security Engineering are treated as optional extensions rather than assumed defaults
+- `org/3-execution/divisions/engineering-foundation/DIVISION.md`, `org/3-execution/divisions/core-services/DIVISION.md`, `org/3-execution/divisions/infrastructure-operations/DIVISION.md`, `org/3-execution/divisions/legal/DIVISION.md`, `org/3-execution/divisions/ai-intelligence/DIVISION.md` — removed stale assumptions that Quality & Security Engineering is a mandatory adjacent default and aligned interfaces with the new split between execution implementation and Quality-layer governance
+
+_Agent registry guidance:_
+- `org/agents/README.md` — added version metadata plus explicit criteria for what belongs in the base template, when to use configuration instead of new agent types, and common anti-patterns such as tool-level and task-level agent definitions
+- `org/agents/execution/README.md` — added version metadata, a recommended execution starter set, and consolidation guidance for deploy, monitoring, coding, and customer-service agent boundaries
+
+_Targeted execution-agent cleanup:_
+- `org/agents/execution/feature-flag-agent.md` — deprecated in favor of `exec-deploy-agent`
+- `org/agents/execution/canary-agent.md` — deprecated in favor of `exec-deploy-agent`
+- `org/agents/execution/rollback-agent.md` — deprecated in favor of `exec-deploy-agent`
+- `org/agents/execution/team-specific-coding-agents.md` — deprecated in favor of `exec-coding-agent-fleet`
+- `examples/generic-feature-lifecycle.md` — updated rollout example to use `deploy-agent` for feature-flag management to match the cleaned execution taxonomy
 
 **Connector pattern foundation for real system integrations (Issue #10)**
 
