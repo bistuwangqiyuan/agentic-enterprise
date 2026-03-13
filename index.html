@@ -391,7 +391,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
         <div class="hero-actions">
           <a href="#live-demo" class="btn-secondary nav-demo" style="background:rgba(34,211,238,0.07);border-color:rgba(34,211,238,0.3);color:var(--cyan);padding:14px 56px">▶ Demo</a>
         </div>
-        <p class="hero-footnote"><strong>Open-source operating model:</strong> agents coordinate through a versioned repo and an observability platform. Git is the system of record. <a href="https://linkedin.com/in/wolfgangheider" target="_blank" rel="noopener">Discuss on LinkedIn ↗</a></p>
+        <p class="hero-footnote"><strong>Open-source operating model:</strong> this is the governance framework and repo structure for an agentic company — not a closed SaaS product. Agents coordinate through a versioned repo and an observability platform. Git is the system of record, and observability is how runtime reality stays provable. <a href="https://linkedin.com/in/wolfgangheider" target="_blank" rel="noopener">Discuss on LinkedIn ↗</a></p>
       </div>
 
       <!-- right: animated 5-layer model visualization -->
@@ -448,6 +448,30 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
           <span style="width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.4s infinite;display:inline-block"></span>
           <span id="layerActivity">Execution layer active — 3 agents running</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ POSITIONING CLARIFIER ═══════════════════════════ -->
+<section style="padding:40px 0 32px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(17,17,20,0.6)">
+  <div class="container">
+    <div class="section-label reveal">What This Is — And Isn't</div>
+    <div class="beliefs-grid" style="margin-top:24px">
+      <div class="belief-card reveal">
+        <div class="belief-num">01</div>
+        <h3>Public product: the operating model</h3>
+        <p><strong style="color:var(--text)">Agentic Enterprise</strong> is the open-source governance layer for running a company with agents — roles, loops, policies, repo conventions, and integration patterns.</p>
+      </div>
+      <div class="belief-card reveal">
+        <div class="belief-num">02</div>
+        <h3>Not tied to one runtime or dashboard</h3>
+        <p>Bring your own runtime, observability stack, and toolchain. This repo defines how they fit together. It is <strong style="color:var(--text)">not</strong> a single closed control plane.</p>
+      </div>
+      <div class="belief-card reveal">
+        <div class="belief-num">03</div>
+        <h3>Demo = reference scenario, not the product surface</h3>
+        <p>The demo shows the operating model in motion through a representative mission. It demonstrates the pattern. The pattern itself — not one private implementation — is the public story.</p>
       </div>
     </div>
   </div>
@@ -543,10 +567,10 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
       <div class="feature-card fc-running reveal" data-fc="quality" tabindex="0">
         <div class="fc-icon" style="background:rgba(74,222,128,0.1)">🛡️</div>
         <div class="fc-title">Automated Quality Gates</div>
-        <div class="fc-desc">Seven quality domains. Machine-readable policies. Agents evaluate their own outputs before any human sees them. Policy violations never reach production.</div>
+        <div class="fc-desc">Ten machine-readable policy domains, including privacy, incident response, and availability &amp; continuity. Agents evaluate outputs before humans review them, and observability provides runtime proof when the claims matter.</div>
         <div class="fc-tags">
-          <span class="fc-tag" style="background:rgba(74,222,128,0.08);color:var(--green)">7 policy domains</span>
-          <span class="fc-tag" style="background:rgba(74,222,128,0.06);color:var(--green)">CI/CD gated</span>
+          <span class="fc-tag" style="background:rgba(74,222,128,0.08);color:var(--green)">10 policy domains</span>
+          <span class="fc-tag" style="background:rgba(74,222,128,0.06);color:var(--green)">Runtime evidence</span>
         </div>
         <div class="fc-state"><span class="fc-state-dot"></span>Active · 0 policy violations</div>
       </div>
@@ -591,6 +615,11 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
         <div class="exec-icon">🔍</div>
         <h3>Full auditability — by design</h3>
         <p>Every agent action, every decision, every output is logged and versioned automatically. Accountability is built into the operating system — not bolted on as an afterthought.</p>
+      </div>
+      <div class="exec-card reveal">
+        <div class="exec-icon">🛡️</div>
+        <h3>Trust that survives contact with reality</h3>
+        <p>Privacy, incident response, and recovery commitments live as operating policies with telemetry-backed evidence — so trust is visible in runtime behavior, not just promised in a PDF.</p>
       </div>
       <div class="exec-card reveal">
         <div class="exec-icon">⚖️</div>
@@ -715,6 +744,33 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
   </div>
 </section>
 
+<!-- ═══════════════════════════ TRUST & OPERATIONS ═══════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-label reveal">Trust &amp; Operations</div>
+    <h2 class="reveal">Enterprise trust is not a badge.<br><span class="gradient-text">It is observable behavior.</span></h2>
+    <p class="section-sub reveal">The framework now makes privacy, incident response, and resilience explicit operating surfaces. The point is simple: policy defines intent, observability proves runtime reality.</p>
+
+    <div class="beliefs-grid" style="margin-top:32px">
+      <div class="belief-card reveal">
+        <div class="belief-num">01</div>
+        <h3>Privacy is part of system design</h3>
+        <p>Lawful basis, DPA readiness, DSAR handling, breach workflows, and transfer controls are treated as launch-blocking operating requirements — not legal aftercare.</p>
+      </div>
+      <div class="belief-card reveal">
+        <div class="belief-num">02</div>
+        <h3>Incidents need clocks, not vibes</h3>
+        <p>SEV1–SEV4 response targets create explicit acknowledge, mitigate, and resolve expectations with escalation when evidence shows the response is slipping.</p>
+      </div>
+      <div class="belief-card reveal">
+        <div class="belief-num">03</div>
+        <h3>Recovery claims need proof</h3>
+        <p>Availability and continuity are anchored in service tiers, RTO/RPO targets, recovery runbooks, and drill evidence — with observability verifying failover and restore reality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════ BELIEFS ═══════════════════════════ -->
 <section>
   <div class="container">
@@ -821,7 +877,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
       <div class="repo-folder reveal">
         <div class="folder-icon">🛡️</div>
         <h4><code>org/4-quality/policies/</code></h4>
-        <p>Machine-readable quality policies. Security, architecture, performance, delivery, content, customer, experience.</p>
+        <p>Machine-readable quality policies across ten domains — including security, privacy, observability, incident response, and availability &amp; continuity.</p>
       </div>
       <div class="repo-folder reveal">
         <div class="folder-icon">🤖</div>
@@ -924,7 +980,7 @@ footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;co
   <div class="container">
     <div class="section-label reveal">Demo</div>
     <h2 class="reveal">The template that<br><span class="gradient-text">improves itself.</span></h2>
-    <p class="section-sub reveal">This is a demo of what actually runs in our SandboxCorp instance — agent fleets coordinating through PRs, telemetry firing, signals looping back. The operating model executing, and improving itself.</p>
+    <p class="section-sub reveal">This is a representative reference scenario showing the operating model in motion — agent fleets coordinating through PRs, telemetry firing, signals looping back. It demonstrates how the model works in practice without tying the story to a single private implementation.</p>
   </div>
 
   <div class="container-wide">
