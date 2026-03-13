@@ -295,7 +295,23 @@ quality:
   deployment_rollback_target_min: 5 # minutes
 
 # ───────────────────────────────────────────────────────────────────────────
-# 11. ORGANIZATION SIZE ESTIMATES
+# 11. RISK APPETITE & TOLERANCE
+# ───────────────────────────────────────────────────────────────────────────
+# Risk thresholds referenced by org/4-quality/policies/risk-management.md.
+# Customize per your organization's risk tolerance. Review at least annually.
+
+risk_appetite:
+  max_downtime_minutes: 30            # Maximum unplanned downtime per month before escalation
+  cost_overrun_threshold_pct: 20      # Percentage of mission budget that triggers escalation
+  kill_switch_target_seconds: 120     # Maximum time to execute emergency agent halt
+  escalation_rate_threshold_pct: 25   # Agent escalation rate (% of decisions) that triggers review
+  tool_failure_threshold_pct: 5       # Tool call failure rate that triggers investigation
+  cycle_time_variance_pct: 50         # Mission cycle time deviation from baseline that triggers review
+  hallucination_threshold_pct: 2      # Quality eval FAIL rate on accuracy that triggers review
+  risk_review_cadence: "monthly"      # How often to produce risk posture summary (weekly | monthly | quarterly)
+
+# ───────────────────────────────────────────────────────────────────────────
+# 12. ORGANIZATION SIZE ESTIMATES
 # ───────────────────────────────────────────────────────────────────────────
 
 org_size:
