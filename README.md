@@ -43,6 +43,39 @@
 
 This is **not** a strategy deck. It's a **live, forkable framework** — with org structure, process definitions, agent instructions, quality policies, work artifacts, and templates — all in Markdown and YAML.
 
+It also treats trust as an operating concern, not a brochure claim: the framework now includes explicit privacy, incident response, and availability / continuity policy surfaces so teams can define how agentic systems are governed **and** how those commitments are proven in runtime evidence.
+
+### How to Read This Project
+
+To avoid confusion, there are **three distinct layers** in the broader story:
+
+1. **Agentic Enterprise** = the **public, open-source operating model** in this repository  
+   The product here is the governance model: org structure, process loops, policies, repo conventions, and integration patterns.
+2. **Your runtime + toolchain** = the **execution layer you bring**  
+   OpenClaw, LangGraph, custom MCP servers, CI/CD, observability vendors, chat systems — this repo is designed to plug into them, not replace them.
+3. **Reference implementations / proving grounds** = **evidence that the model can run**  
+   Real teams need proof, not just theory. Proving grounds show the model running with actual missions, artifacts, policy checks, and feedback loops. They are proof surfaces for the framework — not the framework itself.
+
+**In short:** Agentic Enterprise is the **operating model for agent-governed work**. Your runtime executes it. A proving ground demonstrates that it actually works.
+
+### The Proof Model
+
+If you need the shortest possible framing, use this:
+
+- **Framework:** Agentic Enterprise defines how agent-governed work is structured and governed.
+- **Runtime:** A concrete runtime executes the agents, tools, and automations.
+- **Proof surface:** A proving ground shows the model producing visible work, evidence, and improvement loops.
+
+What should count as proof?
+
+- missions with clear inputs and outputs
+- artifacts created through the defined layer and loop structure
+- quality gates and review checkpoints that can be inspected
+- feedback from operation back into new work
+- reusable learnings that improve the framework itself
+
+That distinction matters because this repository is intentionally **not** selling a closed runtime, a dashboard, or a hidden internal system. It is publishing the **operating model** that those systems can run.
+
 ### Why?
 
 | Problem | This Framework's Answer |
@@ -50,7 +83,7 @@ This is **not** a strategy deck. It's a **live, forkable framework** — with or
 | AI agents need governance, not just prompts | 5-layer organizational model with explicit boundaries, RACI via CODEOWNERS, and policy enforcement |
 | Legacy processes (tickets, wikis, standups, endless meetings) don't work for agent fleets | Git-native governance: PRs = decisions, branches = workflow states, CI/CD = quality gates |
 | No standard way to structure human + agent collaboration | Clear separation: humans steer and decide, agents execute and evaluate, Git is the system of record |
-| Enterprise AI adoption stalls at "cool demo" stage | Production-grade org template with 12 divisions, 11 quality policy domains, 4 process loops |
+| Enterprise AI adoption stalls at "cool demo" stage | Production-grade org template with 12 divisions, 14 quality policy domains, 4 process loops |
 | Agent instructions are scattered and inconsistent | Hierarchical `AGENT.md` files: global → layer → division, all version-controlled |
 | Enterprises run dozens of tools that agents need to use | Integration Registry with governed connections to observability, ITSM, CI/CD, business systems |
 
@@ -77,7 +110,7 @@ Every function in the company — engineering, marketing, sales, customer succes
 │  org/3-execution/  12 divisions across eng, GTM, customer       │
 ├─────────────────────────────────────────────────────────────────┤
 │  QUALITY           Agents evaluate, humans author policies      │
-│  org/4-quality/    11 policy domains, eval agent fleets          │
+│  org/4-quality/    14 policy domains, eval agent fleets         │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -122,6 +155,19 @@ Manual → Recommendations → Supervised Autonomy → Full Autonomy
 ```
 
 This framework gives you the **governance infrastructure** to move right on this curve — safely, measurably, and reversibly.
+
+### Trust, Proven Operationally
+
+The goal is not to sound compliant. The goal is to make enterprise trust claims inspectable.
+
+Recent policy additions make that explicit:
+
+- **Privacy** — lawful basis, DPA, DSAR, breach handling, DPIA, consent, and transfer controls are first-class operating requirements, not side notes.
+- **Incident response** — SEV1–SEV4 response targets define acknowledge / mitigate / resolve expectations with auto-escalation when reality drifts.
+- **Availability & continuity** — service tiers, RTO/RPO expectations, failover and recovery runbooks, and annual drills make resilience a designed capability.
+- **Observability as proof** — dashboards, traces, events, and audit evidence are part of the model so teams can verify what actually happened at runtime.
+
+That matters because an agentic enterprise does not earn trust through policy PDFs alone. It earns trust when governance, operations, and telemetry line up.
 
 ---
 
@@ -357,7 +403,7 @@ agentic-enterprise/
 │   │       ├── people/
 │   │       └── ... (+ domain placeholders)
 │   ├── 4-quality/                   ← Evaluate against policies
-│   │   └── policies/                ← 8 mandatory policy domains
+│   │   └── policies/                ← 10 mandatory policy domains, including privacy, incident response, and availability
 │   ├── agents/                      ← Agent Type Registry
 │   └── integrations/                ← Integration Registry (3rd-party tools)
 │       ├── categories/              ← Observability, toolchain, business, comms

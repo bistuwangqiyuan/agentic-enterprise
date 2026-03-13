@@ -303,7 +303,7 @@ Each division folder should contain a `DIVISION.md` that defines:
 
 **Location:** `org/4-quality/policies/`
 
-The framework ships with 11 quality policies. Customize each:
+The framework ships with 14 quality policies. Customize each:
 
 | Policy | What to Customize |
 |--------|------------------|
@@ -311,10 +311,13 @@ The framework ships with 11 quality policies. Customize each:
 | [agent-security.md](org/4-quality/policies/agent-security.md) | Your agent-specific security posture (prompt injection mitigations, tool abuse prevention, OWASP LLM Top 10 coverage) |
 | [risk-management.md](org/4-quality/policies/risk-management.md) | Your risk appetite thresholds (via `CONFIG.yaml → risk_appetite`), agent autonomy tier assignments, risk taxonomy applicability, regulatory crosswalk for your target certifications |
 | [cryptography.md](org/4-quality/policies/cryptography.md) | Your approved algorithms, key rotation schedules (via `CONFIG.yaml → encryption`), certificate lifetimes, KMS integration, post-quantum migration timeline |
+| [privacy.md](org/4-quality/policies/privacy.md) | Your controller/processor model, lawful bases, DPA terms, DSAR channels, breach-notification contacts, transfer mechanisms |
 | [architecture.md](org/4-quality/policies/architecture.md) | Your API conventions, service patterns, catalog requirements |
 | [experience.md](org/4-quality/policies/experience.md) | Your design system name, accessibility standards, UI patterns |
 | [performance.md](org/4-quality/policies/performance.md) | Your specific latency budgets, cost constraints, resource limits |
 | [delivery.md](org/4-quality/policies/delivery.md) | Your deployment model, environments, rollback procedures |
+| [incident-response.md](org/4-quality/policies/incident-response.md) | Your on-call model, escalation paths, communication thresholds, and any stricter contractual incident targets |
+| [availability.md](org/4-quality/policies/availability.md) | Your service tiers, RTO/RPO targets, backup/restore design, failover strategy, drill cadence |
 | [content.md](org/4-quality/policies/content.md) | Your brand guidelines, documentation standards, content taxonomy |
 | [customer.md](org/4-quality/policies/customer.md) | Your SLA definitions, customer interaction standards |
 | [observability.md](org/4-quality/policies/observability.md) | Your telemetry standards, agent observability requirements, alerting thresholds |
