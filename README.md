@@ -50,7 +50,7 @@ This is **not** a strategy deck. It's a **live, forkable framework** — with or
 | AI agents need governance, not just prompts | 5-layer organizational model with explicit boundaries, RACI via CODEOWNERS, and policy enforcement |
 | Legacy processes (tickets, wikis, standups, endless meetings) don't work for agent fleets | Git-native governance: PRs = decisions, branches = workflow states, CI/CD = quality gates |
 | No standard way to structure human + agent collaboration | Clear separation: humans steer and decide, agents execute and evaluate, Git is the system of record |
-| Enterprise AI adoption stalls at "cool demo" stage | Production-grade org template with 12 divisions, 10 quality policy domains, 4 process loops |
+| Enterprise AI adoption stalls at "cool demo" stage | Production-grade org template with 12 divisions, 11 quality policy domains, 4 process loops |
 | Agent instructions are scattered and inconsistent | Hierarchical `AGENT.md` files: global → layer → division, all version-controlled |
 | Enterprises run dozens of tools that agents need to use | Integration Registry with governed connections to observability, ITSM, CI/CD, business systems |
 
@@ -77,7 +77,7 @@ Every function in the company — engineering, marketing, sales, customer succes
 │  org/3-execution/  12 divisions across eng, GTM, customer       │
 ├─────────────────────────────────────────────────────────────────┤
 │  QUALITY           Agents evaluate, humans author policies      │
-│  org/4-quality/    10 policy domains, eval agent fleets          │
+│  org/4-quality/    11 policy domains, eval agent fleets          │
 └─────────────────────────────────────────────────────────────────┘
 ```
 

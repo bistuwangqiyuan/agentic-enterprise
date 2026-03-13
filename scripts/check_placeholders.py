@@ -112,6 +112,7 @@ FRAMEWORK_FILES: frozenset[str] = frozenset(
         "org/3-execution/divisions/core-domain-2/DIVISION.md",
         # Quality policies (reference {{OBSERVABILITY_TOOL}} etc.)
         "org/4-quality/policies/architecture.md",
+        "org/4-quality/policies/cryptography.md",
         "org/4-quality/policies/delivery.md",
         "org/4-quality/policies/experience.md",
         "org/4-quality/policies/observability.md",

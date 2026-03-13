@@ -27,11 +27,15 @@ _Changes merged to `main` but not yet tagged as a release go here. Move to a new
 - New quality policy: `org/4-quality/policies/risk-management.md` — formal risk management framework with 5×5 scoring methodology, AI risk taxonomy (22 canonical risks across 5 dimensions), agent autonomy tiers, observability-driven KRIs, and regulatory crosswalk (ISO 31000 / NIST RMF / NIST AI RMF / ISO 27001 / SOC 2 / EU AI Act). Closes #86.
 - New template: `work/decisions/_TEMPLATE-risk-register.md` — risk register entry template with mandatory fields per ISO 27001 §6.1.2 and SOC 2 CC3.
 - New CONFIG.yaml section: `risk_appetite` (§11) — configurable risk tolerance thresholds referenced by risk-management.md.
+- New quality policy: `org/4-quality/policies/cryptography.md` — encryption & key management covering approved algorithms (AES-256-GCM, TLS 1.3, post-quantum readiness), key lifecycle (NIST SP 800-57), AI/agent-specific encryption (model protection, credential isolation, inter-agent mTLS), certificate management, KMS infrastructure, and compliance mapping (ISO 27001 A.8.24 / SOC 2 CC6.1 / NIST SP 800-57 / PCI DSS / GDPR / EU AI Act). Closes #88.
+- New CONFIG.yaml section: `encryption` (§12) — configurable key rotation schedules, certificate lifetimes, and crypto infrastructure referenced by cryptography.md.
 
 ### Changed
 
-- Updated `org/4-quality/AGENT.md` (v1.8) to include risk management in quality dimensions.
-- Updated `README.md` and `index.html` to reflect 10 quality policy domains (was 9).
+- Updated `org/4-quality/AGENT.md` (v1.9) to include encryption & key management in quality dimensions.
+- Updated `org/4-quality/policies/risk-management.md` §10 to include cryptography.md in the policy-to-risk-control mapping.
+- Updated `CUSTOMIZATION-GUIDE.md` (v3.2) with cryptography policy customization guidance, encryption note, and `{{CRYPTO_*}}` placeholder reference.
+- Updated `README.md` and `index.html` to reflect 11 quality policy domains (was 10).
 - Documentation cleanup in `docs/`: removed the duplicate backend config guide `WORK-BACKEND.md` in favor of `WORK-BACKENDS.md`, removed the duplicate observability quick-reference `observability-genai.md` in favor of `OTEL-CONTRACT.md`, and rewrote `docs/README.md` as a shorter navigation index with clearer reading paths.
 - Consolidated GitHub instance assets under `docs/github/`: moved the former `docs/github-implementation/` guide and `docs/github-issues/` samples into one GitHub-focused folder with `issue-templates/` and `workflows/` subfolders, and updated references accordingly.
 - Clarified agent observability correlation guidance: `org/integrations/categories/observability.md` now uses canonical `git.*` and `agentic.*` field names in Git-derived event examples and explicitly distinguishes native spans from derived UI events.
