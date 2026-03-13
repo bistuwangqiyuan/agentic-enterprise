@@ -21,8 +21,14 @@ The framework uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html): `
 
 _Changes merged to `main` but not yet tagged as a release go here. Move to a new version section when cutting a release._
 
+### Added
+
+- New quality policy: `org/4-quality/policies/agent-security.md` — covers prompt injection mitigations, tool abuse prevention, insecure output handling, and security testing requirements. Maps to OWASP LLM Top 10. Closes #69.
+
 ### Changed
 
+- Updated `org/4-quality/AGENT.md` (v1.7) to include agent security in quality dimensions.
+- Updated `README.md` and `index.html` to reflect 9 quality policy domains (was 8).
 - Documentation cleanup in `docs/`: removed the duplicate backend config guide `WORK-BACKEND.md` in favor of `WORK-BACKENDS.md`, removed the duplicate observability quick-reference `observability-genai.md` in favor of `OTEL-CONTRACT.md`, and rewrote `docs/README.md` as a shorter navigation index with clearer reading paths.
 - Consolidated GitHub instance assets under `docs/github/`: moved the former `docs/github-implementation/` guide and `docs/github-issues/` samples into one GitHub-focused folder with `issue-templates/` and `workflows/` subfolders, and updated references accordingly.
 - Clarified agent observability correlation guidance: `org/integrations/categories/observability.md` now uses canonical `git.*` and `agentic.*` field names in Git-derived event examples and explicitly distinguishes native spans from derived UI events.
