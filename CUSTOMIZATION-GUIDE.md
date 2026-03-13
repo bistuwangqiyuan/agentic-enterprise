@@ -1,6 +1,6 @@
 # Customization Guide — Agentic Enterprise Operating Model
 
-> **Version:** 3.1 | **Last updated:** 2026-03-13
+> **Version:** 3.2 | **Last updated:** 2026-03-13
 
 > **Start here** after cloning this framework.
 > This guide walks you through every step of making this operating model your own.
@@ -303,13 +303,14 @@ Each division folder should contain a `DIVISION.md` that defines:
 
 **Location:** `org/4-quality/policies/`
 
-The framework ships with 10 quality policies. Customize each:
+The framework ships with 11 quality policies. Customize each:
 
 | Policy | What to Customize |
 |--------|------------------|
 | [security.md](org/4-quality/policies/security.md) | Your specific security requirements, compliance frameworks (SOC2, HIPAA, etc.) |
 | [agent-security.md](org/4-quality/policies/agent-security.md) | Your agent-specific security posture (prompt injection mitigations, tool abuse prevention, OWASP LLM Top 10 coverage) |
 | [risk-management.md](org/4-quality/policies/risk-management.md) | Your risk appetite thresholds (via `CONFIG.yaml → risk_appetite`), agent autonomy tier assignments, risk taxonomy applicability, regulatory crosswalk for your target certifications |
+| [cryptography.md](org/4-quality/policies/cryptography.md) | Your approved algorithms, key rotation schedules (via `CONFIG.yaml → encryption`), certificate lifetimes, KMS integration, post-quantum migration timeline |
 | [architecture.md](org/4-quality/policies/architecture.md) | Your API conventions, service patterns, catalog requirements |
 | [experience.md](org/4-quality/policies/experience.md) | Your design system name, accessibility standards, UI patterns |
 | [performance.md](org/4-quality/policies/performance.md) | Your specific latency budgets, cost constraints, resource limits |
@@ -321,6 +322,8 @@ The framework ships with 10 quality policies. Customize each:
 **Key principle:** Start with the policies as shipped (they're reasonable defaults for a software enterprise). Then tighten or loosen based on your regulatory environment, risk tolerance, and maturity level.
 
 > **Risk management note:** The risk management policy references configurable thresholds from `CONFIG.yaml → risk_appetite`. Fill in these values during Step 1 — they define your organization's risk tolerance for downtime, cost overruns, escalation rates, and agent behavioral thresholds. See the [Placeholder Reference](#placeholder-reference) for the full list of `{{RISK_*}}` variables.
+
+> **Encryption note:** The cryptography policy references key rotation schedules and certificate lifetimes from `CONFIG.yaml → encryption`. Fill in these values during Step 1 — defaults are conservative (90-day symmetric key rotation, 90-day cert lifetime). Adjust based on your compliance requirements (PCI DSS, HIPAA, FedRAMP) and operational maturity. See the [Placeholder Reference](#placeholder-reference) for the full list of `{{CRYPTO_*}}` variables.
 
 ---
 
@@ -422,6 +425,14 @@ All placeholders in the framework use the `{{VARIABLE}}` syntax. Here's the comp
 | `{{RISK_TOOL_FAILURE_THRESHOLD}}` | CONFIG.yaml → risk_appetite.tool_failure_threshold_pct | Risk management policy |
 | `{{RISK_CYCLE_TIME_VARIANCE}}` | CONFIG.yaml → risk_appetite.cycle_time_variance_pct | Risk management policy |
 | `{{RISK_HALLUCINATION_THRESHOLD}}` | CONFIG.yaml → risk_appetite.hallucination_threshold_pct | Risk management policy |
+| `{{CRYPTO_ROTATION_SYMMETRIC_DAYS}}` | CONFIG.yaml → encryption.rotation_symmetric_days | Cryptography policy |
+| `{{CRYPTO_ROTATION_SIGNING_DAYS}}` | CONFIG.yaml → encryption.rotation_signing_days | Cryptography policy |
+| `{{CRYPTO_ROTATION_ASYMMETRIC_DAYS}}` | CONFIG.yaml → encryption.rotation_asymmetric_days | Cryptography policy |
+| `{{CRYPTO_ROTATION_API_KEY_DAYS}}` | CONFIG.yaml → encryption.rotation_api_key_days | Cryptography policy |
+| `{{CRYPTO_CERT_LIFETIME_DAYS}}` | CONFIG.yaml → encryption.cert_lifetime_days | Cryptography policy |
+| `{{CRYPTO_RSA2048_DEPRECATION_DATE}}` | CONFIG.yaml → encryption.rsa2048_deprecation_date | Cryptography policy |
+| `{{CRYPTO_REVOCATION_TARGET_HOURS}}` | CONFIG.yaml → encryption.revocation_target_hours | Cryptography policy |
+| `{{CERT_MANAGER}}` | CONFIG.yaml → encryption.cert_manager | Cryptography policy |
 
 ---
 

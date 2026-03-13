@@ -352,6 +352,7 @@ This table maps the organization's existing quality policies to the risk categor
 |---------------|----------------|--------------|
 | **[security.md](security.md)** | SE-1 through SE-7 (partial), CO-3 | Preventive |
 | **[agent-security.md](agent-security.md)** | SE-1 through SE-7, OP-4, CO-4 | Preventive, Detective |
+| **[cryptography.md](cryptography.md)** | SE-4, SE-5, SE-7, CO-3, FI-4 | Preventive |
 | **[observability.md](observability.md)** | CO-2, OP-1 through OP-6 (detection) | Detective, Corrective |
 | **[architecture.md](architecture.md)** | OP-1, OP-2, OP-6, SE-5 | Preventive |
 | **[delivery.md](delivery.md)** | OP-1, OP-3, FI-2 | Preventive, Corrective |

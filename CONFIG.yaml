@@ -311,7 +311,24 @@ risk_appetite:
   risk_review_cadence: "monthly"      # How often to produce risk posture summary (weekly | monthly | quarterly)
 
 # ───────────────────────────────────────────────────────────────────────────
-# 12. ORGANIZATION SIZE ESTIMATES
+# 12. ENCRYPTION & KEY MANAGEMENT
+# ───────────────────────────────────────────────────────────────────────────
+# Cryptographic standards referenced by org/4-quality/policies/cryptography.md.
+# Customize rotation schedules and certificate lifetimes per your compliance
+# requirements and operational maturity. See NIST SP 800-57 for guidance.
+
+encryption:
+  rotation_symmetric_days: 90         # Symmetric data encryption key rotation (NIST: 1-2 years; 90 days is conservative)
+  rotation_signing_days: 180          # Asymmetric signing key rotation
+  rotation_asymmetric_days: 365       # Asymmetric encryption key rotation
+  rotation_api_key_days: 90           # LLM provider API keys and MCP server credentials
+  cert_lifetime_days: 90              # Maximum TLS service certificate lifetime
+  cert_manager: ""                    # e.g., "cert-manager", "SPIFFE/SPIRE", "Istio", "Linkerd"
+  rsa2048_deprecation_date: ""        # Target date to migrate off RSA-2048 (e.g., "2028-12-31")
+  revocation_target_hours: 4          # Maximum time to revoke a compromised certificate
+
+# ───────────────────────────────────────────────────────────────────────────
+# 13. ORGANIZATION SIZE ESTIMATES
 # ───────────────────────────────────────────────────────────────────────────
 
 org_size:
