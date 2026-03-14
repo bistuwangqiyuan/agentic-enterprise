@@ -7,13 +7,13 @@
     <img src="https://github.com/wlfghdr/agentic-enterprise/actions/workflows/validate.yml/badge.svg" alt="Validate Framework">
   </a>
   <br>
-  <img src="https://img.shields.io/badge/ISO_27001-~85%25_covered-0e8a16" alt="ISO 27001">
-  <img src="https://img.shields.io/badge/SOC_2-~85%25_covered-1d76db" alt="SOC 2">
+  <img src="https://img.shields.io/badge/ISO_27001-~90%25_covered-0e8a16" alt="ISO 27001">
+  <img src="https://img.shields.io/badge/SOC_2-~90%25_covered-1d76db" alt="SOC 2">
   <img src="https://img.shields.io/badge/GDPR-~75%25_covered-d93f0b" alt="GDPR">
   <img src="https://img.shields.io/badge/ISO_42001-~80%25_covered-5319e7" alt="ISO 42001">
   <img src="https://img.shields.io/badge/NIST_AI_RMF-~85%25_covered-fbca04" alt="NIST AI RMF">
-  <img src="https://img.shields.io/badge/EU_AI_Act-~75%25_covered-c5def5" alt="EU AI Act">
-  <img src="https://img.shields.io/badge/NIST_CSF_2.0-~90%25_covered-0e8a16" alt="NIST CSF 2.0">
+  <img src="https://img.shields.io/badge/EU_AI_Act-~85%25_covered-0e8a16" alt="EU AI Act">
+  <img src="https://img.shields.io/badge/NIST_CSF_2.0-~95%25_covered-0e8a16" alt="NIST CSF 2.0">
   <img src="https://img.shields.io/badge/ISO_9001-~85%25_covered-0e8a16" alt="ISO 9001">
   <img src="https://img.shields.io/badge/ISO_22301-~70%25_covered-fbca04" alt="ISO 22301">
   <img src="https://img.shields.io/badge/CCPA%2FCPRA-~75%25_covered-d93f0b" alt="CCPA/CPRA">
