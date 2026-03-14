@@ -13,6 +13,11 @@
   <img src="https://img.shields.io/badge/ISO_42001-~80%25_covered-5319e7" alt="ISO 42001">
   <img src="https://img.shields.io/badge/NIST_AI_RMF-~85%25_covered-fbca04" alt="NIST AI RMF">
   <img src="https://img.shields.io/badge/EU_AI_Act-~75%25_covered-c5def5" alt="EU AI Act">
+  <img src="https://img.shields.io/badge/NIST_CSF_2.0-~90%25_covered-0e8a16" alt="NIST CSF 2.0">
+  <img src="https://img.shields.io/badge/ISO_9001-~85%25_covered-0e8a16" alt="ISO 9001">
+  <img src="https://img.shields.io/badge/ISO_22301-~70%25_covered-fbca04" alt="ISO 22301">
+  <img src="https://img.shields.io/badge/CCPA%2FCPRA-~75%25_covered-d93f0b" alt="CCPA/CPRA">
+  <img src="https://img.shields.io/badge/HIPAA-~70%25_covered-b60205" alt="HIPAA">
 </p>
 
 <h1 align="center">Agentic Enterprise</h1>
