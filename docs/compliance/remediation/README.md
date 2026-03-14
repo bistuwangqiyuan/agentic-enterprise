@@ -14,6 +14,14 @@ These guides are for **adopters deploying the framework** in a real environment.
 | [EU AI Act Conformity Assessment](eu-ai-act-conformity-assessment.md) | EU AI Act | No conformity assessment procedure | [#129](https://github.com/wlfghdr/agentic-enterprise/issues/129) |
 | [EU AI Act CE Marking & EU Database](eu-ai-act-ce-marking.md) | EU AI Act | No CE marking or EU database registration | [#130](https://github.com/wlfghdr/agentic-enterprise/issues/130) |
 
+## ISO 27001 Core ISMS Templates
+
+| Template | Standard | Gap | Issue |
+|----------|----------|-----|-------|
+| [ISMS Scope Statement](../templates/_TEMPLATE-isms-scope.md) | ISO 27001 Clause 4.3 | No formal ISMS scope definition | [#120](https://github.com/wlfghdr/agentic-enterprise/issues/120) |
+| [Statement of Applicability](../templates/_TEMPLATE-soa.md) | ISO 27001 Clause 6.1.3d | No SoA listing all 93 Annex A controls | [#121](https://github.com/wlfghdr/agentic-enterprise/issues/121) |
+| [Internal Audit Programme](../templates/_TEMPLATE-isms-internal-audit.md) | ISO 27001 Clause 9.2 | No audit programme or schedule | [#122](https://github.com/wlfghdr/agentic-enterprise/issues/122) |
+
 ## How to Use These Guides
 
 1. **Identify your deployment context** — which standards apply to your organization
