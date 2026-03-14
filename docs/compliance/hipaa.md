@@ -122,6 +122,8 @@ HIPAA's Security Rule explicitly requires audit controls (§164.312(b)) and info
 | **Physical safeguards** | §164.310 | Facility access controls, workstation use/security, device and media controls — out of scope for a software framework; deployment-specific | **Medium** |
 | **6-year document retention requirement** | §164.316(b)(2), §164.530(j) | HIPAA requires 6-year retention of policies, procedures, and certain records — Log Retention Policy covers the retention pattern but needs explicit 6-year floor for HIPAA-governed documents | **Low** |
 
+**Addressed by framework:** BAA template ([guide](remediation/hipaa-baa-template.md)), PHI-specific data classification ([guide](remediation/hipaa-phi-classification.md)), Notice of Privacy Practices and patient rights ([guide](remediation/hipaa-npp-patient-rights.md)), HIPAA-specific workforce training ([guide](remediation/hipaa-workforce-training.md)), designated Privacy and Security Officers ([guide](remediation/hipaa-privacy-security-officers.md)).
+
 See also: [GDPR compliance reference](gdpr.md) — significant overlap in privacy controls, data subject/patient rights workflows, breach notification requirements, and security safeguards.
 
 ## 5. External References

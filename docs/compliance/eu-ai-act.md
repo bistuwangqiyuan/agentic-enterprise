@@ -84,7 +84,7 @@ The EU AI Act explicitly requires **logging** (Art. 12) and **post-market monito
 | **Fundamental rights impact assessment** | Art. 27 | Required for deployers of certain high-risk systems (public bodies, private entities in specific sectors) | Medium — deployer obligation |
 | **EU representative** | Art. 22 | If provider is outside EU | Low — context-dependent |
 
-**Addressed by framework:** Conformity assessment preparation ([guide](remediation/eu-ai-act-conformity-assessment.md)), CE marking and EU database registration ([guide](remediation/eu-ai-act-ce-marking.md)).
+**Addressed by framework:** Conformity assessment preparation ([guide](remediation/eu-ai-act-conformity-assessment.md)), CE marking and EU database registration ([guide](remediation/eu-ai-act-ce-marking.md)), post-market monitoring system and serious incident reporting ([guide](remediation/eu-ai-act-post-market-monitoring.md)).
 
 ## 5. External References
 
