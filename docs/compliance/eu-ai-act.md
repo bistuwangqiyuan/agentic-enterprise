@@ -75,13 +75,13 @@ The EU AI Act explicitly requires **logging** (Art. 12) and **post-market monito
 
 ## 4. Remaining Gaps
 
-| Gap | EU AI Act Requirement | What's Needed | Severity |
-|-----|----------------------|---------------|----------|
-| **Conformity assessment** | Art. 43 | Third-party conformity assessment for high-risk AI in Annex III areas | Critical — legal requirement before placing on EU market |
-| **CE marking** | Art. 48 | Affixed after successful conformity assessment | Critical — cannot market without it |
-| **EU database registration** | Art. 49, 71 | Registration in EU AI database before placing on market | Critical — legal requirement |
-| **Post-market monitoring system** | Art. 72 | Formal, documented system (partially addressed by observability) | High — requires specific procedures beyond monitoring |
-| **Serious incident reporting** | Art. 62 | Reporting to national market surveillance authorities | High — must be operational |
+| Gap | EU AI Act Requirement | What's Needed | Severity | Remediation |
+|-----|----------------------|---------------|----------|-------------|
+| ~~Conformity assessment~~ | Art. 43 | Conformity assessment for high-risk AI | ~~Critical~~ → Addressed | [Assessment Guide](remediation/eu-ai-act-conformity-assessment.md) |
+| ~~CE marking~~ | Art. 48 | Affixed after successful conformity assessment | ~~Critical~~ → Addressed | [CE Marking Guide](remediation/eu-ai-act-ce-marking.md) |
+| ~~EU database registration~~ | Art. 49, 71 | Registration in EU AI database before market entry | ~~Critical~~ → Addressed | [CE Marking Guide](remediation/eu-ai-act-ce-marking.md) |
+| **Post-market monitoring system** | Art. 72 | Formal, documented system (partially addressed by observability) | High — requires specific procedures beyond monitoring | |
+| **Serious incident reporting** | Art. 62 | Reporting to national market surveillance authorities | High — must be operational | |
 | **Quality management system** | Art. 17 | Formal QMS documentation (partially addressed by quality policies) | Medium — may need ISO 9001-style documentation |
 | **Instructions for use** | Art. 13(3) | Formal user-facing documentation for deployers | Medium |
 | **Fundamental rights impact assessment** | Art. 27 | Required for deployers of certain high-risk systems (public bodies, private entities in specific sectors) | Medium — deployer obligation |
