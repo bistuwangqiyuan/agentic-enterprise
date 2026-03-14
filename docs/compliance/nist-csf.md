@@ -204,7 +204,7 @@ NIST CSF 2.0 emphasizes continuous improvement and measurable outcomes. The obse
 | **Penetration testing programme** | ID.RA-01, PR.PS-06 | Regular external penetration testing and red team exercises | Low — framework defines shift-left security, pen testing is operational |
 | **Cyber insurance** | GV.RM-07 | Organization-level decision on cyber insurance coverage | Low — business decision outside framework scope |
 
-**Addressed by framework:** Runtime security tooling integration ([guide](remediation/nist-csf-runtime-security-tooling.md)), network security architecture ([guide](remediation/nist-csf-network-security.md)).
+**Addressed by framework:** Runtime security tooling integration ([guide](remediation/nist-csf-runtime-security-tooling.md)), network security architecture ([guide](remediation/nist-csf-network-security.md)), identity provider integration ([guide](remediation/nist-csf-identity-provider.md)), security awareness programme ([guide](remediation/nist-csf-security-awareness.md)).
 
 ## 5. External References
 

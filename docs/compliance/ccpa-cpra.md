@@ -82,6 +82,8 @@ CCPA/CPRA enforcement increasingly requires demonstrable compliance — the abil
 | **Annual cybersecurity audit** | §1798.185(a)(15) | Formal annual audit programme for businesses engaged in high-risk processing; framework provides controls but not audit scheduling, scope definition, or independent review | **Medium** |
 | **Financial incentive disclosure** | §1798.125(b) | Terms disclosure and opt-in mechanism for loyalty programmes or other financial incentives offered in exchange for PI — deployment-specific, rarely applicable | **Low** |
 
+**Addressed by framework:** "Do Not Sell or Share" opt-out mechanism ([guide](remediation/ccpa-cpra-opt-out.md)), Sensitive Personal Information handling controls ([guide](remediation/ccpa-cpra-sensitive-pi.md)).
+
 ## 5. External References
 
 - [CCPA/CPRA Full Text (California Legislative Information)](https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=CIV&division=3.&title=1.81.5.&part=4.) — Official statute text
