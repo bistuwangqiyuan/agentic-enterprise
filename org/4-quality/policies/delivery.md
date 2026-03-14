@@ -41,7 +41,7 @@ Promotion between environments requires evidence of health at the current stage.
 - [ ] No manual steps in the deployment pipeline (fully automated)
 
 ### Post-Deployment
-- [ ] Health metrics validated within {{POST_DEPLOY_VALIDATION_WINDOW}} of deployment
+- [ ] Health metrics validated within 30 minutes of deployment
 - [ ] Error rate within acceptable bounds
 - [ ] Performance metrics within target
 - [ ] Telemetry verified: traces, metrics, and logs flowing correctly after deployment
@@ -51,7 +51,7 @@ Promotion between environments requires evidence of health at the current stage.
 
 ### Rollback Criteria
 Automatic rollback if any of:
-- Error rate increases > {{MAX_ERROR_RATE_INCREASE}} above baseline
+- Error rate increases > 5% above baseline
 - p99 latency exceeds target
 - Health check failures
 - Critical alert triggered
@@ -68,7 +68,7 @@ When an active production incident requires an immediate fix:
 - Non-critical validation stages may be compressed or skipped (direct to target environment)
 - **Security checks are never skippable** — all security policy requirements remain mandatory
 - A rollback plan must be documented before deploying the fix
-- Post-deployment health evidence must be provided within {{POST_DEPLOY_VALIDATION_WINDOW}}
+- Post-deployment health evidence must be provided within 30 minutes
 - A post-incident signal must be filed in `work/signals/` after resolution
 - Follow-up work to backfill any skipped validation must be tracked as a new mission
 

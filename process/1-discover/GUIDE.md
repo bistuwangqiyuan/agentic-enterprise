@@ -11,11 +11,11 @@
 | Source Category | Examples | How Agents Access |
 |----------------|----------|-------------------|
 | **Market** | Industry reports, analyst briefings, competitive announcements | Configured feeds, web monitoring |
-| **Customer** | Support tickets, NPS feedback, feature requests, churn signals | {{CRM_SYSTEM}}, {{SUPPORT_SYSTEM}} |
-| **Technical** | Production incidents, performance trends, tech debt metrics | {{OBSERVABILITY_TOOL}}, {{ALERTING_SYSTEM}} |
+| **Customer** | Support tickets, NPS feedback, feature requests, churn signals | HubSpot, Zendesk |
+| **Technical** | Production incidents, performance trends, tech debt metrics | Grafana, PagerDuty |
 | **Internal** | Team retrospectives, architecture proposals, process friction | Git PRs, internal wikis |
 | **Competitive** | Competitor product launches, pricing changes, market positioning | Market intelligence tools |
-| **Financial** | Revenue trends, cost anomalies, margin changes | {{FINANCE_SYSTEM}} |
+| **Financial** | Revenue trends, cost anomalies, margin changes | NetSuite |
 
 ## Workflow
 

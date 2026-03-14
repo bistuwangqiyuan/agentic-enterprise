@@ -2,7 +2,7 @@
 
 > **Version:** 1.1 | **Last updated:** 2026-03-07
 
-> **What this is:** The governed, versioned registry of all agent types in the {{COMPANY_SHORT}} agentic enterprise. Each agent type has a YAML definition file that describes its capabilities, lifecycle status, scaling parameters, and ownership.  
+> **What this is:** The governed, versioned registry of all agent types in the microai agentic enterprise. Each agent type has a YAML definition file that describes its capabilities, lifecycle status, scaling parameters, and ownership.
 > **Governance:** New agent types require Steering Layer evaluation and CTO approval via PR. This registry is the operational source of truth for all agent types.
 
 ---

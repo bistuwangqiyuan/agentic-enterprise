@@ -78,7 +78,7 @@ Every deployed component MUST have at least one instrumentation source active. T
 | Third-party integration | OTel Collector as proxy | API ingest (push) |
 
 - [ ] **At least one instrumentation method is active and verified** before first production deployment
-- [ ] **Instrumentation verified in staging** — telemetry data appears in {{OBSERVABILITY_TOOL}} within 5 minutes of deployment
+- [ ] **Instrumentation verified in staging** — telemetry data appears in Grafana within 5 minutes of deployment
 - [ ] **No blind spots:** every service-to-service call is traceable end-to-end
 
 ### The Three Pillars — Minimum Coverage
@@ -136,7 +136,7 @@ Every production service MUST define and track at least one health target:
 
 - [ ] **Availability target** defined (target ≥ 99.5% unless explicitly justified lower)
 - [ ] **Latency target** defined (aligned with [performance.md](performance.md) budgets)
-- [ ] Health targets configured in {{OBSERVABILITY_TOOL}} with:
+- [ ] Health targets configured in Grafana with:
   - Appropriate burn rate alerts
   - Error budget tracking visible on a dashboard
   - Error budget depletion alerts at configurable thresholds
@@ -249,7 +249,7 @@ Observability is checked at multiple points in the lifecycle:
 
 ### At Component Onboarding
 - All observability items in the component onboarding checklist completed
-- Telemetry data visible in {{OBSERVABILITY_TOOL}} within 5 minutes of first deployment
+- Telemetry data visible in Grafana within 5 minutes of first deployment
 
 ### At Build Time (PR Review)
 - New endpoints have instrumentation (traces + RED metrics)

@@ -1,4 +1,4 @@
-# Division: {{DOMAIN_CAP_2_NAME}}
+# Division: Autonomous Conversion Optimization
 
 > **Owner:** <!-- Division lead name -->
 > **Type:** Domain

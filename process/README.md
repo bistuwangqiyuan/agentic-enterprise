@@ -123,24 +123,24 @@ Git is the **governance backbone** — organizational structure, policies, agent
 
 ```
 # Steering Layer — full repo oversight
-*                                           @{{COMPANY_SHORT}}/steering
+*                                           @microai/steering
 
 # Strategy
-/org/1-strategy/                            @{{COMPANY_SHORT}}/strategy-leads
-/work/missions/                             @{{COMPANY_SHORT}}/strategy-leads
+/org/1-strategy/                            @microai/strategy-leads
+/work/missions/                             @microai/strategy-leads
 
 # Orchestration
-/org/2-orchestration/                       @{{COMPANY_SHORT}}/orchestration-leads
-/org/2-orchestration/fleet-configs/         @{{COMPANY_SHORT}}/fleet-managers
+/org/2-orchestration/                       @microai/orchestration-leads
+/org/2-orchestration/fleet-configs/         @microai/fleet-managers
 
 # Quality policies
-/org/4-quality/policies/                    @{{COMPANY_SHORT}}/quality-governors
+/org/4-quality/policies/                    @microai/quality-governors
 
 # Process
-/process/                                   @{{COMPANY_SHORT}}/process-owners
+/process/                                   @microai/process-owners
 
 # Divisions (add one line per division)
-# /org/3-execution/divisions/<div-name>/ @{{COMPANY_SHORT}}/<div-team>
+# /org/3-execution/divisions/<div-name>/ @microai/<div-team>
 ```
 
 ---

@@ -46,9 +46,9 @@ Risk appetite is defined per risk dimension. Adopters must configure these thres
 | **Safety / Human Impact** | Zero | No agent action may cause physical harm or safety-critical system failure | Immediate halt + Steering Layer notification |
 | **Compliance / Regulatory** | Zero | No known regulatory violation may persist | Immediate remediation + legal notification |
 | **Security** | Very Low | Prompt injection, data breach, unauthorized access: zero tolerance for unmitigated known vulnerabilities | Immediate remediation per `agent-security.md` |
-| **Operational** | Low | Service disruption: maximum {{RISK_MAX_DOWNTIME_MINUTES}} minutes unplanned downtime per month | Escalate to mission sponsor when >50% of budget consumed |
+| **Operational** | Low | Service disruption: maximum 30 minutes unplanned downtime per month | Escalate to mission sponsor when >50% of budget consumed |
 | **Reputational** | Low | No agent-generated content published externally without human review | Escalate any public-facing content incident to Steering Layer |
-| **Financial** | Moderate | No unauthorized transactions; cost overruns flagged at {{RISK_COST_OVERRUN_THRESHOLD}}% of mission budget | Escalate to mission sponsor at threshold |
+| **Financial** | Moderate | No unauthorized transactions; cost overruns flagged at 10% of mission budget | Escalate to mission sponsor at threshold |
 | **Innovation / Experimentation** | Higher | Sandboxed environments may accept higher risk with documented rationale | Risk owner documents and accepts per §3.4 |
 
 ### 2.2 Agent Autonomy Tiers and Risk Tolerance
@@ -264,7 +264,7 @@ Every agent type in the Agent Type Registry (`org/agents/`) must be classified i
 ### 6.3 Human Override & Emergency Procedures
 
 - [ ] Every agent deployment must have a documented kill switch procedure
-- [ ] Kill switch must be executable by any authorized human within {{RISK_KILL_SWITCH_TARGET_SECONDS}} seconds
+- [ ] Kill switch must be executable by any authorized human within 60 seconds
 - [ ] Emergency halt must be observable in the telemetry platform (span event: `agent.emergency_halt`)
 - [ ] Post-halt recovery procedure must be documented in the mission's technical design
 - [ ] Kill switch procedures must be tested at least quarterly
@@ -313,11 +313,11 @@ The following KRIs must be sourced from the observability platform and monitored
 |-----|--------|-----------|---------------------|
 | Prompt injection detection rate | `agent-security.md` telemetry | Any detected attempt | Log, investigate, update risk score |
 | Unauthorized tool calls | `tool.execute` spans with undeclared tools | >0 | Immediate halt + investigation |
-| Agent escalation frequency | `governance.decision` span events | >{{RISK_ESCALATION_RATE_THRESHOLD}}% of decisions | Review agent instructions and scope |
-| Tool call failure rate | `tool.execute` spans with error | >{{RISK_TOOL_FAILURE_THRESHOLD}}% | Investigate tool integration health |
+| Agent escalation frequency | `governance.decision` span events | >20% of decisions | Review agent instructions and scope |
+| Tool call failure rate | `tool.execute` spans with error | >5% | Investigate tool integration health |
 | Human override frequency | `governance.decision` where decision=`reject` | Trending upward over 4 weeks | Review agent quality and scope |
-| Mission cycle time variance | Mission status transitions | >{{RISK_CYCLE_TIME_VARIANCE}}% deviation from baseline | Investigate bottlenecks |
-| Hallucination/correction rate | Quality evaluation verdicts (FAIL on accuracy) | >{{RISK_HALLUCINATION_THRESHOLD}}% | Review agent instructions, model, context |
+| Mission cycle time variance | Mission status transitions | >25% deviation from baseline | Investigate bottlenecks |
+| Hallucination/correction rate | Quality evaluation verdicts (FAIL on accuracy) | >2% | Review agent instructions, model, context |
 
 ### 8.2 Automated Risk Signals
 

@@ -2,7 +2,7 @@
 
 > **Version:** 1.1 | **Last updated:** 2026-03-07
 
-> **What this is:** The static structure of the agentic enterprise {{COMPANY_SHORT}} organization — who exists, where they sit, what they own, how they relate. This covers the **entire company**, not just R&D: engineering, delivery, go-to-market, sales, customer success, and support all operate within the same 5-layer model.  
+> **What this is:** The static structure of the agentic enterprise microai organization — who exists, where they sit, what they own, how they relate. This covers the **entire company**, not just R&D: engineering, delivery, go-to-market, sales, customer success, and support all operate within the same 5-layer model.  
 > **What it replaces:** Legacy role hierarchies, ticket-based coordination, manual phase gates, and siloed functional departments.  
 > **Governance:** Changes via Pull Request → Steering Layer (structural) or Strategy Layer (operational) approval
 
@@ -18,7 +18,7 @@ The critical addition — Layer 0: Steering — embeds what was historically inv
 ┌─────────────────────────────────────────────────────────────────────┐
 │                                                                     │
 │   STEERING LAYER        Executives + Agents evolve the company      │
-│   org/0-steering/       ~{{STEERING_SIZE}} people (C-Suite + Org Architects)  │
+│   org/0-steering/       ~8 people (C-Suite + Org Architects)  │
 │                         CEO, CTO, CPO, CFO, COO/CRO, CHRO,         │
 │                         Organization Architects, Board Advisors     │
 │                         Agents: evolution, portfolio, model health   │
@@ -26,7 +26,7 @@ The critical addition — Layer 0: Steering — embeds what was historically inv
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │   STRATEGY LAYER        Humans define WHY + WHAT + CONSTRAINTS      │
-│   org/1-strategy/       ~{{STRATEGY_SIZE}} people                   │
+│   org/1-strategy/       ~12 people                   │
 │                         Venture Leads, Outcome Owners,             │
 │                         GTM Strategists, Sales Strategists,         │
 │                         Customer Strategists                        │
@@ -34,21 +34,21 @@ The critical addition — Layer 0: Steering — embeds what was historically inv
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │   ORCHESTRATION LAYER   Humans + Agents translate strategy → work   │
-│   org/2-orchestration/  ~{{ORCHESTRATION_SIZE}} people              │
+│   org/2-orchestration/  ~16 people              │
 │                         Mission Leads, Agent Fleet Managers,        │
 │                         Release Coordinators, Campaign Leads        │
 │                                                                     │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │   EXECUTION LAYER       Agents do the work, humans own hard parts   │
-│   org/3-execution/      ~{{EXECUTION_SIZE}} people + agent fleets   │
+│   org/3-execution/      ~120 people + agent fleets   │
 │                         Tech Leads, Sales Engineers,                │
 │                         Content Producers, CSMs, Support Engineers  │
 │                                                                     │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │   QUALITY LAYER         Agents evaluate, humans author policies     │
-│   org/4-quality/        ~{{QUALITY_SIZE}} people + eval agent fleets│
+│   org/4-quality/        ~18 people + eval agent fleets│
 │                         Policy Authors across all domains           │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
@@ -166,8 +166,8 @@ Divisions are the **execution units** of the organization — each owns a domain
 
 | Division | What It Owns |
 |-----------|-------------|
-| **{{DOMAIN_CAP_1_NAME}}** | {{DOMAIN_CAP_1_DESCRIPTION}} |
-| **{{DOMAIN_CAP_2_NAME}}** | {{DOMAIN_CAP_2_DESCRIPTION}} |
+| **Revenue Intelligence** | Demand sensing, pricing strategy, funnel analytics, and opportunity scoring |
+| **Autonomous Conversion Optimization** | Continuous experimentation and optimization of landing pages, offers, and lifecycle messaging |
 
 ---
 

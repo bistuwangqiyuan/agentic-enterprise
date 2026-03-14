@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agentic Enterprise — Animated Concept Visualization</title>
+<title>microai — 动态概念可视化</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root {
@@ -384,13 +384,13 @@ button.primary{background:linear-gradient(135deg,var(--accent2),#6d28d9);border-
   <main class="app">
     <section class="panel sidebar">
       <div class="sidebar-header">
-        <div class="badge">Live concept animation</div>
-        <h1>How agents collaborate through Git + integrations</h1>
-        <p class="meta">Selector-driven replay of real lifecycle patterns from <a href="examples/README.md">examples/</a>. Agents emit OTel telemetry and receive signals from the <a href="org/integrations/categories/observability.md">Observability Platform</a>. Git is the system of record; observability is the nervous system.</p>
+        <div class="badge">实时概念动画</div>
+        <h1>代理如何通过 Git + 集成系统协同</h1>
+        <p class="meta">基于 <a href="examples/README.md">examples/</a> 的真实生命周期场景回放。代理发出 OTel 遥测，并从<a href="org/integrations/categories/observability.md">可观测平台</a>接收信号。Git 是记录系统，可观测性是神经系统。</p>
       </div>
 
       <div class="selector-wrap">
-        <div class="selector-label">Choose scenario</div>
+        <div class="selector-label">选择场景</div>
         <select id="scenarioSelect"></select>
       </div>
 
@@ -401,29 +401,29 @@ button.primary{background:linear-gradient(135deg,var(--accent2),#6d28d9);border-
     <section class="panel viz-panel">
       <section class="stage" id="stage">
         <svg id="links" viewBox="0 0 1000 680" preserveAspectRatio="none"></svg>
-        <div class="control-dock" aria-label="Playback controls">
-          <button id="prevBtn">◀ Step</button>
-          <button id="playBtn" class="primary">Pause</button>
-          <button id="nextBtn">Step ▶</button>
+        <div class="control-dock" aria-label="播放控制">
+          <button id="prevBtn">◀ 上一步</button>
+          <button id="playBtn" class="primary">暂停</button>
+          <button id="nextBtn">下一步 ▶</button>
         </div>
         <div class="legend">
-          <span><i class="dot" style="background:var(--green)"></i>PR created</span>
-          <span><i class="dot" style="background:var(--cyan)"></i>Agent wake-up</span>
-          <span><i class="dot" style="background:var(--amber)"></i>Design gate</span>
-          <span><i class="dot" style="background:var(--accent)"></i>Integration activity</span>
+          <span><i class="dot" style="background:var(--green)"></i>PR 已创建</span>
+          <span><i class="dot" style="background:var(--cyan)"></i>代理唤醒</span>
+          <span><i class="dot" style="background:var(--amber)"></i>设计门禁</span>
+          <span><i class="dot" style="background:var(--accent)"></i>集成活动</span>
           <span><i class="dot" style="background:var(--amber);opacity:.7"></i>OTel telemetry</span>
           <span><i class="dot" style="background:var(--rose);opacity:.8"></i>Obs → agent</span>
         </div>
       </section>
 
-      <section class="terminal" aria-label="Agent activity terminal">
+      <section class="terminal" aria-label="代理活动终端">
         <div class="terminal-head">
           <div class="term-dots"><i style="background:#fb7185"></i><i style="background:#fbbf24"></i><i style="background:#4ade80"></i></div>
-          <div class="term-title">Agent Activity Log</div>
-          <div class="term-title" id="terminalStep">Phase -</div>
+          <div class="term-title">代理活动日志</div>
+          <div class="term-title" id="terminalStep">阶段 -</div>
         </div>
         <div class="terminal-body" id="terminalBody">
-          <div class="terminal-command" id="terminalCommand">agentic-enterprise(main)$ waiting for scenario step...</div>
+          <div class="terminal-command" id="terminalCommand">agentic-enterprise(main)$ 等待场景步骤...</div>
           <div id="terminalLog"></div>
         </div>
       </section>
@@ -965,7 +965,8 @@ function appendTerminalLine(text, type = '') {
 }
 
 function updateTerminalHeader(step) {
-  terminalStep.textContent = `${step.phase} · ${scenarioData[currentScenarioKey].label}`;
+  const phaseText = String(step.phase).replace('Phase ', '阶段 ');
+  terminalStep.textContent = `${phaseText} · ${scenarioData[currentScenarioKey].label}`;
   terminalCommand.textContent = `agentic-enterprise(main)$ agent-run --from "${step.from}" --pr "${step.branch}" --artifact "${step.artifact}"`;
 }
 
@@ -1210,7 +1211,7 @@ scenarioSelect.addEventListener('change', (e) => {
 
 playBtn.addEventListener('click', () => {
   autoPlay = !autoPlay;
-  playBtn.textContent = autoPlay ? 'Pause' : 'Play';
+  playBtn.textContent = autoPlay ? '暂停' : '播放';
   if (autoPlay) {
     restartAutoplay();
   } else if (timer) {

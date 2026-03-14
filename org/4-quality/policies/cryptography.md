@@ -26,7 +26,7 @@
 
 ### 1.2 Asymmetric Encryption & Signatures
 - [ ] **Required:** RSA-3072+ or ECC P-256+ (ECDSA/EdDSA) for new implementations
-- [ ] **Acceptable:** RSA-2048 for existing systems (migration plan required before {{CRYPTO_RSA2048_DEPRECATION_DATE}})
+- [ ] **Acceptable:** RSA-2048 for existing systems (migration plan required before 2027-12-31)
 - [ ] **Prohibited:** RSA-1024, DSA, MD5-based signatures
 
 ### 1.3 Hashing
@@ -63,7 +63,7 @@ All cryptographic keys must follow a governed lifecycle per NIST SP 800-57. No k
 - [ ] Key import/export operations require dual control (two authorized individuals)
 
 ### 2.3 Key Storage
-- [ ] All keys stored in the designated KMS ({{SECRETS_MANAGER}})
+- [ ] All keys stored in the designated KMS (HashiCorp Vault)
 - [ ] Root keys protected by HSM (FIPS 140-2 Level 3 for production environments)
 - [ ] No keys in source code, configuration files, environment variables, container images, or agent instructions
 - [ ] Key material never logged, included in error messages, or captured in telemetry (see `docs/otel-contract.md` §8.3)
@@ -73,12 +73,12 @@ All cryptographic keys must follow a governed lifecycle per NIST SP 800-57. No k
 
 | Key Type | Maximum Cryptoperiod | Rationale |
 |----------|---------------------|-----------|
-| Symmetric data encryption keys | {{CRYPTO_ROTATION_SYMMETRIC_DAYS}} days | Limits exposure window per NIST SP 800-57 |
-| Asymmetric key pairs (signing) | {{CRYPTO_ROTATION_SIGNING_DAYS}} days | Balances security with operational overhead |
-| Asymmetric key pairs (encryption) | {{CRYPTO_ROTATION_ASYMMETRIC_DAYS}} days | Aligns with certificate lifecycle |
-| TLS certificates (service) | {{CRYPTO_CERT_LIFETIME_DAYS}} days | Short-lived certificates reduce compromise window |
-| LLM provider API keys | {{CRYPTO_ROTATION_API_KEY_DAYS}} days | Limits blast radius of leaked credentials |
-| MCP server credentials | {{CRYPTO_ROTATION_API_KEY_DAYS}} days | Same rotation as API keys |
+| Symmetric data encryption keys | 90 days | Limits exposure window per NIST SP 800-57 |
+| Asymmetric key pairs (signing) | 180 days | Balances security with operational overhead |
+| Asymmetric key pairs (encryption) | 180 days | Aligns with certificate lifecycle |
+| TLS certificates (service) | 90 days | Short-lived certificates reduce compromise window |
+| LLM provider API keys | 60 days | Limits blast radius of leaked credentials |
+| MCP server credentials | 60 days | Same rotation as API keys |
 | Root / Master keys | Annually (manual, dual-control) | Highest-sensitivity; rotation event requires change management |
 
 ### 2.5 Key Archival
@@ -136,7 +136,7 @@ All cryptographic keys must follow a governed lifecycle per NIST SP 800-57. No k
 
 ### 4.3 Agent Credential Management
 - [ ] Each agent type receives scoped credentials — no shared secrets across agent types
-- [ ] Agent credentials stored exclusively in the designated KMS ({{SECRETS_MANAGER}})
+- [ ] Agent credentials stored exclusively in the designated KMS (HashiCorp Vault)
 - [ ] LLM provider API keys rotated per schedule (§2.4) — ephemeral tokens preferred where supported
 - [ ] MCP server credentials scoped per integration — one credential set per registered integration
 - [ ] Agent credentials never forwarded between agents — child agents obtain their own scoped credentials from the KMS
@@ -152,8 +152,8 @@ All cryptographic keys must follow a governed lifecycle per NIST SP 800-57. No k
 ## 5. Certificate Management
 
 ### 5.1 Certificate Lifecycle
-- [ ] Automated certificate lifecycle management via {{CERT_MANAGER}} (e.g., cert-manager, SPIFFE/SPIRE, service mesh)
-- [ ] Maximum service certificate lifetime: {{CRYPTO_CERT_LIFETIME_DAYS}} days
+- [ ] Automated certificate lifecycle management via cert-manager (e.g., cert-manager, SPIFFE/SPIRE, service mesh)
+- [ ] Maximum service certificate lifetime: 90 days
 - [ ] Automated rotation with zero-downtime (hot reload, rolling update, or canary deployment)
 - [ ] Certificate expiry monitoring: alert at 30, 14, and 7 days before expiry
 
@@ -164,7 +164,7 @@ All cryptographic keys must follow a governed lifecycle per NIST SP 800-57. No k
 
 ### 5.3 Certificate Revocation
 - [ ] Revocation mechanism deployed: CRL distribution points or OCSP stapling
-- [ ] Compromised certificates revoked within {{CRYPTO_REVOCATION_TARGET_HOURS}} hours of detection
+- [ ] Compromised certificates revoked within 4 hours of detection
 - [ ] Revocation events logged and trigger key compromise response (§2.7)
 
 ---
@@ -172,7 +172,7 @@ All cryptographic keys must follow a governed lifecycle per NIST SP 800-57. No k
 ## 6. Key Management Infrastructure
 
 ### 6.1 Centralized KMS
-- [ ] All cryptographic key material managed through the designated KMS ({{SECRETS_MANAGER}})
+- [ ] All cryptographic key material managed through the designated KMS (HashiCorp Vault)
 - [ ] KMS registered in the Integration Registry (`org/integrations/`) per AGENTS.md Rule 8
 - [ ] KMS high availability: multi-region or multi-AZ deployment for production
 - [ ] KMS disaster recovery: key backup and restore procedures tested at least annually

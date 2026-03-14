@@ -80,7 +80,7 @@ The Git repository is the system of record for all decisions in this operating m
 **Configuration pattern (GitHub):**
 ```yaml
 # In GitHub org/repo settings → Webhooks
-url: "https://{{OTLP_INGEST_ENDPOINT}}/github-events"
+url: "https://otlp.microai.ai/ingest/github-events"
 content_type: application/json
 events:
   - pull_request
@@ -92,7 +92,7 @@ events:
 **Configuration pattern (GitLab):**
 ```yaml
 # In GitLab project/group settings → Webhooks
-url: "https://{{OTLP_INGEST_ENDPOINT}}/gitlab-events"
+url: "https://otlp.microai.ai/ingest/gitlab-events"
 events:
   - merge_requests_events: true
   - tag_push_events: true
@@ -226,14 +226,14 @@ When the observability platform detects a qualifying anomaly or pattern, it crea
 
 ```yaml
 source: observability-platform           # identifies origin
-platform: "{{OBSERVABILITY_PLATFORM_NAME}}"
+platform: "Grafana Stack"
 trigger: anomaly-detection | threshold-breach | pattern-detection
 evidence:
   - metric: "agent.error_rate"
     value: 0.23
     threshold: 0.10
     duration: "45m"
-  - dashboard: "https://{{OBSERVABILITY_DASHBOARD_URL}}"
+  - dashboard: "https://grafana.microai.ai/d/agentic-enterprise"
 ```
 
 ### Triggering Conditions for Auto-Filed Signals
@@ -329,8 +329,8 @@ integrations:
   observability:
     # Primary observability platform
     - id: "primary-observability"
-      name: "{{OBSERVABILITY_PLATFORM_NAME}}"
-      vendor: "{{VENDOR}}"
+      name: "Grafana Stack"
+      vendor: "Grafana Labs"
       connection: "opentelemetry"  # or "native-agent", "api"
       capabilities:
         - metrics
@@ -339,8 +339,8 @@ integrations:
         - ai-analysis        # if platform supports AI-powered analysis
         - auto-discovery      # if platform supports automatic topology
       endpoints:
-        otlp: "https://{{OTLP_ENDPOINT}}"
-        api: "https://{{API_ENDPOINT}}"
+        otlp: "https://otlp.microai.ai"
+        api: "https://api.grafana.microai.ai"
       mcp_server: true/false  # whether agents can query this platform via MCP
 
     # Additional tools (if using a multi-tool setup)

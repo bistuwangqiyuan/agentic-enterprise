@@ -59,8 +59,8 @@ The `.github/` folder mixes OSS infrastructure with governance tooling that's ge
 
 | File | Purpose | Fork action |
 |---|---|---|
-| `CONFIG.yaml` | **Start here.** Company identity, product names, toolchain, integrations, org shape. Every `{{VARIABLE}}` placeholder in the repo references this. | Fill in completely — see `CUSTOMIZATION-GUIDE.md` |
-| `COMPANY.md` | Company vision, mission, strategic beliefs, and long-term direction. Currently has `{{COMPANY_NAME}}` placeholders. | Replace placeholders with your actual company content |
+| `CONFIG.yaml` | **Start here.** Company identity, product names, toolchain, integrations, org shape. Every template placeholder in the repo references this config. | Fill in completely — see `CUSTOMIZATION-GUIDE.md` |
+| `COMPANY.md` | Company vision, mission, strategic beliefs, and long-term direction. In this instance it is pre-filled for `microai`. | Adjust wording to match your real company context |
 | `AGENTS.md` | Global agent rules — the top of the instruction hierarchy. Every agent in every layer reads this first. Partly template scaffolding, partly company-specific governance. | Customise the Identity section and Product Naming rules with your own |
 | `OPERATING-MODEL.md` | Meta-description of how the operating model works inside your company. | Adjust to match your actual deployment choices |
 | `CODEOWNERS` | RACI map — who approves what. Replace placeholder role names with real GitHub team names. | Populate with actual `@org/team-name` handles |

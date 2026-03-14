@@ -24,7 +24,7 @@
 
 ### Secrets Management
 - [ ] No secrets in source code, environment variables in code, or configuration files in repositories
-- [ ] All secrets stored in {{SECRETS_MANAGER}}
+- [ ] All secrets stored in HashiCorp Vault
 - [ ] Secret rotation procedures documented and automated
 - [ ] Secrets referenced by name, never by value
 

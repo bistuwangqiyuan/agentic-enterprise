@@ -1,7 +1,7 @@
-# {{COMPANY_NAME}} — Company Vision & Mission for the Agentic Enterprise Era
+# microai — Company Vision & Mission for the Agentic Enterprise Era
 
 > **Status:** Living document — maintained by Strategy Layer agents and human Outcome Owners  
-> **Last updated:** YYYY-MM-DD  
+> **Last updated:** 2026-03-14  
 > **Governance:** Changes via Pull Request → Strategy Layer review
 
 > **⚠️ POC / Demo Disclaimer**  
@@ -19,24 +19,21 @@
 
 ## North Star
 
-> **{{COMPANY_NAME}} is {{NORTH_STAR — e.g., "the operating system for the autonomous enterprise."}}**  
-> *(Fill this in via CONFIG.yaml → vision.north_star)*
+> **microai is the company model for fully autonomous, online revenue generation powered by AI agents.**
 
 ---
 
 ## Mission
 
-**{{MISSION — e.g., "Make the world's software work perfectly."}}**
+**Run and optimize end-to-end online revenue operations through AI agents with minimal human intervention.**
 
-*(Fill this in via CONFIG.yaml → vision.mission)*
-
-We deliver the intelligence layer that connects execution to business impact — automatically, continuously, and without human toil. In the agentic enterprise world, {{COMPANY_SHORT}} is not a tool humans configure. It is a product that agents adopt, that understands context across the entire organization, and that delivers the right insight to the right layer at the right moment.
+We deliver the intelligence layer that connects execution to business impact — automatically, continuously, and without human toil. In the agentic enterprise world, microai is not a tool humans configure. It is a product that agents adopt, that understands context across the entire organization, and that delivers the right insight to the right layer at the right moment.
 
 ---
 
 ## The Operating Model — In One Paragraph
 
-This repository is a fully working operating model for running {{COMPANY_SHORT}} as an agentic enterprise. Not a strategy deck — a live Git repo with org structure, process, agent instructions, quality policies, and active work artifacts. Everything versioned, auditable, executable. **5 layers** (Steering → Strategy → Orchestration → Execution → Quality) covering the entire company. **4 loops** (Discover → Build → Ship → Operate) replacing legacy phase-gate processes — idea-to-GA in 2–4 weeks, then continuous production operations. **Git is the OS** — PRs = decisions, CODEOWNERS = RACI, CI/CD = quality gates. **Self-evolving** — every agent surfaces improvement signals, Steering Layer aggregates and proposes changes as PRs, execs approve by merging.
+This repository is a fully working operating model for running microai as an agentic enterprise. Not a strategy deck — a live Git repo with org structure, process, agent instructions, quality policies, and active work artifacts. Everything versioned, auditable, executable. **5 layers** (Steering → Strategy → Orchestration → Execution → Quality) covering the entire company. **4 loops** (Discover → Build → Ship → Operate) replacing legacy phase-gate processes — idea-to-GA in 2–4 weeks, then continuous production operations. **Git is the OS** — PRs = decisions, CODEOWNERS = RACI, CI/CD = quality gates. **Self-evolving** — every agent surfaces improvement signals, Steering Layer aggregates and proposes changes as PRs, execs approve by merging.
 
 ---
 
@@ -54,7 +51,7 @@ Human workers could navigate ambiguity intuitively. Agent fleets cannot. Every a
 Manual → Recommendations → Supervised Autonomy → Full Autonomy
 ```
 
-This curve applies to our customers' operations, to our own R&D, and to every enterprise function. {{COMPANY_SHORT}}'s role is to be the **trust engine** that allows organizations to move right on this curve — confidently, safely, and measurably. We preach it. We live it. We prove it works.
+This curve applies to our customers' operations, to our own R&D, and to every enterprise function. microai's role is to be the **trust engine** that allows organizations to move right on this curve — confidently, safely, and measurably. We preach it. We live it. We prove it works.
 
 ### 3. Zero-touch adoption is the only adoption that scales
 
@@ -62,15 +59,15 @@ In a world of 10,000-agent fleets, no human configures tools manually. Products 
 
 ### 4. Intelligence must span from execution to boardroom
 
-The value of data is not in showing a metric. It is in connecting that metric to a deployment, to a feature, to a customer cohort, to a revenue impact, to a strategic decision. {{COMPANY_SHORT}} intelligence aggregates, contextualizes, and presents information at the right altitude — from execution details to strategic summaries.
+The value of data is not in showing a metric. It is in connecting that metric to a deployment, to a feature, to a customer cohort, to a revenue impact, to a strategic decision. microai intelligence aggregates, contextualizes, and presents information at the right altitude — from execution details to strategic summaries.
 
 ### 5. Data gravity is the moat — but only if the data is open
 
-Customers will not tolerate vendor lock-in on their telemetry. Open standards, API-first ingest — {{COMPANY_SHORT}} must be **collection-agnostic** while delivering outcomes that are **{{COMPANY_SHORT}}-distinctive**. The moat is not data capture; it's what we do with the data once it's ingested.
+Customers will not tolerate vendor lock-in on their telemetry. Open standards, API-first ingest — microai must be **collection-agnostic** while delivering outcomes that are **microai-distinctive**. The moat is not data capture; it's what we do with the data once it's ingested.
 
 ### 6. Trust is the product
 
-In a world of autonomous agents acting on production systems, trust is not a feature — it is the product. Every {{COMPANY_SHORT}} capability must be **explainable, auditable, and reversible**. Supervised autonomy is not a limitation; it is the responsible way to earn the right to full autonomy.
+In a world of autonomous agents acting on production systems, trust is not a feature — it is the product. Every microai capability must be **explainable, auditable, and reversible**. Supervised autonomy is not a limitation; it is the responsible way to earn the right to full autonomy.
 
 ---
 
@@ -97,7 +94,7 @@ In a world of autonomous agents acting on production systems, trust is not a fea
 
 ## How This Translates to the Company
 
-{{COMPANY_SHORT}} is the **first customer** of the agentic enterprise operating model — across every function, not just R&D:
+microai is the **first customer** of the agentic enterprise operating model — across every function, not just R&D:
 
 1. **We build with agent fleets** — our software is created by human-directed agent ensembles
 2. **We ship with agent fleets** — staging, feature flags, progressive rollout, release notes, all agent-orchestrated

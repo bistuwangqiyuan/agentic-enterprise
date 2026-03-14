@@ -1,4 +1,4 @@
-# Division: {{DOMAIN_CAP_1_NAME}}
+# Division: Revenue Intelligence
 
 > **Owner:** <!-- Division lead name -->
 > **Type:** Domain

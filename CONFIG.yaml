@@ -22,21 +22,21 @@ framework_version: "3.1.0"
 # ───────────────────────────────────────────────────────────────────────────
 
 company:
-  name: ""                          # e.g., "Acme Corp"
-  short_name: ""                    # e.g., "Acme" — used in prose
-  repo_slug: ""                     # e.g., "acme-native-ai" — used for folder/repo names
-  domain: ""                        # e.g., "acme.com"
+  name: "microai"
+  short_name: "microai"
+  repo_slug: "microai-autonomous-enterprise"
+  domain: "microai.ai"
 
 # ───────────────────────────────────────────────────────────────────────────
 # 2. VISION & MISSION
 # ───────────────────────────────────────────────────────────────────────────
 
 vision:
-  north_star: ""
+  north_star: "Build a fully autonomous AI company that earns sustainable online revenue."
     # A single sentence that captures the company's ultimate aspiration.
     # e.g., "Acme is the operating system for the autonomous enterprise."
 
-  mission: ""
+  mission: "Run and optimize end-to-end online revenue operations through AI agents with minimal human intervention."
     # A single sentence mission statement.
     # e.g., "Make the world a better place."
 
@@ -76,7 +76,7 @@ strategic_beliefs:
 # 4. PRODUCT NAME
 # ─────────────────────────────────────────────────────────────────────────
 
-product_name: ""                   # e.g., "Acme Suite" — your primary product or offering name
+product_name: "microai Autonomous Revenue OS"
 
 # ───────────────────────────────────────────────────────────────────────────
 # 5. VENTURES (Strategy Layer)
@@ -87,16 +87,16 @@ product_name: ""                   # e.g., "Acme Suite" — your primary product
 
 ventures:
   - id: "core-product"
-    name: "{{VENTURE_1_NAME}}"
-    description: "{{VENTURE_1_DESCRIPTION}}"
+    name: "Autonomous Growth Engine"
+    description: "AI agents that discover demand, generate campaigns, and optimize conversion for online revenue."
 
   - id: "product"
-    name: "{{VENTURE_2_NAME}}"
-    description: "{{VENTURE_2_DESCRIPTION}}"
+    name: "Autonomous Sales Operations"
+    description: "Always-on AI sales workflows for lead qualification, outreach, follow-up, and deal acceleration."
 
   - id: "security"
-    name: "{{VENTURE_3_NAME}}"
-    description: "{{VENTURE_3_DESCRIPTION}}"
+    name: "Trust, Safety, and Governance"
+    description: "Policy-driven compliance, risk controls, and runtime observability for autonomous operations."
 
 # Add more ventures as needed:
 #  - id: "venture-slug"
@@ -128,11 +128,11 @@ divisions:
 
   engineering_domain:
     - id: "core-domain-1"
-      name: "{{DOMAIN_CAP_1_NAME}}"
-      description: "{{DOMAIN_CAP_1_DESCRIPTION}}"
+      name: "Revenue Intelligence"
+      description: "Demand sensing, pricing strategy, funnel analytics, and opportunity scoring."
     - id: "core-domain-2"
-      name: "{{DOMAIN_CAP_2_NAME}}"
-      description: "{{DOMAIN_CAP_2_DESCRIPTION}}"
+      name: "Autonomous Conversion Optimization"
+      description: "Continuous experimentation and optimization of landing pages, offers, and lifecycle messaging."
 
   engineering_ops:
     - id: "engineering-foundation"

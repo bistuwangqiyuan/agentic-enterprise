@@ -34,7 +34,7 @@
 ### Scalability
 - [ ] Services stateless or state externalized
 - [ ] Horizontal scaling tested
-- [ ] Load tested at {{LOAD_TEST_MULTIPLIER}}x expected production load
+- [ ] Load tested at 2x expected production load
 - [ ] Graceful degradation under overload (shed load, don't crash)
 - [ ] Auto-scaling policies defined
 

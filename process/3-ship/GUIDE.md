@@ -33,16 +33,16 @@ Before deployment begins:
 Execute the rollout plan:
 
 ```
-Stage 1: Internal / Canary ({{CANARY_PERCENTAGE}})
-  → Monitor for {{CANARY_DURATION}}
+Stage 1: Internal / Canary (5%)
+  → Monitor for 2 hours
   → Health check: error rate, latency, resource usage
   
-Stage 2: Early Adopters ({{EARLY_ADOPTER_PERCENTAGE}})
-  → Monitor for {{EARLY_ADOPTER_DURATION}}
+Stage 2: Early Adopters (25%)
+  → Monitor for 24 hours
   → Health check: + user feedback, feature adoption
   
-Stage 3: General Availability ({{GA_PERCENTAGE}})
-  → Monitor for {{GA_DURATION}}
+Stage 3: General Availability (100%)
+  → Monitor for 24 hours
   → Health check: + business metrics, customer impact
 
 Stage 4: Full Rollout (100%)
@@ -81,9 +81,9 @@ Production observations become new signals:
 ## Rollback Criteria
 
 Automatic rollback triggers:
-- Error rate increases > {{MAX_ERROR_RATE_INCREASE}} above baseline
+- Error rate increases > 5% above baseline
 - p99 latency exceeds 2x target
-- Health check failures in > {{MAX_HEALTH_CHECK_FAILURE_RATE}} of instances
+- Health check failures in > 2% of instances
 - Critical security alert
 - Data integrity issue detected
 

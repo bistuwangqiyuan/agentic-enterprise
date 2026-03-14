@@ -65,4 +65,4 @@
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-02-19 | Initial version |
-| 1.1 | 2026-02-23 | Replace {{DESIGN_SYSTEM_NAME}} placeholder with generic "company design system" language |
+| 1.1 | 2026-02-23 | Replace microai Design System placeholder with generic "company design system" language |

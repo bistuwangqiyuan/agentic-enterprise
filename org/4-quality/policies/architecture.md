@@ -32,7 +32,7 @@
 - [ ] For single-stream or low-complexity missions: design step may be skipped if the Orchestration Layer marks `design-required: false`
 
 ### Code Quality
-- [ ] Code coverage ≥ {{MIN_CODE_COVERAGE}} for new code
+- [ ] Code coverage >= 80% for new code
 - [ ] No code duplication above threshold (DRY)
 - [ ] Functions/methods within complexity limits
 - [ ] Consistent naming conventions (per language style guide)
@@ -72,7 +72,7 @@
 |-----------|------|------|
 | Uses existing patterns | Follows established conventions | Introduces novel pattern without ADR |
 | API contract | Defined before implementation | Implementation without contract |
-| Code coverage | ≥ {{MIN_CODE_COVERAGE}} | Below threshold |
+| Code coverage | >= 80% | Below threshold |
 | Design system | Uses standard components | Custom components without approval |
 | Service boundary | Aligned with division | Cross-division data sharing |
 | Observability | Instrumented with traces, metrics, logs, health targets; observability designed in Technical Design with production baselines consulted | Missing instrumentation, no health targets, or no observability design in Technical Design |
@@ -86,4 +86,4 @@
 |---|---|---|
 | 1.0 | 2026-02-19 | Initial version |
 | 1.2 | 2026-02-25 | Added observability design to Technical Design checklist; updated evaluation criteria to include design-time observability |
-| 1.1 | 2026-02-23 | Replace {{DESIGN_SYSTEM_NAME}} placeholder with generic "company design system" language |
+| 1.1 | 2026-02-23 | Replace microai Design System placeholder with generic "company design system" language |
