@@ -1,6 +1,6 @@
 # Customization Guide — Agentic Enterprise Operating Model
 
-> **Version:** 3.5 | **Last updated:** 2026-03-14
+> **Version:** 3.6 | **Last updated:** 2026-03-14
 
 > **Start here** after cloning this framework.
 > This guide walks you through every step of making this operating model your own.
@@ -303,7 +303,7 @@ Each division folder should contain a `DIVISION.md` that defines:
 
 **Location:** `org/4-quality/policies/`
 
-The framework ships with 17 quality policies. Customize each:
+The framework ships with 18 quality policies. Customize each:
 
 | Policy | What to Customize |
 |--------|------------------|
@@ -322,6 +322,7 @@ The framework ships with 17 quality policies. Customize each:
 | [availability.md](org/4-quality/policies/availability.md) | Your service tiers, RTO/RPO targets, backup/restore design, failover strategy, drill cadence |
 | [content.md](org/4-quality/policies/content.md) | Your brand guidelines, documentation standards, content taxonomy |
 | [customer.md](org/4-quality/policies/customer.md) | Your SLA definitions, customer interaction standards |
+| [vendor-risk-management.md](org/4-quality/policies/vendor-risk-management.md) | Your vendor criticality tier assignments, attestation requirements by industry (HIPAA, FedRAMP, PCI DSS), breach notification timelines, assessment questionnaire extensions, review cadence, vendor register tooling |
 | [log-retention.md](org/4-quality/policies/log-retention.md) | Your retention periods per log category, WORM storage implementation, online availability windows, legal hold workflow, deletion automation schedule |
 | [observability.md](org/4-quality/policies/observability.md) | Your telemetry standards, agent observability requirements, alerting thresholds |
 
@@ -332,6 +333,8 @@ The framework ships with 17 quality policies. Customize each:
 > **Encryption note:** The cryptography policy references key rotation schedules and certificate lifetimes from `CONFIG.yaml → encryption`. Fill in these values during Step 1 — defaults are conservative (90-day symmetric key rotation, 90-day cert lifetime). Adjust based on your compliance requirements (PCI DSS, HIPAA, FedRAMP) and operational maturity. See the [Placeholder Reference](#placeholder-reference) for the full list of `{{CRYPTO_*}}` variables.
 
 > **Data classification note:** The data classification policy defines a 4-level scheme (PUBLIC / INTERNAL / CONFIDENTIAL / RESTRICTED) with handling requirements per level. Adopters should: (1) review whether the four levels fit their industry — add sub-labels if needed (e.g., `CONFIDENTIAL-FINANCIAL`, `RESTRICTED-HEALTH`) but do not remove levels; (2) create a PII inventory using `work/assets/_TEMPLATE-pii-inventory.md` for each personal data category they process; (3) map their existing data stores to classification levels; (4) align retention schedules with legal/regulatory requirements per classification level.
+
+> **Vendor risk management note:** The vendor risk management policy defines 4 criticality tiers (Critical / Significant / Standard / Low) that scale assessment depth, monitoring frequency, and contractual requirements. Adopters should: (1) assign criticality tiers to all active vendors; (2) determine which attestations are required vs. recommended per tier, based on industry (the policy defaults to SOC 2 Type II or ISO 27001 for Tier 1–2); (3) complete vendor security assessments using `work/assets/_TEMPLATE-vendor-security-assessment.md`; (4) ensure Tier 1–2 vendor contracts include SLA, right-to-audit, breach notification, and subprocessor controls; (5) for AI/ML vendors, complete the extended AI-specific assessment covering model governance, training data, fairness, and fourth-party dependencies. SOC 2 CC9 and ISO 27001 A.5.19–A.5.23 auditors specifically verify vendor risk management — this is a frequent audit finding.
 
 > **Log retention note:** The log retention policy defines 5 log categories (audit / security / access / operational / debug) with recommended retention periods. Adopters must: (1) configure retention periods in CONFIG.yaml for each category based on their regulatory requirements (the policy provides recommended defaults — e.g., 7 years for audit logs); (2) implement WORM storage for audit and security logs (S3 Object Lock, Azure Immutable Blob, or equivalent); (3) assign all log sources to a category; (4) establish a legal hold process; (5) implement verified deletion with confirmation records. SOC 2 Type II auditors specifically check log retention and immutability — this is a frequent audit finding.
 

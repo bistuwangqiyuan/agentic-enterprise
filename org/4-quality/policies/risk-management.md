@@ -3,7 +3,7 @@
 > **Applies to:** All organizational layers, agent types, missions, integrations, and operational processes
 > **Enforced by:** Quality Layer eval agents
 > **Authority:** Security & Compliance team, Steering Layer
-> **Version:** 1.1 | **Last updated:** 2026-03-13
+> **Version:** 1.2 | **Last updated:** 2026-03-14
 
 ---
 
@@ -269,12 +269,16 @@ Every agent type in the Agent Type Registry (`org/agents/`) must be classified i
 - [ ] Post-halt recovery procedure must be documented in the mission's technical design
 - [ ] Kill switch procedures must be tested at least quarterly
 
-### 6.4 Third-Party AI / Model Risk
+### 6.4 Third-Party & Vendor Risk
 
-- [ ] Upstream model providers must be assessed for: reliability, data handling, change notification, deprecation policy
+All third-party vendors and suppliers are governed by the [Vendor & Third-Party Risk Management Policy](vendor-risk-management.md), which defines criticality tiers, assessment requirements, SLA/contract standards, and ongoing monitoring. The requirements below address AI/model-specific vendor risks that extend the general vendor policy.
+
+- [ ] All vendors with active contracts or integrations are assigned a criticality tier and have a current security assessment (per vendor-risk-management.md §1–§3)
+- [ ] Upstream model providers must be assessed for: reliability, data handling, change notification, deprecation policy (vendor-risk-management.md §3.3)
 - [ ] Model version pinning — agent deployments must pin to specific model versions; automatic upgrades require risk assessment
 - [ ] Fallback procedures for model provider outage or degradation
 - [ ] Monitor for model behavior drift via the observability platform (output quality metrics over time)
+- [ ] Vendor concentration risk is tracked for critical capabilities (vendor-risk-management.md §5.3)
 
 ---
 
@@ -407,4 +411,5 @@ This table maps the organization's existing quality policies to the risk categor
 
 | Version | Date | Change |
 |---|---|---|
+| 1.2 | 2026-03-14 | Extended §6.4 to reference vendor-risk-management.md for general vendor governance; added vendor concentration risk requirement (#92) |
 | 1.0 | 2026-03-13 | Initial version — risk appetite framework, 5×5 scoring methodology, AI risk taxonomy (22 canonical risks across 5 dimensions), agent autonomy tiers, observability-driven KRIs, regulatory crosswalk (ISO 31000 / NIST RMF / NIST AI RMF / ISO 27001 / SOC 2 / EU AI Act), policy-to-risk control mapping |
