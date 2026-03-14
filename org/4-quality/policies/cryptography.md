@@ -66,7 +66,7 @@ All cryptographic keys must follow a governed lifecycle per NIST SP 800-57. No k
 - [ ] All keys stored in the designated KMS ({{SECRETS_MANAGER}})
 - [ ] Root keys protected by HSM (FIPS 140-2 Level 3 for production environments)
 - [ ] No keys in source code, configuration files, environment variables, container images, or agent instructions
-- [ ] Key material never logged, included in error messages, or captured in telemetry (see `docs/OTEL-CONTRACT.md` §8.3)
+- [ ] Key material never logged, included in error messages, or captured in telemetry (see `docs/otel-contract.md` §8.3)
 
 ### 2.4 Key Rotation Schedules
 - [ ] Rotation schedules enforced automatically via KMS policies:

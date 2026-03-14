@@ -329,7 +329,7 @@ The Steering Layer's weekly sensing loop aggregates risk signals alongside other
 
 ### 8.3 Risk Telemetry Requirements
 
-Risk-related events must produce OTel spans per `docs/OTEL-CONTRACT.md`:
+Risk-related events must produce OTel spans per `docs/otel-contract.md`:
 - Risk assessment completion → span event `risk.assessment.complete` with attributes: `risk.id`, `risk.score`, `risk.rating`
 - Risk treatment applied → span event `risk.treatment.applied` with attributes: `risk.id`, `risk.treatment.strategy`
 - Risk threshold breach → span event `risk.threshold.breach` with attributes: `risk.kri`, `risk.threshold`, `risk.actual_value`

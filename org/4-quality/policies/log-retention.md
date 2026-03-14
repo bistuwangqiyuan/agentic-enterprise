@@ -183,7 +183,7 @@ ACTIVE (online, queryable, within online availability window)
 
 ## 7. Agent-Specific Log Retention
 
-Agents produce telemetry per AGENTS.md Rule 9a and the [OTEL-CONTRACT.md](../../../docs/OTEL-CONTRACT.md). Agent telemetry falls into the log categories as follows:
+Agents produce telemetry per AGENTS.md Rule 9a and the [otel-contract.md](../../../docs/otel-contract.md). Agent telemetry falls into the log categories as follows:
 
 | Agent Telemetry Type | Log Category | Retention Rationale |
 |---------------------|-------------|-------------------|
