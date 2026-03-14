@@ -3,7 +3,7 @@
 > **Applies to:** All code, infrastructure configuration, API definitions, data pipelines, integrations
 > **Enforced by:** Quality Layer eval agents
 > **Authority:** Security & Compliance team
-> **Version:** 1.2 | **Last updated:** 2026-03-14
+> **Version:** 1.3 | **Last updated:** 2026-03-14
 
 ---
 
@@ -42,11 +42,13 @@
 - [ ] Data retention policies defined and enforced per classification level and [Log Retention & Immutability Policy](log-retention.md)
 - [ ] Audit logging for access to sensitive data (CONFIDENTIAL and above)
 
-### Dependency Security
+### Dependency & Vendor Security
 - [ ] Dependencies scanned for known vulnerabilities
 - [ ] No critical or high vulnerabilities in production dependencies
 - [ ] Dependency update cadence defined (e.g., weekly automated PRs)
 - [ ] License compliance checked (no copyleft in proprietary code unless approved)
+- [ ] Third-party vendors assessed per [Vendor & Third-Party Risk Management Policy](vendor-risk-management.md) before integration activation
+- [ ] Vendor attestations (SOC 2 Type II, ISO 27001) current for Tier 1–2 vendors
 
 ### Container & Infrastructure Security
 - [ ] Container images use minimal base images
@@ -71,6 +73,7 @@
 
 | Version | Date | Change |
 |---|---|---|
+| 1.3 | 2026-03-14 | Dependency Security section renamed to Dependency & Vendor Security; added vendor assessment and attestation requirements referencing vendor-risk-management.md (#92) |
 | 1.2 | 2026-03-14 | Data retention requirement now references log-retention.md (#94) |
 | 1.1 | 2026-03-14 | Data Protection section now references data-classification.md for classification taxonomy; evaluation criterion updated (#93) |
 | 1.0 | 2026-02-19 | Initial version |

@@ -1,6 +1,6 @@
 # Integration Registration: {{INTEGRATION_NAME}}
 
-> **Template version:** 1.1 | **Last updated:** 2026-03-07
+> **Template version:** 1.2 | **Last updated:** 2026-03-14
 > **Status:** `proposed` | `active` | `deprecated`
 > **Category:** `observability` | `enterprise-toolchain` | `business-system` | `communication`
 > **Owner:** {{APPROVING_LAYER}} Layer
@@ -93,8 +93,12 @@ Outbound:  Operating model → External system (actions, updates, notifications)
 - **Access mode:** Read-only or read-write?
 - **Side-effect level:** none / low / high
 - **Approval mode:** auto / operational-approval / human-approval
+- **Vendor assessment:** _(link to completed vendor security assessment per `vendor-risk-management.md`)_
+- **Vendor criticality tier:** {{1 / 2 / 3 / 4}}
+- **Vendor attestation status:** _(SOC 2 Type II / ISO 27001 / other — with expiry date)_
 - **Policy references:** Which quality policies apply?
   - [ ] `org/4-quality/policies/security.md`
+  - [ ] `org/4-quality/policies/vendor-risk-management.md`
   - [ ] `org/4-quality/policies/delivery.md`
   - [ ] `org/4-quality/policies/customer.md`
 
@@ -125,6 +129,7 @@ integrations:
 
 - [ ] Integration registered in CONFIG.yaml
 - [ ] Security review completed
+- [ ] Vendor security assessment completed (per `vendor-risk-management.md`) — required for Tier 1–3 vendors
 - [ ] Data governance review completed (if required)
 - [ ] Connection tested and documented
 - [ ] Access mode and side-effect level declared
@@ -138,5 +143,6 @@ integrations:
 
 | Version | Date | Change |
 |---|---|---|
+| 1.2 | 2026-03-14 | Added vendor assessment reference, criticality tier, attestation status, and vendor-risk-management.md policy reference to governance and validation checklist (#92) |
 | 1.1 | 2026-03-07 | Added access mode, side-effect level, and approval mode governance fields/checks |
 | 1.0 | 2026-02-19 | Initial version |
