@@ -532,6 +532,7 @@ This framework provides **built-in governance controls** that map directly to en
 | **ISO 9001** | ~85% | 4-loop PDCA cycle, 19 quality policies, continuous improvement signals, retrospectives, process approach, quality gates | Formal QMS scope statement, customer satisfaction measurement, external provider evaluation |
 | **ISO 22301** | ~70% | Availability policy (RTO/RPO tiers), DR drills, incident response & escalation, risk management | BIA template, documented BC plans, BCMS scope statement, exercise programme |
 | **CCPA / CPRA** | ~75% | Privacy policy, data classification, breach notification, DSAR workflows, automated decision safeguards | "Do Not Sell/Share" opt-out, sensitive PI handling controls, annual cybersecurity audit |
+| **HIPAA** | ~70% | Risk management, access control (CODEOWNERS), encryption (TLS 1.3/mTLS), OTel audit controls, incident response, DR/BCP, vendor/BA management, DSAR workflows | BAA template, PHI classification, NPP template, Privacy/Security Officer, workforce training |
 
 > **What the percentages mean:** Each number estimates how many of the framework's relevant controls are _modeled as policy or governance structure_ in this repository. It does **not** mean your deployment is that percentage compliant. Certification requires an independent audit of your running system — the runtime you operate, the integrations you configure, the records you keep, and the evidence you produce in the real environment. This repo gives you the **governance scaffolding and policy surfaces** to get there faster. Gaps are tracked as [open issues](https://github.com/wlfghdr/agentic-enterprise/issues?q=label%3Agap) with certification labels.
 >
@@ -551,7 +552,7 @@ Several critical gaps have been closed since the initial compliance assessment:
 - **Log retention & immutability** — 5-category retention schedule, WORM for audit/security logs, legal hold, verified deletion (closes ISO 27001 A.12.4 + SOC 2 CC7)
 - **Vendor & third-party risk management** — 4-tier vendor criticality model, security assessment framework with AI-specific questions, SLA/attestation verification, concentration risk tracking (closes ISO 27001 A.5.19–A.5.23 + SOC 2 CC9)
 - **Observability as proof** — dashboards, traces, events, and audit evidence are part of the model so teams can verify what actually happened at runtime
-- **Compliance reference docs** — per-standard reference documents ([`docs/compliance/`](docs/compliance/)) with article-level mappings, observability evidence sources, external references, and honest gap assessments for ISO 27001, SOC 2, GDPR, ISO 42001, NIST AI RMF, EU AI Act, NIST CSF 2.0, ISO 9001, ISO 22301, and CCPA/CPRA
+- **Compliance reference docs** — per-standard reference documents ([`docs/compliance/`](docs/compliance/)) with article-level mappings, observability evidence sources, external references, and honest gap assessments for ISO 27001, SOC 2, GDPR, ISO 42001, NIST AI RMF, EU AI Act, NIST CSF 2.0, ISO 9001, ISO 22301, CCPA/CPRA, and HIPAA
 
 ---
 

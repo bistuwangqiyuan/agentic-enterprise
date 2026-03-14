@@ -24,6 +24,7 @@ This directory contains one reference document per external standard or regulati
 | [ISO 9001:2015](iso-9001.md) | Quality Management Systems | ~85% | Formal QMS scope statement, customer satisfaction measurement, external provider evaluation |
 | [ISO 22301:2019](iso-22301.md) | Business Continuity Management | ~70% | BIA template, documented BC plans, BCMS scope statement, exercise programme |
 | [CCPA/CPRA](ccpa-cpra.md) | California Consumer Privacy | ~75% | "Do Not Sell/Share" opt-out, sensitive PI handling, annual cybersecurity audit |
+| [HIPAA](hipaa.md) | US Health Information Privacy & Security | ~70% | BAA template, PHI classification, NPP template, Privacy/Security Officer designation, workforce training |
 
 ## Important Disclaimer
 

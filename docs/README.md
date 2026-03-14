@@ -110,6 +110,7 @@ Per-standard compliance reference documents with article-level mappings, observa
 | [`compliance/iso-9001.md`](compliance/iso-9001.md) | ISO 9001:2015 — Quality Management Systems |
 | [`compliance/iso-22301.md`](compliance/iso-22301.md) | ISO 22301:2019 — Business Continuity Management |
 | [`compliance/ccpa-cpra.md`](compliance/ccpa-cpra.md) | CCPA/CPRA — California Consumer Privacy |
+| [`compliance/hipaa.md`](compliance/hipaa.md) | HIPAA — US Health Information Privacy & Security |
 
 ---
 
