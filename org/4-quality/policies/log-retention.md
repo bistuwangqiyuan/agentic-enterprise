@@ -4,7 +4,7 @@
 > **Applies to:** All log data, telemetry, audit trails, and observability records produced by services, agents, pipelines, and infrastructure
 > **Enforced by:** Quality Layer eval agents
 > **Authority:** Security & Compliance team, Operations leadership
-> **Version:** 1.0 | **Last updated:** 2026-03-14
+> **Version:** 1.0.1 | **Last updated:** 2026-03-14
 
 ---
 

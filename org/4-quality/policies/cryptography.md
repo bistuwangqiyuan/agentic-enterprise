@@ -3,7 +3,7 @@
 > **Applies to:** All data at rest, in transit, and in use; all cryptographic keys and certificates; all agent credentials and secrets
 > **Enforced by:** Quality Layer eval agents
 > **Authority:** Security & Compliance team
-> **Version:** 1.0 | **Last updated:** 2026-03-13
+> **Version:** 1.0.1 | **Last updated:** 2026-03-14
 
 ---
 

@@ -3,7 +3,7 @@
 > **Applies to:** All organizational data assets, storage systems, processing pipelines, agent workflows, integrations, and outputs
 > **Enforced by:** Quality Layer eval agents
 > **Authority:** Security & Compliance team
-> **Version:** 1.0 | **Last updated:** 2026-03-14
+> **Version:** 1.0.1 | **Last updated:** 2026-03-14
 
 ---
 

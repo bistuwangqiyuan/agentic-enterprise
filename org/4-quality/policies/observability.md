@@ -4,7 +4,7 @@
 > **Enforced by:** Quality Layer eval agents, including the dedicated [Observability Compliance Agent](../../agents/quality/observability-compliance-agent.md)
 > **Authority:** Operations leads + Architecture Governors
 > **Principle:** If it runs, it must be observable. If it's not observable, it doesn't ship.
-> **Version:** 1.4 | **Last updated:** 2026-03-14
+> **Version:** 1.4.1 | **Last updated:** 2026-03-14
 
 ---
 
