@@ -47,6 +47,10 @@ A recurring theme across all standards: **governance documents alone are insuffi
 
 Without a configured observability platform, the framework's compliance claims remain theoretical. With one, they become provable.
 
+## Remediation Guides
+
+For **P0-critical gaps** that block certification audits, actionable remediation guides are available in the [remediation/](remediation/) directory. These guides provide step-by-step instructions for adopters deploying the framework in real environments.
+
 ## Related Resources
 
 - [Quality Policies](../../org/4-quality/policies/) — The 19 policy domains that implement these controls
