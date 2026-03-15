@@ -19,13 +19,13 @@
 
 ## North Star
 
-> **microai is the company model for fully autonomous, online revenue generation powered by AI agents.**
+> **microai is the company model for full online operations and profitability run by all-AI employees, with relentless focus on rapid monetization.**
 
 ---
 
 ## Mission
 
-**Run and optimize end-to-end online revenue operations through AI agents with minimal human intervention.**
+**Enable all-AI employees to autonomously discover online opportunities, satisfy demand, and achieve sustained profitability; if an opportunity cannot profit within 7 days, pivot immediately and continue.**
 
 We deliver the intelligence layer that connects execution to business impact — automatically, continuously, and without human toil. In the agentic enterprise world, microai is not a tool humans configure. It is a product that agents adopt, that understands context across the entire organization, and that delivers the right insight to the right layer at the right moment.
 
