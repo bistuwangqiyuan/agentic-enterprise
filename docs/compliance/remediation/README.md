@@ -1,6 +1,6 @@
 # Compliance Remediation Guides
 
-> **Purpose:** Actionable guides for closing P0-critical compliance gaps identified in the [compliance reference docs](../README.md).
+> **Purpose:** Actionable guides and templates for closing high-priority compliance gaps identified in the [compliance reference docs](../README.md).
 
 These guides are for **adopters deploying the framework** in a real environment. Each guide addresses a specific gap from the compliance reference documents and provides step-by-step remediation instructions.
 
@@ -13,6 +13,13 @@ These guides are for **adopters deploying the framework** in a real environment.
 | [NIST CSF Network Security Architecture](nist-csf-network-security.md) | NIST CSF 2.0 | No network segmentation/firewall/monitoring | [#134](https://github.com/wlfghdr/agentic-enterprise/issues/134) |
 | [EU AI Act Conformity Assessment](eu-ai-act-conformity-assessment.md) | EU AI Act | No conformity assessment procedure | [#129](https://github.com/wlfghdr/agentic-enterprise/issues/129) |
 | [EU AI Act CE Marking & EU Database](eu-ai-act-ce-marking.md) | EU AI Act | No CE marking or EU database registration | [#130](https://github.com/wlfghdr/agentic-enterprise/issues/130) |
+
+## SOC 2 Audit Readiness Guides
+
+| Guide | Standard | Gap | Issue |
+|-------|----------|-----|-------|
+| [SOC 2 Operating Effectiveness Evidence](soc2-operating-effectiveness.md) | SOC 2 Type II | No runtime evidence for Type II audit | [#123](https://github.com/wlfghdr/agentic-enterprise/issues/123) |
+| [SOC 2 Formal Control Testing Documentation](soc2-control-testing.md) | SOC 2 Type II | No formal control testing matrix, cadence, or result records | [#124](https://github.com/wlfghdr/agentic-enterprise/issues/124) |
 
 ## ISO 27001 Core ISMS Templates
 
