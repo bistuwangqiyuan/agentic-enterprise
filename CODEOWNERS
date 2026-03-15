@@ -80,6 +80,16 @@ org/4-quality/policies/             @quality-policy-author
 # New integrations and category changes require Orchestration + Steering sign-off
 org/integrations/                   @orchestration-fleet-manager @steering-executive
 
+# ─── Policy-as-Code (Rego rules) ────────────────────────────────
+# OPA/Rego policies enforce CI security invariants — changes require
+# Steering + CTO approval to prevent silent disabling of security checks.
+policy/                             @steering-executive @cto
+
+# ─── Validation Scripts ─────────────────────────────────────────
+# Validation scripts ARE the automated enforcement layer. Weakening a
+# validator is equivalent to weakening a policy — require the same approval.
+scripts/validate_*                  @steering-executive @quality-policy-author
+
 # ─── Process Lifecycle ───────────────────────────────────────────
 process/                            @orchestration-fleet-manager @quality-policy-author
 

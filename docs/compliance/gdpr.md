@@ -72,6 +72,8 @@ GDPR accountability (Art. 5(2)) requires demonstrable compliance — not just po
 | **Right to explanation** | Art. 22 | Meaningful information about automated decision-making logic | Medium — addressed partially by AI governance explainability |
 | **Age verification** | Art. 8 | Child data protections if processing children's data | Low — context-dependent |
 
+**Addressed by framework:** Consent management UX and DPO appointment guidance ([guide](remediation/gdpr-consent-management.md)).
+
 ## 5. External References
 
 - [GDPR Full Text (EUR-Lex)](https://eur-lex.europa.eu/eli/reg/2016/679/oj) — Official regulation text

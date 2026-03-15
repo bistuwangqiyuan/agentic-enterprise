@@ -14,13 +14,13 @@ This directory contains one reference document per external standard or regulati
 
 | Standard | Document | Framework Coverage | Key Gaps |
 |----------|----------|-------------------|----------|
-| [ISO/IEC 27001:2022](iso-27001.md) | Information Security Management | ~85% | Formal ISMS scope statement, management review records, internal audit programme, Statement of Applicability |
-| [SOC 2 Type II](soc2.md) | Trust Service Criteria | ~85% | Operating effectiveness evidence (runtime logs), formal control testing, independent audit |
+| [ISO/IEC 27001:2022](iso-27001.md) | Information Security Management | ~90% | Management review records, competence records |
+| [SOC 2 Type II](soc2.md) | Trust Service Criteria | ~90% | Independent audit |
 | [GDPR](gdpr.md) | EU Data Protection | ~75% | Consent management UX, DPO appointment, supervisory authority registration, cookie/tracking compliance |
 | [ISO/IEC 42001:2023](iso-42001.md) | AI Management Systems | ~80% | Formal AIMS scope, conformity assessment, management review, internal audit programme |
 | [NIST AI RMF](nist-ai-rmf.md) | AI Risk Management Framework | ~85% | MEASURE function quantitative metrics, third-party evaluation, organizational AI risk profile document |
-| [EU AI Act](eu-ai-act.md) | European AI Regulation | ~75% | Conformity assessment, CE marking, EU database registration, post-market monitoring system |
-| [NIST CSF 2.0](nist-csf.md) | Cybersecurity Framework | ~90% | Runtime security tooling, IdP integration, physical security controls |
+| [EU AI Act](eu-ai-act.md) | European AI Regulation | ~85% | Post-market monitoring system, serious incident reporting |
+| [NIST CSF 2.0](nist-csf.md) | Cybersecurity Framework | ~95% | IdP integration, physical security controls |
 | [ISO 9001:2015](iso-9001.md) | Quality Management Systems | ~85% | Formal QMS scope statement, customer satisfaction measurement, external provider evaluation |
 | [ISO 22301:2019](iso-22301.md) | Business Continuity Management | ~70% | BIA template, documented BC plans, BCMS scope statement, exercise programme |
 | [CCPA/CPRA](ccpa-cpra.md) | California Consumer Privacy | ~75% | "Do Not Sell/Share" opt-out, sensitive PI handling, annual cybersecurity audit |
@@ -46,6 +46,10 @@ A recurring theme across all standards: **governance documents alone are insuffi
 - **Compliance dashboards** — Observability platform surfaces policy compliance metrics in real time
 
 Without a configured observability platform, the framework's compliance claims remain theoretical. With one, they become provable.
+
+## Remediation Guides
+
+For **P0-critical gaps** that block certification audits, actionable remediation guides are available in the [remediation/](remediation/) directory. These guides provide step-by-step instructions for adopters deploying the framework in real environments.
 
 ## Related Resources
 
