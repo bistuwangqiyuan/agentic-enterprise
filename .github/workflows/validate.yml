@@ -550,3 +550,45 @@ jobs:
 
       - name: Scan governed files for injection patterns and content security risks
         run: python3 scripts/validate_content_security.py
+
+  validate-policy-structure:
+    name: validate-policy-structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate policy structure and compliance mappings
+        run: python3 scripts/validate_policy_structure.py
+
+  validate-agent-instructions:
+    name: validate-agent-instructions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate agent instruction hierarchy
+        run: python3 scripts/validate_agent_instructions.py
+
+  validate-work-artifacts:
+    name: validate-work-artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate work artifact structure
+        run: python3 scripts/validate_work_artifacts.py
