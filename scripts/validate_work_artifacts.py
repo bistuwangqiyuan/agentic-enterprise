@@ -5,6 +5,10 @@ Work artifact validation for Agentic Enterprise framework.
 Validates decision records, governance exceptions, retrospectives,
 and technical designs have required sections and fields.
 
+Also validates **work continuity** — ensuring every work item is either
+in a terminal state, clearly waiting for a human decision, or picked up
+by the next agent cycle.  Nothing should silently stall.
+
 Extends validate_schema.py coverage (which handles signals, missions, releases).
 
 Closes #113.
@@ -128,6 +132,145 @@ def discover_artifacts(base_dir: Path, glob_pattern: str) -> list[Path]:
         and not is_template(p)
         and p.name != "README.md"
     ]
+
+
+# ── Work continuity helpers ──────────────────────────────────────────────────
+
+
+def _read_text(path: Path) -> str | None:
+    try:
+        return path.read_text(encoding="utf-8")
+    except OSError:
+        return None
+
+
+def _extract_status(text: str) -> str | None:
+    """Extract **Status:** value from markdown metadata."""
+    m = re.search(r"\*\*Status:\*\*\s*(\S+)", text)
+    return m.group(1).strip().lower() if m else None
+
+
+def _signal_has_proceed(text: str) -> bool:
+    """Return True if the signal has 'Proceed to opportunity validation' checked."""
+    return bool(re.search(r"\[x\]\s*Proceed to opportunity validation", text, re.IGNORECASE))
+
+
+def _signal_has_any_disposition(text: str) -> bool:
+    """Return True if at least one disposition checkbox is checked."""
+    return bool(re.search(r"\[x\]", text))
+
+
+def _extract_retro_signal_refs(text: str) -> list[str]:
+    """Extract signal file paths referenced in Signals Filed section."""
+    refs: list[str] = []
+    in_section = False
+    for line in text.splitlines():
+        if re.match(r"^##\s+Signals Filed", line, re.IGNORECASE):
+            in_section = True
+            continue
+        if in_section and re.match(r"^##\s+", line):
+            break
+        if in_section:
+            # Match backtick-wrapped paths like `work/signals/foo.md`
+            for m in re.finditer(r"`(work/signals/[^`]+\.md)`", line):
+                refs.append(m.group(1))
+    return refs
+
+
+def validate_work_continuity(root: Path) -> list[str]:
+    """Validate that all non-terminal work items are picked up or in human-to-decide state.
+
+    Checks:
+    1. Every signal has a disposition (no undecided signals).
+    2. Signals with 'Proceed' are referenced by at least one mission brief.
+    3. Signals filed in retrospectives exist as actual files.
+    4. Active missions have STATUS.md for progress tracking.
+    """
+    errors: list[str] = []
+
+    signals_dir = root / "work" / "signals"
+    missions_dir = root / "work" / "missions"
+    retros_dir = root / "work" / "retrospectives"
+
+    # ── Collect all signal files and their dispositions ────────────────────
+    signal_files: dict[str, str] = {}  # filename -> text
+    if signals_dir.exists():
+        for p in signals_dir.glob("*.md"):
+            if p.name == "README.md" or "_TEMPLATE" in p.name:
+                continue
+            text = _read_text(p)
+            if text:
+                signal_files[p.name] = text
+
+    # ── Collect all mission briefs and what signals they reference ─────────
+    mission_texts: dict[str, str] = {}  # relative path -> text
+    if missions_dir.exists():
+        for p in missions_dir.rglob("BRIEF.md"):
+            if "_TEMPLATE" in str(p):
+                continue
+            text = _read_text(p)
+            if text:
+                mission_texts[str(p.relative_to(root))] = text
+        for p in missions_dir.rglob("mission-brief.md"):
+            if "_TEMPLATE" in str(p):
+                continue
+            text = _read_text(p)
+            if text:
+                mission_texts[str(p.relative_to(root))] = text
+
+    # Build set of signal filenames referenced by any mission
+    referenced_signals: set[str] = set()
+    for mtext in mission_texts.values():
+        for m in re.finditer(r"(work/signals/)?(\d{4}-\d{2}-\d{2}-[^\s`)]+\.md)", mtext):
+            referenced_signals.add(m.group(2))
+
+    # ── Check 1: Every signal must have a checked disposition ─────────────
+    for fname, text in signal_files.items():
+        if not _signal_has_any_disposition(text):
+            errors.append(
+                f"work/signals/{fname}: no disposition checked — signal has no clear "
+                f"next action (stalled). Must check one of: Proceed / Defer / Monitor / Archive"
+            )
+
+    # ── Check 2: Proceed signals must be referenced by a mission ──────────
+    for fname, text in signal_files.items():
+        if _signal_has_proceed(text) and fname not in referenced_signals:
+            errors.append(
+                f"work/signals/{fname}: disposition is 'Proceed to opportunity validation' "
+                f"but no mission brief references this signal — work fell through the cracks"
+            )
+
+    # ── Check 3: Retro-filed signals must exist ───────────────────────────
+    if retros_dir.exists():
+        for p in retros_dir.glob("*.md"):
+            if p.name == "README.md" or "_TEMPLATE" in p.name:
+                continue
+            text = _read_text(p)
+            if not text:
+                continue
+            rel_retro = str(p.relative_to(root))
+            for signal_path in _extract_retro_signal_refs(text):
+                full_path = root / signal_path
+                if not full_path.exists():
+                    errors.append(
+                        f"{rel_retro}: references signal '{signal_path}' in "
+                        f"Signals Filed section but the file does not exist — "
+                        f"consequential work was not created"
+                    )
+
+    # ── Check 4: Active missions must have STATUS.md ──────────────────────
+    for mpath, mtext in mission_texts.items():
+        status = _extract_status(mtext)
+        if status == "active":
+            mission_dir = (root / mpath).parent
+            status_file = mission_dir / "STATUS.md"
+            if not status_file.exists():
+                errors.append(
+                    f"{mpath}: mission is 'active' but has no STATUS.md — "
+                    f"no progress tracking means work may be stalled"
+                )
+
+    return errors
 
 
 # ── Main ─────────────────────────────────────────────────────────────────────
@@ -260,6 +403,14 @@ def main() -> int:
             else:
                 all_ok.append(rel)
                 print(f"  ✓  {rel}")
+
+    # ── Work continuity validation ────────────────────────────────────────
+    print("Validating work continuity (stalled work detection)...")
+    continuity_errors = validate_work_continuity(root)
+    if continuity_errors:
+        all_errors.extend(continuity_errors)
+    else:
+        print("  ✓  All work items have clear next-actor or are in terminal state")
 
     # ── Report ────────────────────────────────────────────────────────────
     if all_errors:
