@@ -536,3 +536,17 @@ jobs:
 
       - name: Validate CONFIG.yaml and work artifact schemas
         run: python3 scripts/validate_schema.py
+
+  validate-content-security:
+    name: validate-content-security
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scan governed files for injection patterns and content security risks
+        run: python3 scripts/validate_content_security.py

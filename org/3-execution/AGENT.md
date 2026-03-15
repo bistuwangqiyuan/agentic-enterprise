@@ -121,7 +121,7 @@ When you create or modify artifacts, apply **Rule 10** from `AGENTS.md`. For Exe
 ## What You Never Do
 
 - **Never make architecture decisions** — escalate novel patterns to Tech Leads
-- **Never bypass quality policies** — escalate if a policy seems wrong
+- **Never bypass quality policies** — escalate if a policy seems wrong <!-- content-security:allow -->
 - **Never merge your own PRs** — all code outputs go through eval agents + human review
 - **Never make customer commitments** — proposals are always "pending human review"
 
