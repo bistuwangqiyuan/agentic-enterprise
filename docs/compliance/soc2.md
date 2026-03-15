@@ -56,13 +56,12 @@ SOC 2 Type II is uniquely dependent on **runtime evidence** — the auditor need
 
 | Gap | SOC 2 Requirement | What's Needed | Severity |
 |-----|-------------------|---------------|----------|
-| **Formal control testing** | All criteria | Documented testing of each control's effectiveness | High — auditor expectation |
 | **Independent audit** | SOC 2 engagement | CPA firm engagement, management assertion letter | High — cannot self-certify |
 | **Complementary User Entity Controls (CUECs)** | Common | Documentation of what the adopter's customers must do | Medium |
 | **Subservice organization management** | CC9 | Formal subservice organization identification and monitoring | Medium — if using SaaS dependencies |
 | **Physical access controls** | CC6 | Deployment-specific physical security | Low — often inherited from cloud provider SOC 2 |
 
-**Addressed by framework:** Operating effectiveness evidence collection — see [evidence guide](remediation/soc2-operating-effectiveness.md) for TSC-to-OTel mapping, sample evidence packages, and auditor engagement preparation.
+**Addressed by framework:** Operating effectiveness evidence collection — see [evidence guide](remediation/soc2-operating-effectiveness.md) for TSC-to-OTel mapping, sample evidence packages, and auditor engagement preparation. Formal control testing documentation — see [control testing guide](remediation/soc2-control-testing.md), [control testing matrix template](templates/_TEMPLATE-soc2-control-testing-matrix.md), and [control test result template](templates/_TEMPLATE-soc2-control-test-result.md).
 
 ## 5. External References
 

@@ -23,6 +23,7 @@ _Changes merged to `main` but not yet tagged as a release go here. Move to a new
 
 ### Added
 
+- New SOC 2 audit-readiness assets: `docs/compliance/remediation/soc2-control-testing.md`, `docs/compliance/templates/_TEMPLATE-soc2-control-testing-matrix.md`, and `docs/compliance/templates/_TEMPLATE-soc2-control-test-result.md` — formal control testing guidance, pre-seeded TSC-to-procedure matrix, CI/CD validation-to-control-test mapping, and reusable result records for documenting control effectiveness. Closes #124.
 - New CI validation: `scripts/validate_cross_references.py` — semantic cross-reference integrity checks for work artifacts, signal supersession chains, governance exception references, and quality-policy file references including bare `.md` mentions. Runs as blocking `validate-cross-references` job in `validate.yml`. Closes #114.
 - New CI validation: `scripts/validate_otel_contract.py` — OTel contract compliance checks for agent type telemetry sections, skill manifest telemetry declarations, observability integration documentation examples, and telemetry-aware policy references to `docs/otel-contract.md`. Runs as blocking `validate-otel-contract` job in `validate.yml`. Closes #115.
 - New CI validation: `scripts/validate_compliance_mapping.py` — compliance mapping validation for quality policies, including framework normalization, control identifier format checks, compliance reference document presence, and reused-control consistency warnings. Runs as blocking `validate-compliance-mapping` job in `validate.yml`. Closes #116.

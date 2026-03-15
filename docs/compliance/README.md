@@ -15,7 +15,7 @@ This directory contains one reference document per external standard or regulati
 | Standard | Document | Framework Coverage | Key Gaps |
 |----------|----------|-------------------|----------|
 | [ISO/IEC 27001:2022](iso-27001.md) | Information Security Management | ~90% | Management review records, competence records |
-| [SOC 2 Type II](soc2.md) | Trust Service Criteria | ~90% | Formal control testing, independent audit |
+| [SOC 2 Type II](soc2.md) | Trust Service Criteria | ~90% | Independent audit |
 | [GDPR](gdpr.md) | EU Data Protection | ~75% | Consent management UX, DPO appointment, supervisory authority registration, cookie/tracking compliance |
 | [ISO/IEC 42001:2023](iso-42001.md) | AI Management Systems | ~80% | Formal AIMS scope, conformity assessment, management review, internal audit programme |
 | [NIST AI RMF](nist-ai-rmf.md) | AI Risk Management Framework | ~85% | MEASURE function quantitative metrics, third-party evaluation, organizational AI risk profile document |
