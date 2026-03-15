@@ -171,6 +171,15 @@ def resolve_target(current_file: Path, target: str, work_root: Path) -> Path | N
     if template_matches:
         return template_matches[0]
 
+    raw_lower = raw.lower()
+    ci_matches = sorted(
+        path.resolve()
+        for path in REPO.rglob("*.md")
+        if str(path.relative_to(REPO)).lower().endswith(raw_lower)
+    )
+    if ci_matches:
+        return ci_matches[0]
+
     return (current_file.parent / raw).resolve()
 
 
